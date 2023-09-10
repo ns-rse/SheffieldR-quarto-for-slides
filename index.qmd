@@ -40,3 +40,35 @@ project:
 + Using a template
 + Writing slides
 + Publishing
+
+::: {.notes}
+:::
+
+## Background
+
+
+::: {.notes}
+:::
+
+## Markdown
+
+::: {.notes}
+:::
+
+
+## Using a Template
+
+[Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template) includes...
+
++ Sample slides with many examples.
++ GitHub workflow/action to publish pages.
++ Instructions on usage.
+
+::: {.notes}
+:::
+
+
+## Publishing
+
+::: {.notes}
+:::
