@@ -1,5 +1,5 @@
 ---
-title: "Template Revealjs Quarto site"
+title: "SheffieldR : Quarto for Slides"
 author:
   - name: Neil Shephard
     orcid: 0000-0001-8301-6857
@@ -25,6 +25,18 @@ project:
 
 ---
 
-This is a Quarto website.
+## Slides
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+{{< qrcode https://ns-rse.github.io/SheffieldR-quarto-for-slides >}}
+
+
+::: {.notes}
+:::
+
+## Overview
+
++ Background
++ Markdown
++ Using a template
++ Writing slides
++ Publishing
