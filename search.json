@@ -11,6 +11,34 @@
     "href": "index.html#overview",
     "title": "SheffieldR : Quarto for Slides",
     "section": "Overview",
-    "text": "Overview\n\nBackground\nMarkdown\nUsing a template\nWriting slides\nPublishing\n\n\n\nSlides : ns-rse.github.io/SheffieldR-quarto-for-slides"
+    "text": "Overview\n\nBackground\nMarkdown\nUsing a template\nWriting slides\nPublishing"
+  },
+  {
+    "objectID": "index.html#background",
+    "href": "index.html#background",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Background",
+    "text": "Background"
+  },
+  {
+    "objectID": "index.html#markdown",
+    "href": "index.html#markdown",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Markdown",
+    "text": "Markdown"
+  },
+  {
+    "objectID": "index.html#using-a-template",
+    "href": "index.html#using-a-template",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Using a Template",
+    "text": "Using a Template\nQuarto RevealJS Template includes…\n\nSample slides with many examples.\nGitHub workflow/action to publish pages.\nInstructions on usage."
+  },
+  {
+    "objectID": "index.html#publishing",
+    "href": "index.html#publishing",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Publishing",
+    "text": "Publishing\n\n\n\n\n\nSlides : ns-rse.github.io/SheffieldR-quarto-for-slides"
   }
 ]
