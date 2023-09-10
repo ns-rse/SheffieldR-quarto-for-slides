@@ -1,6 +1,28 @@
 ---
 title: "Template Revealjs Quarto site"
-format: revealjs
+author:
+  - name: Neil Shephard
+    orcid: 0000-0001-8301-6857
+    email: n.shephard@sheffield.ac.uk
+    affiliations: RSE, University of Sheffield
+from: markdown+emoji
+format:
+  clean-revealjs:
+    incremental: false
+    slide-number: true
+    show-slide-number: speaker
+    auto-stretch: false
+    # embed-resources: true
+    # standalone: true
+revealjs-plugins:
+  - confetti
+footer: "**Slides** : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](https://ns-rse.github.io/SheffieldR-quarto-for-slides)"
+project:
+  preview:
+    port: 7864
+    host: localhost
+    watch-inputs: true
+
 ---
 
 This is a Quarto website.
