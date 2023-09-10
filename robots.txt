@@ -1,0 +1,1 @@
+Sitemap: https://ns-rse.github.io/SheffieldR-quarto-for-slides/sitemap.xml
