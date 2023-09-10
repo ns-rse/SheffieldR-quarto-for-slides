@@ -7,11 +7,12 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.358">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Neil Shephard">
-  <title>SheffieldR - Quarto for Slides - Template Revealjs Quarto site</title>
+  <title>SheffieldR - Quarto for Slides - SheffieldR : Quarto for Slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -156,8 +157,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -326,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Template Revealjs Quarto site</h1>
+  <h1 class="title">SheffieldR : Quarto for Slides</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -343,10 +343,36 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
 </div>
 
 </section>
-<section class="slide level2">
+<section id="slides" class="slide level2">
+<h2>Slides</h2>
+<div id="qrcode" class="qrcode"></div>
+<script type="text/javascript">
+var qrcode = new QRCode("qrcode", {"colorDark":"#000000","text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","width":128,"height":128,"colorLight":"#ffffff"});
+</script>
+    
+<aside class="notes">
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li>Background</li>
+<li>Markdown</li>
+<li>Using a template</li>
+<li>Writing slides</li>
+<li>Publishing</li>
+</ul>
 
 <div class="footer footer-default">
 <p><strong>Slides</strong> : <a href="https://ns-rse.github.io/SheffieldR-quarto-for-slides"><strong>ns-rse.github.io/SheffieldR-quarto-for-slides</strong></a></p>
@@ -379,6 +405,7 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -640,9 +667,10 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -652,17 +680,8 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
