@@ -11,34 +11,76 @@
     "href": "index.html#overview",
     "title": "SheffieldR : Quarto for Slides",
     "section": "Overview",
-    "text": "Overview\n\nBackground\nMarkdown\nUsing a template\nWriting slides\nPublishing"
+    "text": "Overview\n\nBackground\nMarkdown\nUsing a template\nWriting slides\nPublishing\n\n\nI thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then cover briefly the Markdown language which underpins writing slides before introducing the Template which is available to kick-start this process.\nThen I’m hoping to show how to write slides and also publish them using GitHub Pages."
   },
   {
     "objectID": "index.html#background",
     "href": "index.html#background",
     "title": "SheffieldR : Quarto for Slides",
     "section": "Background",
-    "text": "Background"
+    "text": "Background\n\nLiterate Programming\nSweave\nRMarkdown\nQuarto"
   },
   {
     "objectID": "index.html#markdown",
     "href": "index.html#markdown",
     "title": "SheffieldR : Quarto for Slides",
     "section": "Markdown",
-    "text": "Markdown"
+    "text": "Markdown\n\nSimple markup language\nSeparate content from style\nWrite in ASCII plain text\nSimple to version control\n\n\nQuarto uses its own dialect of Markdown which is a relatively simple markup language. There are lots of markup languages such as HTML, LaTeX, RMarkdown, Restructured Text and many more.\nMarkup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate content, what you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text with markers which indicate what it should look like and then apply themes to say what certain features should look like.\nPlain text files have the advantage that they are simple to keep under version control which also means they are easy to work on collaboratively using tools such as GitHub or GitLab."
   },
   {
     "objectID": "index.html#using-a-template",
     "href": "index.html#using-a-template",
     "title": "SheffieldR : Quarto for Slides",
     "section": "Using a Template",
-    "text": "Using a Template\nQuarto RevealJS Template includes…\n\nSample slides with many examples.\nGitHub workflow/action to publish pages.\nInstructions on usage."
+    "text": "Using a Template\nQuarto RevealJS Template includes…\n\nSample slides with many examples.\nGitHub workflow/action to publish pages.\nInstructions on usage.\nMake a copy to your account.\nChange settings Settings &gt; Actions &gt; Workflow Permissions &gt; Read and write"
   },
   {
-    "objectID": "index.html#publishing",
-    "href": "index.html#publishing",
+    "objectID": "index.html#cloning",
+    "href": "index.html#cloning",
     "title": "SheffieldR : Quarto for Slides",
-    "section": "Publishing",
-    "text": "Publishing\n\n\n\n\n\nSlides : ns-rse.github.io/SheffieldR-quarto-for-slides"
+    "section": "Cloning",
+    "text": "Cloning\n\nNeed files locally\nGit lingua this means cloning\nRStudio File &gt; New Project &gt; Version Control &gt; Git ::: {.notes} :::"
+  },
+  {
+    "objectID": "index.html#initial-publish",
+    "href": "index.html#initial-publish",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Initial Publish",
+    "text": "Initial Publish\n\nquarto publish\nCreates a special branch gh-pages which holds HTML.\nPushes branch to GitHub."
+  },
+  {
+    "objectID": "index.html#quarto.yaml_",
+    "href": "index.html#quarto.yaml_",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "_quarto.yaml_",
+    "text": "_quarto.yaml_\n\nConfiguration file for slides.\nDefine key metadata (Author, Email, ORCid)"
+  },
+  {
+    "objectID": "index.html#index.qmd",
+    "href": "index.html#index.qmd",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "index.qmd",
+    "text": "index.qmd\n\nNow you can write your slides!"
+  },
+  {
+    "objectID": "index.html#speaker-notes",
+    "href": "index.html#speaker-notes",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Speaker Notes",
+    "text": "Speaker Notes\n\nA nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom of every slide."
+  },
+  {
+    "objectID": "index.html#previewing",
+    "href": "index.html#previewing",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Previewing",
+    "text": "Previewing\n\nQuarto will render your slides locally and start a web-server for you to view the pages before you push them to GitHub."
+  },
+  {
+    "objectID": "index.html#extensions",
+    "href": "index.html#extensions",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Extensions",
+    "text": "Extensions\n\nLots of extensions.\nAdd functionality.\nNeed installing to repository locally and adding to GitHub Action. ::: {.notes} :::\n\n\n\nSlides : ns-rse.github.io/SheffieldR-quarto-for-slides"
   }
 ]

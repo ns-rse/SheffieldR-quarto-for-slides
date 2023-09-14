@@ -347,7 +347,7 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
 <h2>Slides</h2>
 <div id="qrcode" class="qrcode"></div>
 <script type="text/javascript">
-var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","colorDark":"#000000","width":128,"height":128,"colorLight":"#ffffff"});
+var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","colorLight":"#ffffff","width":128,"colorDark":"#000000","height":128});
 </script>
     
 <aside class="notes">
@@ -374,7 +374,8 @@ var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-q
 <li>Publishing</li>
 </ul>
 <aside class="notes">
-
+<p>I thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then cover briefly the Markdown language which underpins writing slides before introducing the Template which is available to kick-start this process.</p>
+<p>Then I’m hoping to show how to write slides and also publish them using <a href="https://pages.github.com/">GitHub Pages</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -389,6 +390,12 @@ var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-q
 </section>
 <section id="background" class="slide level2">
 <h2>Background</h2>
+<ul>
+<li><em>Literate Programming</em></li>
+<li>Sweave</li>
+<li>RMarkdown</li>
+<li>Quarto</li>
+</ul>
 <aside class="notes">
 
 <style type="text/css">
@@ -405,8 +412,16 @@ var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-q
 </section>
 <section id="markdown" class="slide level2">
 <h2>Markdown</h2>
+<ul>
+<li>Simple markup language</li>
+<li>Separate content from style</li>
+<li>Write in ASCII plain text</li>
+<li>Simple to version control</li>
+</ul>
 <aside class="notes">
-
+<p>Quarto uses its own dialect of Markdown which is a relatively simple markup language. There are lots of markup languages such as HTML, LaTeX, RMarkdown, Restructured Text and many more.</p>
+<p>Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate content, what you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text with markers which indicate what it should look like and then apply themes to say what certain features should look like.</p>
+<p>Plain text files have the advantage that they are simple to keep under version control which also means they are easy to work on collaboratively using tools such as GitHub or GitLab.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -426,6 +441,8 @@ var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-q
 <li>Sample slides with many examples.</li>
 <li>GitHub workflow/action to publish pages.</li>
 <li>Instructions on usage.</li>
+<li>Make a copy to your account.</li>
+<li>Change settings <em>Settings &gt; Actions &gt; Workflow Permissions &gt; Read and write</em></li>
 </ul>
 <aside class="notes">
 
@@ -441,8 +458,21 @@ var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-q
           display:block!important;
       }</style></aside>
 </section>
-<section id="publishing" class="slide level2">
-<h2>Publishing</h2>
+<section id="cloning" class="slide level2">
+<h2>Cloning</h2>
+<ul>
+<li>Need files locally</li>
+<li>Git lingua this means cloning</li>
+<li>RStudio <em>File &gt; New Project &gt; Version Control &gt; Git</em> ::: {.notes} :::</li>
+</ul>
+</section>
+<section id="initial-publish" class="slide level2">
+<h2>Initial Publish</h2>
+<ul>
+<li><code>quarto publish</code></li>
+<li>Creates a special branch <code>gh-pages</code> which holds HTML.</li>
+<li>Pushes branch to GitHub.</li>
+</ul>
 <aside class="notes">
 
 <style type="text/css">
@@ -456,6 +486,85 @@ var qrcode = new QRCode("qrcode", {"text":"https://ns-rse.github.io/SheffieldR-q
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="quarto.yaml_" class="slide level2">
+<h2><code>_quarto.yaml_</code></h2>
+<ul>
+<li>Configuration file for slides.</li>
+<li>Define key metadata (Author, Email, <a href="https://orcid.org">ORCid</a>)</li>
+</ul>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="index.qmd" class="slide level2">
+<h2><code>index.qmd</code></h2>
+<ul>
+<li><em>Now</em> you can write your slides!</li>
+</ul>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="speaker-notes" class="slide level2">
+<h2>Speaker Notes</h2>
+<aside class="notes">
+<p>A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom of every slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="previewing" class="slide level2">
+<h2>Previewing</h2>
+<aside class="notes">
+<p>Quarto will render your slides locally and start a web-server for you to view the pages <em>before</em> you push them to GitHub.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="extensions" class="slide level2">
+<h2>Extensions</h2>
+<ul>
+<li>Lots of <a href="https://quarto.org/docs/extensions/">extensions</a>.</li>
+<li>Add functionality.</li>
+<li>Need installing to repository locally <em>and</em> adding to GitHub Action. ::: {.notes} :::</li>
+</ul>
 
 <div class="footer footer-default">
 <p><strong>Slides</strong> : <a href="https://ns-rse.github.io/SheffieldR-quarto-for-slides"><strong>ns-rse.github.io/SheffieldR-quarto-for-slides</strong></a></p>
