@@ -53,19 +53,24 @@ Then I'm hoping to show how to write slides and also publish them using [GitHub 
 ## Background
 
 + _Literate Programming_
-+ Sweave
-+ RMarkdown
-+ Quarto
++ [Sweave](https://web.archive.org/web/20100130021808/http://www.statistik.lmu.de/~leisch/Sweave/)^[[Leisch F. (2002a)](http://www.ci.tuwien.ac.at/
+~leisch/Sweave); [Leisch F (2002b)](https://journal.r-project.org/articles/RN-2002-025/); [Leisch F (2003)](https://journal.r-project.org/articles/RN-2003-013/)]
++ [RMarkdown](https://rmarkdown.rstudio.com/)^[[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)]
+
+. . .
+
++ :tada: [Quarto](https://quarto.org) :tada:
 
 ::: {.notes}
+Quarto has a long pedigree
 :::
 
 ## Markdown
 
-+ Simple markup language
-+ Separate content from style
-+ Write in ASCII plain text
-+ Simple to version control
++ Simple markup language.
++ Separate content from style.
++ Write in ASCII plain text.
++ Simple to version control.
 
 ::: {.notes}
 Quarto uses its own dialect of Markdown which is a relatively simple markup language. There are lots of markup languages
@@ -81,7 +86,21 @@ work on collaboratively using tools such as GitHub or GitLab.
 :::
 
 
-## Using a Template
+## Basic Markdown
+
++ `**Bold**` : **Bold**
++ `_Italics_` : _Italics_
+:::: {.columns}
+::: {.column width="50%"}
+``` {markdown}
+**Bold**
+```
+:::
+::: {.column width="50%"}
+:::
+::::
+
+## Quarto RevealJS Template
 
 [Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template) includes...
 
@@ -95,12 +114,25 @@ work on collaboratively using tools such as GitHub or GitLab.
 
 :::
 
+## Using Quarto RevealJS Template
+
+
++ GitHub account (ideally with `@sheffield.ac.uk`)
++ Go to [Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template)
++ Make a copy to your account & rename to `my_first_quarto_slides`.
++ Change settings _Settings > Actions > Workflow Permissions > Read and write_
+
+::: {.notes}
+
+:::
+
 
 ## Cloning
 
-+ Need files locally
-+ Git lingua this means cloning
-+ RStudio _File > New Project > Version Control > Git_
++ Need files locally.
++ Git lingua this means cloning.
++ RStudio _File > New Project > Version Control > Git_.
++ Paste URL `https://github.com/<username>/my_first_quarto_slides`.
 ::: {.notes}
 :::
 
@@ -110,14 +142,18 @@ work on collaboratively using tools such as GitHub or GitLab.
 + `quarto publish`
 + Creates a special branch `gh-pages` which holds HTML.
 + Pushes branch to GitHub.
++ View slides at
+  [https://<username>.github.io/my_first_quarto_slides/](https://ns-rse.github.io/my_first_quarto_slides/)
 
 ::: {.notes}
 :::
 
-## `_quarto.yaml_`
+## `_quarto.yaml`
 
 + Configuration file for slides.
-+ Define key metadata (Author, Email, [ORCid](https://orcid.org))
++ Define key metadata (Author, Email, [ORCiD](https://orcid.org))
++ Set common slide properties (e.g. `incremental`, `chalkboard`)
++ Define Footer
 
 ::: {.notes}
 :::
@@ -129,6 +165,15 @@ work on collaboratively using tools such as GitHub or GitLab.
 ::: {.notes}
 :::
 
+## Images
+
+::: {.notes}
+:::
+
+## Links
+
+::: {.notes}
+:::
 
 ## Speaker Notes
 
@@ -143,10 +188,24 @@ of every slide.
 Quarto will render your slides locally and start a web-server for you to view the pages _before_ you push them to GitHub.
 :::
 
+## Commit and Push
+
+::: {.notes}
+:::
+
 ## Extensions
 
 + Lots of [extensions](https://quarto.org/docs/extensions/).
 + Add functionality.
 + Need installing to repository locally _and_ adding to GitHub Action.
+
 ::: {.notes}
 :::
+
+## Linting with `pre-commit`
+
++ Includes [pre-commit](https://pre-commit.com) hook to lint Markdown.
++ Ensures consistent style used.
++ [markdownlint-cli2]().
++ Configuration via `.markdownlint-cli2.yaml`.
++ Automatically fixes mistakes where possible.
