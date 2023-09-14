@@ -42,17 +42,42 @@ project:
 + Publishing
 
 ::: {.notes}
+I thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then cover
+briefly the Markdown language which underpins writing slides before introducing the Template which is available to
+kick-start this process.
+
+Then I'm hoping to show how to write slides and also publish them using [GitHub Pages](https://pages.github.com/).
+
 :::
 
 ## Background
 
++ _Literate Programming_
++ Sweave
++ RMarkdown
++ Quarto
 
 ::: {.notes}
 :::
 
 ## Markdown
 
++ Simple markup language
++ Separate content from style
++ Write in ASCII plain text
++ Simple to version control
+
 ::: {.notes}
+Quarto uses its own dialect of Markdown which is a relatively simple markup language. There are lots of markup languages
+such as HTML, LaTeX, RMarkdown, Restructured Text and many more.
+
+Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate content,
+what you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text
+with markers which indicate what it should look like and then apply themes to say what certain features should look
+like.
+
+Plain text files have the advantage that they are simple to keep under version control which also means they are easy to
+work on collaboratively using tools such as GitHub or GitLab.
 :::
 
 
@@ -63,12 +88,65 @@ project:
 + Sample slides with many examples.
 + GitHub workflow/action to publish pages.
 + Instructions on usage.
++ Make a copy to your account.
++ Change settings _Settings > Actions > Workflow Permissions > Read and write_
+
+::: {.notes}
+
+:::
+
+
+## Cloning
+
++ Need files locally
++ Git lingua this means cloning
++ RStudio _File > New Project > Version Control > Git_
+::: {.notes}
+:::
+
+
+## Initial Publish
+
++ `quarto publish`
++ Creates a special branch `gh-pages` which holds HTML.
++ Pushes branch to GitHub.
+
+::: {.notes}
+:::
+
+## `_quarto.yaml_`
+
++ Configuration file for slides.
++ Define key metadata (Author, Email, [ORCid](https://orcid.org))
+
+::: {.notes}
+:::
+
+## `index.qmd`
+
++ _Now_ you can write your slides!
 
 ::: {.notes}
 :::
 
 
-## Publishing
+## Speaker Notes
 
+::: {.notes}
+A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom
+of every slide.
+:::
+
+## Previewing
+
+::: {.notes}
+Quarto will render your slides locally and start a web-server for you to view the pages _before_ you push them to GitHub.
+:::
+
+## Extensions
+
++ Lots of [extensions](https://quarto.org/docs/extensions/).
++ Add functionality.
++ Need installing to repository locally _and_ adding to GitHub Action.
 ::: {.notes}
 :::
