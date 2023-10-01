@@ -29,8 +29,7 @@ project:
 
 ## Slides
 
-{{< qrcode https://ns-rse.github.io/SheffieldR-quarto-for-slides >}}
-
+{{< qrcode <https://ns-rse.github.io/SheffieldR-quarto-for-slides> >}}
 
 ::: {.notes}
 :::
@@ -55,12 +54,13 @@ slides on GitHub.
 
 :::
 
-
 ## Literate Programming - Origins
 
 :::: {.columns}
 ::: {.column width="50%"}
-> a computer program is given as an explanation of how it works in a natural language, such as English, interspersed (embedded) with snippets of macros and traditional source code, from which compilable source code can be generated.^[[Wikipedia - Literate programming](https://en.wikipedia.org/wiki/Literate_programming)]
+> a computer program is given as an explanation of how it works in a natural language, such as English, interspersed
+(embedded) with snippets of macros and traditional source code, from which compilable source code can be
+generated.^[[Wikipedia - Literate programming](https://en.wikipedia.org/wiki/Literate_programming)]
 :::
 ::: {.column width="50%"}
 ![[_Literate Programming_ - Donald Knuth](https://en.wikipedia.org/wiki/Literate_programming)](https://upload.wikimedia.org/wikipedia/en/6/62/Literate_Programming_book_cover.jpg)
@@ -79,8 +79,8 @@ is true when writing documents myself.
 
 :::: {.columns}
 ::: {.column width="50%"}
-> My programs are not only explained better than ever before; they also are better programs, because the new methodology encourages me to do a better job.^[[Knuth
-  (1984)](http://www.literateprogramming.com/knuthweb.pdf)]
+> My programs are not only explained better than ever before; they also are better programs, because the new methodology
+encourages me to do a better job.^[[Knuth (1984)](http://www.literateprogramming.com/knuthweb.pdf)]
 :::
 ::: {.column width="50%"}
 ![[_Literate Programming_ - Donald Knuth](https://en.wikipedia.org/wiki/Literate_programming)](https://upload.wikimedia.org/wikipedia/en/6/62/Literate_Programming_book_cover.jpg)
@@ -100,8 +100,12 @@ is true when writing documents myself.
 + [WEB](https://en.wikipedia.org/wiki/Web_(programming_system)) ([Knuth & Levy
   (2001)](https://www-cs-faculty.stanford.edu/~knuth/cweb.html))
 + [noweb](https://en.wikipedia.org/wiki/Noweb)
-+ [S](https://en.wikipedia.org/wiki/S_(programming_language)) ([Becker, Chambers & Wilks (1988)](https://dl.acm.org/doi/abs/10.5555/43380))
-+ [Sweave](https://web.archive.org/web/20100130021808/http://www.statistik.lmu.de/~leisch/Sweave/) ([Leisch F. (2002a)](http://www.ci.tuwien.ac.at/~leisch/Sweave); [Leisch F (2002b)](https://journal.r-project.org/articles/RN-2002-025/); [Leisch F (2003)](https://journal.r-project.org/articles/RN-2003-013/))
++ [S](https://en.wikipedia.org/wiki/S_(programming_language)) ([Becker, Chambers & Wilks
+  (1988)](https://dl.acm.org/doi/abs/10.5555/43380))
++ [Sweave](https://web.archive.org/web/20100130021808/http://www.statistik.lmu.de/~leisch/Sweave/) ([Leisch
+  F. (2002a)](http://www.ci.tuwien.ac.at/~leisch/Sweave); [Leisch F
+  (2002b)](https://journal.r-project.org/articles/RN-2002-025/); [Leisch F
+  (2003)](https://journal.r-project.org/articles/RN-2003-013/))
 + [RMarkdown](https://rmarkdown.rstudio.com/) ([R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/))
 
 . . .
@@ -110,9 +114,10 @@ is true when writing documents myself.
 
 ::: {.notes}
 Quarto has a long pedigree and is the latest form of literate programming. Knuths WEB language was followed by a number
-of variants most of which worked with his document preparation system [TeX](). One of these dialects was noweb and noweb
-underpinned an early integration of Tex/LaTeX and S code (S being the original language specification by Becker, Chambers and
-Wilks which R is an implementation of) by Freidrich Liesch who wrote and maintained the Sweave package.
+of variants most of which worked with his document preparation system [TeX](https://tug.org/). One of these dialects was
+noweb and noweb underpinned an early integration of Tex/LaTeX and S code (S being the original language specification by
+Becker, Chambers and Wilks which R is an implementation of) by Freidrich Liesch who wrote and maintained the Sweave
+package.
 
 More recently with the rise in popularity of Markdown, a simple form of markup language and the increase in popularity
 of R saw the development of RMarkdown which many of you may be familiar with.
@@ -146,19 +151,21 @@ Plain text files have the advantage that they are simple to keep under version c
 work on collaboratively using tools such as GitHub or GitLab.
 :::
 
-
 ## Basic Markdown
 
 :::: {.columns}
 ::: {.column width="50%"}
+
 ``` {markdown}
 
 + **Bold**
 + `_Italics_` : _Italics_
 + `[Search](https://duckduckgo.com)`
 ```
+
 :::
 ::: {.column width="50%"}
+
 + **Bold**
 + `_Italics_` : _Italics_
 + [Search](https://duckduckgo.com)
@@ -220,11 +227,11 @@ It uses a [GitHub Work](https://docs.github.com/en/actions/using-workflows) and 
 instructions on usage and formed the basis of this talk.
 :::
 
-
 ## Using Quarto RevealJS Template
 
 :::: {.columns}
 ::: {.column width=30%}
+
 + Go to [Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template)
 + Make a copy to your account using the "_Use This Template_" button.
 + Give repository a unique name.
@@ -241,6 +248,7 @@ instructions on usage and formed the basis of this talk.
 
 :::: {.columns}
 ::: {.column width="30%"}
+
 + Change settings _Settings > Actions > Workflow Permissions > Read and write_
 :::
 ::: {.column width="70%"}
@@ -259,21 +267,20 @@ why the slides haven't been published.
 
 So you go to _Settings_ tab along the top, then in the menu on the left selection _Actions > General_. Scroll down and
 you can change the _Workflow Permissions_ to _Read and Write permissions_ which allows [GitHub
-Workflows])(https://docs.github.com/en/actions/using-workflows) to read and write to branches.
+Workflows])(<https://docs.github.com/en/actions/using-workflows>) to read and write to branches.
 :::
-
 
 ## Cloning - URL
 
 :::: {.columns}
 ::: {.column width="30%"}
+
 + Clone button
 :::
 ::: {.column width="70%"}
 :::
 ![Getting repository URL for cloning](img/github_quarto_cloning.png)
 ::::
-
 
 ::: {.notes}
 Now that you have copied the template to your account and have a repository of your own you will want to get a copy of
@@ -284,11 +291,11 @@ Whether use use `https` or `ssh` depends on how you've setup RStudio but the saf
 long term I would recommend configuring and using SSH keys as they are faster and easier).
 :::
 
-
 ## Cloning - RStudio
 
 :::: {.columns}
 ::: {.column width="30%"}
+
 + _File > New Project > Version Control > Git_.^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)]
 + Paste URL `https://github.com/<username>/my_first_quarto_slides`.
 :::
@@ -297,12 +304,10 @@ long term I would recommend configuring and using SSH keys as they are faster an
 ![Cloning with RStudio]()
 ::::
 
-
 ::: {.notes}
 You now need to use the URL and clone the package locally. If you've setup RStudio to work with Git and GitHub you can
 Open a New Project and then select Git to Clone the repository, pasting the URL in.
 :::
-
 
 ## Initial Publish
 
@@ -417,9 +422,11 @@ format:
     show-slide-number: speaker
     auto-stretch: false
 ```
+
 :::
 ::: {.column widht="50%"}
 After...
+
 ``` {.yaml}
 format:
   # clean-revealjs:
@@ -430,6 +437,7 @@ format:
     show-slide-number: speaker
     auto-stretch: false
 ```
+
 :::
 ::::
 
@@ -467,14 +475,15 @@ environment, and if you're not familiar with this you can see the notes from the
 effective and reproducible research](https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/).
 :::
 
-
 ## Links
 
 :::: {.columns}
 ::: {.colum widht="50%"}
+
 + [Quarto](https://quarto.org)
 + [Slide Template](https://github.com/ns-rse/quarto-revealjs-template)
-+ [GitHub Workflows]()
++ [GitHub Workflows](https://docs.github.com/en/actions/using-workflows)
+
 :::
 ::: {.colum widht="50%"}
 + [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit)
