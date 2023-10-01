@@ -8,6 +8,8 @@ author:
 from: markdown+emoji
 format:
   clean-revealjs:
+  # revealjs:
+  #   theme: solarized
     incremental: false
     slide-number: true
     show-slide-number: speaker
@@ -36,7 +38,7 @@ project:
 ## Overview
 
 + Background
-+ Markdown
++ Markdown (very brief)
 + Using a template
 + Writing slides
 + Publishing
@@ -46,23 +48,82 @@ I thought it might be useful to cover a bit of history with regards to the philo
 briefly the Markdown language which underpins writing slides before introducing the Template which is available to
 kick-start this process.
 
-Then I'm hoping to show how to write slides and also publish them using [GitHub Pages](https://pages.github.com/).
+Then I'm hoping to show how to write and publish slides using [GitHub Pages](https://pages.github.com/).
+
+This _isn't_ an exposition of Markdown and writing Quarto documents, its more focused on working with and publishing
+slides on GitHub.
 
 :::
 
-## Background
 
-+ _Literate Programming_
-+ [Sweave](https://web.archive.org/web/20100130021808/http://www.statistik.lmu.de/~leisch/Sweave/)^[[Leisch F. (2002a)](http://www.ci.tuwien.ac.at/
-~leisch/Sweave); [Leisch F (2002b)](https://journal.r-project.org/articles/RN-2002-025/); [Leisch F (2003)](https://journal.r-project.org/articles/RN-2003-013/)]
-+ [RMarkdown](https://rmarkdown.rstudio.com/)^[[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)]
+## Literate Programming - Origins
+
+:::: {.columns}
+::: {.column width="50%"}
+> a computer program is given as an explanation of how it works in a natural language, such as English, interspersed (embedded) with snippets of macros and traditional source code, from which compilable source code can be generated.^[[Wikipedia - Literate programming](https://en.wikipedia.org/wiki/Literate_programming)]
+:::
+::: {.column width="50%"}
+![[_Literate Programming_ - Donald Knuth](https://en.wikipedia.org/wiki/Literate_programming)](https://upload.wikimedia.org/wikipedia/en/6/62/Literate_Programming_book_cover.jpg)
+:::
+::::
+
+::: {.notes}
+Whilst originating in computer science the principle has seen wide spread adoption in data science because it encourages
+reproducible research and facilitates open access to research.
+
+As Knuth found when he adopted the practice it _improved_ the quality of the programmes he wrote and I've found the same
+is true when writing documents myself.
+:::
+
+## Literate Programming - Better Programmes
+
+:::: {.columns}
+::: {.column width="50%"}
+> My programs are not only explained better than ever before; they also are better programs, because the new methodology encourages me to do a better job.^[[Knuth
+  (1984)](http://www.literateprogramming.com/knuthweb.pdf)]
+:::
+::: {.column width="50%"}
+![[_Literate Programming_ - Donald Knuth](https://en.wikipedia.org/wiki/Literate_programming)](https://upload.wikimedia.org/wikipedia/en/6/62/Literate_Programming_book_cover.jpg)
+:::
+::::
+
+::: {.notes}
+Whilst originating in computer science the principle has seen wide spread adoption in data science because it encourages
+reproducible research and facilitates open access to research.
+
+As Knuth found when he adopted the practice it _improved_ the quality of the programmes he wrote and I've found the same
+is true when writing documents myself.
+:::
+
+## Background - Pedigree
+
++ [WEB](https://en.wikipedia.org/wiki/Web_(programming_system)) ([Knuth & Levy
+  (2001)](https://www-cs-faculty.stanford.edu/~knuth/cweb.html))
++ [noweb](https://en.wikipedia.org/wiki/Noweb)
++ [S](https://en.wikipedia.org/wiki/S_(programming_language)) ([Becker, Chambers & Wilks (1988)](https://dl.acm.org/doi/abs/10.5555/43380))
++ [Sweave](https://web.archive.org/web/20100130021808/http://www.statistik.lmu.de/~leisch/Sweave/) ([Leisch F. (2002a)](http://www.ci.tuwien.ac.at/~leisch/Sweave); [Leisch F (2002b)](https://journal.r-project.org/articles/RN-2002-025/); [Leisch F (2003)](https://journal.r-project.org/articles/RN-2003-013/))
++ [RMarkdown](https://rmarkdown.rstudio.com/) ([R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/))
 
 . . .
 
 + :tada: [Quarto](https://quarto.org) :tada:
 
 ::: {.notes}
-Quarto has a long pedigree
+Quarto has a long pedigree and is the latest form of literate programming. Knuths WEB language was followed by a number
+of variants most of which worked with his document preparation system [TeX](). One of these dialects was noweb and noweb
+underpinned an early integration of Tex/LaTeX and S code (S being the original language specification by Becker, Chambers and
+Wilks which R is an implementation of) by Freidrich Liesch who wrote and maintained the Sweave package.
+
+More recently with the rise in popularity of Markdown, a simple form of markup language and the increase in popularity
+of R saw the development of RMarkdown which many of you may be familiar with.
+
+The last year or two have seen the development of and release of Quarto which is the next iteration and allows embedding
+of not just R code within the document but other languages such as [Python](https://python.org),
+[Julia](https://julialang.org) and [Observable](https://observablehq.com/) a data analysis and visualisation language in
+JavaScript.
+
+Part of the flexibility of Quarto is that its underpinned by [Pandoc](https://pandoc.org/) which is a powerful tool for
+converting documents between different markup languages, including PDF and HTML.
 :::
 
 ## Markdown
@@ -88,52 +149,158 @@ work on collaboratively using tools such as GitHub or GitLab.
 
 ## Basic Markdown
 
-+ `**Bold**` : **Bold**
-+ `_Italics_` : _Italics_
 :::: {.columns}
 ::: {.column width="50%"}
 ``` {markdown}
-**Bold**
+
++ **Bold**
++ `_Italics_` : _Italics_
++ `[Search](https://duckduckgo.com)`
 ```
 :::
 ::: {.column width="50%"}
++ **Bold**
++ `_Italics_` : _Italics_
++ [Search](https://duckduckgo.com)
 :::
 ::::
+
+Quarto [documentation](https://quarto.org/docs/authoring/markdown-basics.html) is excellent.
+
+## Pre-requisites
+
+Need a few things to get going...
+
+. . .
+
++ GitHub account (ideally academic `@<somewhere>.ac.uk`).
++ RStudio configured with Git^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)] (or similar
+  e.g. [Emacs](https://www.gnu.org/software/emacs/)/[ESS](https://ess.r-project.org)/[Magit](https://magit.vc) or [VSCode](https://code.visualstudio.com/)).
++ Willingness to learn!
+
+::: {.notes}
+Ok, now that I've covered some of the background and the very basics of Markdown I'm going to move on and hopefully
+demonstrate how to use Quarto to write RevealJS slides that are hosted on GitHub and can be viewed in a
+web-browser. This has a number of advantages as you'll never have to worry about getting your slides to meeting
+organisers, you just need a working internet connection which these days is fairly common. As a consequence you can keep
+on working on your slides right up to the last minute (as long as you remember to publish the changes!).
+
+There are however a few pre-requisities for using this system, firstly you need an account on GitHub, and if you've an
+academic email address I'd recommend signing up with that, you get a few more features that are usually reserved for
+paying customers.
+
+You also need a development environment which will help make some of the tasks of editing files and working with Git
+easier.
+
+If you're not already set up with one I'd recommend RStudio and there is a really useful site from Jenny Bryan on how to
+setup and configure RStudio and Git which I would recommend. There are of course alternatives, personally I use Emacs
+with Emacs Speaks Statistics and Magit, another popular choice is VSCode, but what you use is somewhat secondary, what I
+hope to convey to you is the essence of the workflow and the principles of working in this manner.
+
+Perhaps most importantly a willingness to learn comes in pretty handy, if you're new to this approach it will seem
+frustrating to start with, but persevere, it gets easier and is a lot faster than copying and pasting figures and tables
+into Word documents and then tweaking them or replacing them when data changes. As Donald Knuth said, its fun!
+:::
 
 ## Quarto RevealJS Template
 
 [Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template) includes...
 
 + Sample slides with many examples.
-+ GitHub workflow/action to publish pages.
++ [GitHub Workflow](https://docs.github.com/en/actions/using-workflows)to publish pages.
 + Instructions on usage.
-+ Make a copy to your account.
-+ Change settings _Settings > Actions > Workflow Permissions > Read and write_
 
 ::: {.notes}
+To make it simple to use this workflow there is a Quarto RevealJS template in my GitHub repository that can be used. It
+is based on a workflow my colleague David Wilby originally setup and I used it for slides I prepared for a talk I was
+invited to give in Leeds on using [pre-commit](https://pre-commit.com) and the person who invited me turned the code
+used to produce the slides into a template. I've then borrowed that back and extended it to its current state.
 
+It uses a [GitHub Work](https://docs.github.com/en/actions/using-workflows) and the `README.md` on the front page has
+instructions on usage and formed the basis of this talk.
 :::
+
 
 ## Using Quarto RevealJS Template
 
-
-+ GitHub account (ideally with `@sheffield.ac.uk`)
+:::: {.columns}
+::: {.column width=30%}
 + Go to [Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template)
-+ Make a copy to your account & rename to `my_first_quarto_slides`.
-+ Change settings _Settings > Actions > Workflow Permissions > Read and write_
++ Make a copy to your account using the "_Use This Template_" button.
++ Give repository a unique name.
+:::
+::: {.column width=70%}
+![Cloning the template](img/github_quarto_revealjs_template_front.png)
+:::
+::::
 
 ::: {.notes}
+:::
 
+## Configuring Repository
+
+:::: {.columns}
+::: {.column width="30%"}
++ Change settings _Settings > Actions > Workflow Permissions > Read and write_
+:::
+::: {.column width="70%"}
+:::
+![Changing Workflow Permissions](img/github_quarto_settings_action01.png)
+![Changing Workflow Permissions](img/github_quarto_settings_action02.png)
+::::
+
+::: {.notes}
+A key change after cloning the repository is that you need to change the permissions so that the site will be published
+automatically when you push changes to GitHub.
+
+I'll explain more about how this works bit but because this is important and you're in GitHub after using the template I
+find it good practice to make the change now so I don't forget to do it later and then end up scratching my head as to
+why the slides haven't been published.
+
+So you go to _Settings_ tab along the top, then in the menu on the left selection _Actions > General_. Scroll down and
+you can change the _Workflow Permissions_ to _Read and Write permissions_ which allows [GitHub
+Workflows])(https://docs.github.com/en/actions/using-workflows) to read and write to branches.
 :::
 
 
-## Cloning
+## Cloning - URL
 
-+ Need files locally.
-+ Git lingua this means cloning.
-+ RStudio _File > New Project > Version Control > Git_.
-+ Paste URL `https://github.com/<username>/my_first_quarto_slides`.
+:::: {.columns}
+::: {.column width="30%"}
++ Clone button
+:::
+::: {.column width="70%"}
+:::
+![Getting repository URL for cloning](img/github_quarto_cloning.png)
+::::
+
+
 ::: {.notes}
+Now that you have copied the template to your account and have a repository of your own you will want to get a copy of
+the files locally on your own computer. In Git parlance this is called cloning and on GitHub the green button at the top
+of the front page of the repository allows you to copy links to clone a repository.
+
+Whether use use `https` or `ssh` depends on how you've setup RStudio but the safest option is to use `https` (although
+long term I would recommend configuring and using SSH keys as they are faster and easier).
+:::
+
+
+## Cloning - RStudio
+
+:::: {.columns}
+::: {.column width="30%"}
++ _File > New Project > Version Control > Git_.^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)]
++ Paste URL `https://github.com/<username>/my_first_quarto_slides`.
+:::
+::: {.column width="70%"}
+:::
+![Cloning with RStudio]()
+::::
+
+
+::: {.notes}
+You now need to use the URL and clone the package locally. If you've setup RStudio to work with Git and GitHub you can
+Open a New Project and then select Git to Clone the repository, pasting the URL in.
 :::
 
 
@@ -146,6 +313,7 @@ work on collaboratively using tools such as GitHub or GitLab.
   [https://<username>.github.io/my_first_quarto_slides/](https://ns-rse.github.io/my_first_quarto_slides/)
 
 ::: {.notes}
+You can publish the slides as they are before doing any editing.
 :::
 
 ## `_quarto.yaml`
@@ -156,24 +324,44 @@ work on collaboratively using tools such as GitHub or GitLab.
 + Define Footer
 
 ::: {.notes}
+Configuration of slides if via the `_quarto.yaml` file which allows you to define metadata such as Author, Email and
+[ORCiD](https://orcid.org). If you haven't got an ORCiD ID yet I'd encourage you to do so.
+
+You also use this file to define other common slide properties such as whether bullet points are to appear
+incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here
+to bring up a chalk board which you can write on.
+
+You also set the overall theme and define footers in this file.
 :::
 
 ## `index.qmd`
 
 + _Now_ you can write your slides!
++ `index.qmd` is the main file to work on.
++ Template includes many examples.
 
 ::: {.notes}
+Now you are ready to write your slides!
+
+This is done by editing the `index.qmd` file which, as mentioned is written in Quarto Markdown.
+
+I'm not going to go into great detail about the syntax of Markdown because the template you have cloned includes a
+number of example slides with different content and formats such as using columns, embedding pictures and links, ordered
+and unordered lists and so forth. Copy and paste the sections you want to use and change.
+
+Instead I'll make a few changes and show you how you go through the cycle of previewing your changes locally, staging
+and committing those changes under Git version control and pushing them to GitHub so your slides get updated.
 :::
 
-## Images
+<!-- ## Images -->
 
-::: {.notes}
-:::
+<!-- ::: {.notes} -->
+<!-- ::: -->
 
-## Links
+<!-- ## Links -->
 
-::: {.notes}
-:::
+<!-- ::: {.notes} -->
+<!-- ::: -->
 
 ## Speaker Notes
 
@@ -190,6 +378,13 @@ Quarto will render your slides locally and start a web-server for you to view th
 
 ## Commit and Push
 
+:::: {.columns}
+::: {.colum widht="50%"}
+:::
+::: {.colum widht="50%"}
+:::
+::::
+
 ::: {.notes}
 :::
 
@@ -202,10 +397,90 @@ Quarto will render your slides locally and start a web-server for you to view th
 ::: {.notes}
 :::
 
+## Adding a Theme
+
+::: {.notes}
+:::
+
+## Changing Themes
+
+[Blackboard Theme](https://github.com/schochastics/quarto-blackboard-theme)
+:::: {.columns}
+::: {.column widht="50%"}
+Before...
+
+``` {.yaml}
+format:
+  clean-revealjs:
+    incremental: false
+    slide-number: true
+    show-slide-number: speaker
+    auto-stretch: false
+```
+:::
+::: {.column widht="50%"}
+After...
+``` {.yaml}
+format:
+  # clean-revealjs:
+  revealjs:
+    theme: solarized
+    incremental: false
+    slide-number: true
+    show-slide-number: speaker
+    auto-stretch: false
+```
+:::
+::::
+
+::: {.notes}
+Its straight-forward to change themes by editing the configuration in `_quarto.yaml`.
+
+If the chalkboard feature wasn't enough nostalgia you can use the [Blackboard Theme](https://github.com/schochastics/quarto-blackboard-theme).
+
+You can then preview the slides locally to see what they look like, if you're happy then you stage and commit the
+changes to Git and push them to GitHub.
+:::
+
 ## Linting with `pre-commit`
 
 + Includes [pre-commit](https://pre-commit.com) hook to lint Markdown.
 + Ensures consistent style used.
-+ [markdownlint-cli2]().
 + Configuration via `.markdownlint-cli2.yaml`.
 + Automatically fixes mistakes where possible.
++ [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit/)^[More posts on [my
+  blog](https://ns-rse.github.io/)]
+
+::: {.notes}
+The repository includes configuration to use `pre-commit` hooks to link your Markdown. Linting is the principle of using
+a consistent style when writing code and markup so that it is easier for others to read and modify and its really
+important when working collaboratively as might be the case when writing slides in this manner. Simple things like
+ensuring a consistent line length is used, links are all correctly formatted and so forth.
+
+Configuration of the Markdown linting is via the `markdownlint-cli2.yaml` file and it will automatically fix errors it
+finds where possible.
+
+`pre-commit` itself is a Python programme and as such you need to install it on your system, if you're using Linux
+chances are you can install it from your package manager, if you're using OSX then you can install it using
+[Homebrew](https://brew.sh). On either of these operating systems or if you are using Windows you can install a virtual
+environment, and if you're not familiar with this you can see the notes from the course [Conda environments for
+effective and reproducible research](https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/).
+:::
+
+
+## Links
+
+:::: {.columns}
+::: {.colum widht="50%"}
++ [Quarto](https://quarto.org)
++ [Slide Template](https://github.com/ns-rse/quarto-revealjs-template)
++ [GitHub Workflows]()
+:::
+::: {.colum widht="50%"}
++ [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit)
++ [Conda environments for
+effective and reproducible research](https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/)
++ [My blog!](https://ns-rse.github.io/)
++ [Emacs Docs](https://emacsdocs.org)
+:::
+::::
