@@ -11,9 +11,11 @@ format:
   # revealjs:
   #   theme: solarized
     incremental: false
+    scrollable: true
     slide-number: true
     show-slide-number: speaker
     auto-stretch: false
+    chalkboard: true
     # embed-resources: true
     # standalone: true
 revealjs-plugins:
@@ -157,17 +159,18 @@ work on collaboratively using tools such as GitHub or GitLab.
 ::: {.column width="50%"}
 
 ``` {markdown}
-
 + **Bold**
-+ `_Italics_` : _Italics_
-+ `[Search](https://duckduckgo.com)`
++ _Italics_
++ ~~Strikethrough~~
++ [Search](https://duckduckgo.com)
 ```
 
 :::
 ::: {.column width="50%"}
 
 + **Bold**
-+ `_Italics_` : _Italics_
++ _Italics_
++ ~~Strikethrough~~
 + [Search](https://duckduckgo.com)
 :::
 ::::
@@ -182,8 +185,9 @@ Need a few things to get going...
 
 + GitHub account (ideally academic `@<somewhere>.ac.uk`).
 + RStudio configured with Git^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)] (or similar
-  e.g. [Emacs](https://www.gnu.org/software/emacs/)/[ESS](https://ess.r-project.org)/[Magit](https://magit.vc) or [VSCode](https://code.visualstudio.com/)).
-+ Willingness to learn!
+  e.g. [Emacs](https://www.gnu.org/software/emacs/)/[ESS](https://ess.r-project.org)/[Magit](https://magit.vc) or
+  [VSCode](https://code.visualstudio.com/)).
++ Quarto [installed](https://quarto.org/docs/get-started/).
 
 ::: {.notes}
 Ok, now that I've covered some of the background and the very basics of Markdown I'm going to move on and hopefully
@@ -216,6 +220,7 @@ into Word documents and then tweaking them or replacing them when data changes. 
 + Sample slides with many examples.
 + [GitHub Workflow](https://docs.github.com/en/actions/using-workflows)to publish pages.
 + Instructions on usage.
++ Thanks to [David Wilby](https://www.davidwilby.dev/) and [Alex Coleman](https://github.com/Sparrow0hawk/).
 
 ::: {.notes}
 To make it simple to use this workflow there is a Quarto RevealJS template in my GitHub repository that can be used. It
@@ -242,19 +247,25 @@ instructions on usage and formed the basis of this talk.
 ::::
 
 ::: {.notes}
+The first step to using this template is to make a copy to your GitHub account.
+
+To do this go to the repository and find the _Use This Template_ which is on the top right in green, click on it and
+you'll be prompted to give your repository a new and unique name. You can use anything you want as long as you don't
+already have a repository with that name in your GitHub account.
 :::
 
 ## Configuring Repository
 
-:::: {.columns}
-::: {.column width="30%"}
 
-+ Change settings _Settings > Actions > Workflow Permissions > Read and write_
+:::: {.columns}
+::: {.column width=40%}
+
++ _Settings > Actions > Workflow Permissions > Read and write_
 :::
-::: {.column width="70%"}
+::: {.column width=60%}
+![Changing Workflow Permissions](img/github_quarto_settings_action01.png){height="250"}
+![Changing Workflow Permissions](img/github_quarto_settings_action02.png){height="250"}
 :::
-![Changing Workflow Permissions](img/github_quarto_settings_action01.png)
-![Changing Workflow Permissions](img/github_quarto_settings_action02.png)
 ::::
 
 ::: {.notes}
@@ -275,7 +286,7 @@ Workflows])(<https://docs.github.com/en/actions/using-workflows>) to read and wr
 :::: {.columns}
 ::: {.column width="30%"}
 
-+ Clone button
++ Code button
 :::
 ::: {.column width="70%"}
 :::
@@ -291,22 +302,98 @@ Whether use use `https` or `ssh` depends on how you've setup RStudio but the saf
 long term I would recommend configuring and using SSH keys as they are faster and easier).
 :::
 
-## Cloning - RStudio
+## RStudio Cloning - New Project
 
 :::: {.columns}
 ::: {.column width="30%"}
-
-+ _File > New Project > Version Control > Git_.^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)]
-+ Paste URL `https://github.com/<username>/my_first_quarto_slides`.
++ _File > **New Project** > Version Control > Git_.^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)]
 :::
 ::: {.column width="70%"}
+![New Project](img/rstudio_new_project_cloning1.png)
 :::
-![Cloning with RStudio]()
 ::::
 
 ::: {.notes}
-You now need to use the URL and clone the package locally. If you've setup RStudio to work with Git and GitHub you can
-Open a New Project and then select Git to Clone the repository, pasting the URL in.
+You now need to start a new Project in RStudio, from the File menu select New Project and the following dialog will
+appear, select _Version Control_.
+:::
+
+
+## RStudio Cloning - Version Control
+
+:::: {.columns}
+::: {.column width="30%"}
++ _File > New Project > **Version Control** > Git_.^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)]
+:::
+::: {.column width="70%"}
+![New Project](img/rstudio_new_project_cloning2.png)
+:::
+::::
+
+::: {.notes}
+...and you progress to the next dialog. We are cloning a Git repository rather than Subversion so select Git.
+:::
+## RStudio Cloning - Git
+
+:::: {.columns}
+::: {.column width="30%"}
++ _File > New Project > Version Control > **Git**_.^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)]
+:::
+::: {.column width="70%"}
+![New Project](img/rstudio_new_project_cloning3.png)
+:::
+::::
+
+
+::: {.notes}
+You now need to use the URL you copied from GitHub and paste it into the _Repository URL_ field, you should give a
+_Project directory name_ and typically this would be the same name that you gave your repository when you used the
+template (you can copy and paste the last bit of the URL, removing the `.git` if you want).
+
+The last field required is where to create the project and clone the repository to, this will depend on where you keep
+your files.
+:::
+
+## Install Themes and Extensions
+
++ Themes and extensions need installing
+
+``` {.bash}
+quarto install --no-prompt extension jmbuhr/quarto-qrcode
+quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+quarto install --no-prompt extension ArthurData/quarto-confetti
+[✓] Downloading
+[✓] Unzipping
+    Found 1 extension.
+
+The following changes will be made:
+Qrcode   [Install]   0.0.1 (shortcode)
+
+[✓] Extension installation complete.
+Learn more about this extension at https://www.github.com/jmbuhr/quarto-qrcode
+[✓] Downloading
+[✓] Unzipping
+    Found 1 extension.
+
+The following changes will be made:
+clean   [Install]   1.0.0 (format)
+
+[✓] Extension installation complete.
+Learn more about this extension at https://www.github.com/grantmcdermott/quarto-revealjs-clean
+[✓] Downloading
+[✓] Unzipping
+    Found 1 extension.
+
+The following changes will be made:
+Confetti   [Install]   1.0.0
+
+[✓] Extension installation complete.
+Learn more about this extension at https://www.github.com/ArthurData/quarto-confetti
+```
+
+::: {.notes}
+These slides use some extensions for generating QR codes and making Confetti and a custom theme. I'll explain more about
+extensions and themes in a bit but before you can proceed you need to install the themes on your computer.
 :::
 
 ## Initial Publish
@@ -318,44 +405,330 @@ Open a New Project and then select Git to Clone the repository, pasting the URL 
   [https://<username>.github.io/my_first_quarto_slides/](https://ns-rse.github.io/my_first_quarto_slides/)
 
 ::: {.notes}
-You can publish the slides as they are before doing any editing.
+You've used a template and created a repository in your GitHub account and configured it to publish pages, cloned it
+to your local computer and installed the themes and extensions. The next step is to make an initial publish of your
+pages.
+
+This is done using the `quarto publish` command. It creates a special branch in your Git repository called `gh-pages`
+which contains the HTML output. It then pushes the branch to GitHub, configuring it to make the pages on pushes.
+
+You can then view the slides at a dedicated URL. This will depend on your username and the name you gave to your copy of
+the template when you used it, but its a consistent nomenclature for the paths so fairly easy to remember.
 :::
 
-## `_quarto.yaml`
+## Initial Publish
 
-+ Configuration file for slides.
-+ Define key metadata (Author, Email, [ORCiD](https://orcid.org))
-+ Set common slide properties (e.g. `incremental`, `chalkboard`)
-+ Define Footer
+:::: {.columns}
+::: {.column width="30%"}
+``` {.bash}
+❱ quarto publish
+? Provider:
+  Quarto Pub
+❯ GitHub Pages
+  Posit Connect
+  Netlify
+  Confluence
+```
+:::
+::: {.column width="70%"}
+``` {.bash}
+❱ quarto publish
+? Provider: › GitHub Pages
+? Publish site to https://<YOUR_GITHUB_USERNAME>.github.io/<NAME_OF_REPOSITORY using gh-pages? (Y/n) › Yes
+Switched to a new branch 'gh-pages'
+[gh-pages (root-commit) 20ba65a] Initializing gh-pages branch
+remote:
+remote: Create a pull request for 'gh-pages' on GitHub by visiting:
+remote:      https://github.com/slackline/quarto-demo/pull/new/gh-pages
+remote:
+To github.com:slackline/quarto-demo.git
+ * [new branch]      HEAD -> gh-pages
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+From github.com:slackline/quarto-demo
+ * branch            gh-pages   -> FETCH_HEAD
+Rendering for publish:
+
+
+
+processing file: index.qmd
+1/5
+2/5 [fig-airquality]
+3/5
+4/5 [fig-airquality2]
+5/5
+output file: index.knit.md
+
+pandoc
+  to: revealjs
+  from: markdown+emoji
+  output-file: index.html
+  standalone: true
+  title-prefix: <TITLE>
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  incremental: false
+
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: false
+  theme:
+    - default
+    - _extensions/grantmcdermott/clean/clean.scss
+  menu:
+    side: left
+  slideNumber: true
+  date-format: long
+  revealjs-plugins:
+    - confetti
+  title: Template Revealjs Quarto site
+  author:
+    - name: Your Name
+      orcid: 0000-0000-0000-0000
+      email: email@address.work
+      affiliations: Employers Name
+  footer: '**Slides** : [**github-username.github.io/<repository>**](https://github-username.github.io/<repository>)'
+  showSlideNumber: speaker
+  chalkboard: true
+
+Preparing worktree (resetting branch 'gh-pages'; was at 20ba65a)
+branch 'gh-pages' set up to track 'origin/gh-pages'.
+HEAD is now at 20ba65a Initializing gh-pages branch
+fatal: pathspec '.' did not match any files
+[gh-pages 46df001] Built site for gh-pages
+ 125 files changed, 15421 insertions(+)
+ create mode 100644 .nojekyll
+ create mode 100644 img/OSC_Sheffield.png
+ create mode 100644 index.html
+ create mode 100644 index_files/figure-revealjs/fig-airquality2-1.png
+ create mode 100644 robots.txt
+ create mode 100644 search.json
+ create mode 100644 site_libs/clipboard/clipboard.min.js
+ create mode 100644 site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js
+ create mode 100644 site_libs/quarto-html/light-border.css
+ create mode 100644 site_libs/quarto-html/popper.min.js
+ create mode 100644 site_libs/quarto-html/quarto-html.min.css
+ create mode 100644 site_libs/quarto-html/quarto-syntax-highlighting.css
+ create mode 100644 site_libs/quarto-html/tabby.min.js
+ create mode 100644 site_libs/quarto-html/tippy.css
+ create mode 100644 site_libs/quarto-html/tippy.umd.min.js
+ create mode 100644 site_libs/revealjs/dist/reset.css
+ create mode 100644 site_libs/revealjs/dist/reveal.css
+ create mode 100644 site_libs/revealjs/dist/reveal.esm.js
+ create mode 100644 site_libs/revealjs/dist/reveal.esm.js.map
+ create mode 100644 site_libs/revealjs/dist/reveal.js
+ create mode 100644 site_libs/revealjs/dist/reveal.js.map
+ create mode 100644 site_libs/revealjs/dist/theme/fonts/league-gothic/LICENSE
+ create mode 100644 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.css
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.eot
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.ttf
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.woff
+ create mode 100644 site_libs/revealjs/dist/theme/fonts/source-sans-pro/LICENSE
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf
+ create mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff
+ create mode 100644 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro.css
+ create mode 100644 site_libs/revealjs/dist/theme/quarto.css
+ create mode 100644 site_libs/revealjs/plugin/highlight/highlight.esm.js
+ create mode 100644 site_libs/revealjs/plugin/highlight/highlight.js
+ create mode 100644 site_libs/revealjs/plugin/highlight/monokai.css
+ create mode 100644 site_libs/revealjs/plugin/highlight/plugin.js
+ create mode 100644 site_libs/revealjs/plugin/highlight/zenburn.css
+ create mode 100644 site_libs/revealjs/plugin/markdown/markdown.esm.js
+ create mode 100644 site_libs/revealjs/plugin/markdown/markdown.js
+ create mode 100755 site_libs/revealjs/plugin/markdown/plugin.js
+ create mode 100755 site_libs/revealjs/plugin/math/katex.js
+ create mode 100644 site_libs/revealjs/plugin/math/math.esm.js
+ create mode 100644 site_libs/revealjs/plugin/math/math.js
+ create mode 100644 site_libs/revealjs/plugin/math/mathjax2.js
+ create mode 100644 site_libs/revealjs/plugin/math/mathjax3.js
+ create mode 100644 site_libs/revealjs/plugin/math/plugin.js
+ create mode 100644 site_libs/revealjs/plugin/notes/notes.esm.js
+ create mode 100644 site_libs/revealjs/plugin/notes/notes.js
+ create mode 100644 site_libs/revealjs/plugin/notes/plugin.js
+ create mode 100644 site_libs/revealjs/plugin/notes/speaker-view.html
+ create mode 100644 site_libs/revealjs/plugin/pdf-export/pdfexport.js
+ create mode 100644 site_libs/revealjs/plugin/pdf-export/plugin.yml
+ create mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css
+ create mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js
+ create mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/plugin.yml
+ create mode 100644 site_libs/revealjs/plugin/quarto-support/footer.css
+ create mode 100644 site_libs/revealjs/plugin/quarto-support/plugin.yml
+ create mode 100644 site_libs/revealjs/plugin/quarto-support/support.js
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/README.md
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/LICENSE.txt
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/brands.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/fontawesome.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/regular.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/solid.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/svg-with-js.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/v4-shims.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/v4-shims.min.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.eot
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.svg
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.ttf
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.woff
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.woff2
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.eot
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.svg
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.ttf
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.woff
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.woff2
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.eot
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.svg
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.ttf
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.woff
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.woff2
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/blackboard.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-black.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-blue.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-green.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-orange.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-purple.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-red.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-yellow.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-blue.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-green.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-orange.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-purple.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-red.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-white.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-yellow.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/sponge.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/whiteboard.png
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/plugin.js
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/plugin.yml
+ create mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/style.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-confetti/confetti.js
+ create mode 100644 site_libs/revealjs/plugin/reveal-menu/menu.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-menu/menu.js
+ create mode 100644 site_libs/revealjs/plugin/reveal-menu/plugin.yml
+ create mode 100644 site_libs/revealjs/plugin/reveal-menu/quarto-menu.css
+ create mode 100644 site_libs/revealjs/plugin/reveal-menu/quarto-menu.js
+ create mode 100644 site_libs/revealjs/plugin/search/plugin.js
+ create mode 100644 site_libs/revealjs/plugin/search/search.esm.js
+ create mode 100644 site_libs/revealjs/plugin/search/search.js
+ create mode 100644 site_libs/revealjs/plugin/zoom/plugin.js
+ create mode 100644 site_libs/revealjs/plugin/zoom/zoom.esm.js
+ create mode 100644 site_libs/revealjs/plugin/zoom/zoom.js
+ create mode 100644 sitemap.xml
+origin	git@github.com:slackline/quarto-demo.git (fetch)
+origin	git@github.com:slackline/quarto-demo.git (push)
+To github.com:slackline/quarto-demo.git
+   20ba65a..46df001  HEAD -> gh-pages
+
+[✓] Deploying gh-pages branch to website (this may take a few minutes)
+ERROR: TypeError: Invalid URL: 'https://<YOUR_GITHUB_USERNAME>.github.io/<NAME_OF_REPOSITORY/.nojekyll'
+
+Stack trace:
+    at getSerialization (ext:deno_url/00_url.js:89:11)
+    at new URL (ext:deno_url/00_url.js:359:27)
+    at new Request (ext:deno_fetch/23_request.js:300:25)
+    at ext:deno_fetch/26_fetch.js:418:27
+    at new Promise (<anonymous>)
+    at fetch (ext:deno_fetch/26_fetch.js:414:18)
+    at file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103939:40
+    at eventLoopTick (ext:core/01_core.js:188:13)
+    at async withSpinner (file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:38988:16)
+    at async Object.publish5 [as publish] (file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103933:9)
+```
+
+:::
+::::
+
+## Configuration : `_quarto.yaml`
+
++ Define project type (`website`)
++ Set `title`, `site-url` and `description`
+
+:::: {.columns}
+::: {.column width="50%"}
+**Before**
+``` {.yaml}
+project:
+  type: website
+
+website:
+  title: "SheffieldR - Quarto for Slides"
+  site-url: https://ns-rse.github.io/SheffieldR-quarto-for-slides
+  description: "Using Quarto to make slides"
+```
+:::
+::: {.column width="50%"}
+**After**
+``` {.yaml}
+project:
+  type: website
+
+website:
+  title: "SheffieldR - Live Demo!"
+  site-url: https://ns-rse.github.io/live-demo
+  description: "A Live Demo of How to use Quarto RevealJS Template"
+```
+:::
+::::
 
 ::: {.notes}
-Configuration of slides if via the `_quarto.yaml` file which allows you to define metadata such as Author, Email and
-[ORCiD](https://orcid.org). If you haven't got an ORCiD ID yet I'd encourage you to do so.
+Ok, you've now published the slides under your account, but you will want to configure the slides to your own taste or
+preferences.
 
-You also use this file to define other common slide properties such as whether bullet points are to appear
-incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here
-to bring up a chalk board which you can write on.
+This is done via two files the first is `_quarto.yaml` file which allows you to define the project type, which in this
+case is a website and set the `title`, `site-url` and `description`.
 
-You also set the overall theme and define footers in this file.
+However, much of the configuration of how the slides work is done in a second file that contains the content of your
+slides the `index.qmd`.
 :::
 
-## `index.qmd`
+## Slides : `index.qmd`
 
 + _Now_ you can write your slides!
 + `index.qmd` is the main file to work on.
 + Template includes many examples.
 
 ::: {.notes}
-Now you are ready to write your slides!
+The `index.qmd` contains the contents of your slides as well as a YAML header which defines  metadata such as Author,
+Email and [ORCiD](https://orcid.org). If you haven't got an ORCiD ID yet I'd encourage you to do so.
 
-This is done by editing the `index.qmd` file which, as mentioned is written in Quarto Markdown.
+You also use this file to define other common slide properties such as the theme, whether bullet points are to appear
+incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here
+to bring up a chalk board which you can write on. You also define common footers in this file.
 
-I'm not going to go into great detail about the syntax of Markdown because the template you have cloned includes a
-number of example slides with different content and formats such as using columns, embedding pictures and links, ordered
-and unordered lists and so forth. Copy and paste the sections you want to use and change.
+I'm not going to go into great detail about the syntax of Markdown because the template you have clone includes sample
+slides with different content and formats such as using columns, embedding pictures and links, ordered and unordered
+lists and so forth. Copy and paste the sections you want to use and change.
 
-Instead I'll make a few changes and show you how you go through the cycle of previewing your changes locally, staging
-and committing those changes under Git version control and pushing them to GitHub so your slides get updated.
+Instead I'll highlight a few key features and how to work with the slides and get them published on GitHub after having
+change them, otherwise what is the point of using this template!.
 :::
 
 <!-- ## Images -->
@@ -370,48 +743,78 @@ and committing those changes under Git version control and pushing them to GitHu
 
 ## Speaker Notes
 
+:::: {.columns}
+::: {.column width="30%"}
++ Add additional notes for yourself.
+:::
+::: {.column width="70%"}
+:::
+``` {.yaml}
+::: {.notes}
+I have a terrible memory so rely on speaker notes to remind me what I want to say.
+:::
+```
+::::
+
 ::: {.notes}
 A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom
 of every slide.
 :::
 
-## Previewing
-
-::: {.notes}
-Quarto will render your slides locally and start a web-server for you to view the pages _before_ you push them to GitHub.
-:::
-
-## Commit and Push
+## Extensions
 
 :::: {.columns}
-::: {.colum widht="50%"}
+::: {.colum width="50%"}
++ Lots of [extensions](https://quarto.org/docs/extensions/).
++ Add functionality.
++ Install to repository locally _and_ adding to GitHub Action.
 :::
-::: {.colum widht="50%"}
+::: {.colum width="50%"}
+``` {.bash}
+quarto install --no-prompt extension jmbuhr/quarto-qrcode
+quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+quarto install --no-prompt extension ArthurData/quarto-confetti
+```
 :::
 ::::
 
 ::: {.notes}
+The template uses a few extensions and these,and any other extensions you need installing locally and by the GitHub
+Action that renders the slides as both environments need to be identical.
+
+The included extensions need installing locally with the following command and you would use similar for any others that
+you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to
+complete this step.
 :::
 
-## Extensions
+## Extensions - GitHub Action
 
-+ Lots of [extensions](https://quarto.org/docs/extensions/).
-+ Add functionality.
-+ Need installing to repository locally _and_ adding to GitHub Action.
+:::: {.columns}
+::: {.colum width="50%"}
++ GitHub Action uses `.github/workflows/quarto-publish.yaml`
+:::
+::: {.colum width="50%"}
+``` {.yaml}
+      - name: Install Quarto Extensions
+        run: |
+          quarto install --no-prompt extension jmbuhr/quarto-qrcode
+          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+          quarto install --no-prompt extension ArthurData/quarto-confetti
+```
+:::
+::::
 
 ::: {.notes}
+For the GitHub Action the theme and extension that are included in the template are already there, but if you add any
+extensions you should add them to the section that Installs Quarto Extensions
 :::
 
-## Adding a Theme
-
-::: {.notes}
-:::
 
 ## Changing Themes
 
-[Blackboard Theme](https://github.com/schochastics/quarto-blackboard-theme)
+
 :::: {.columns}
-::: {.column widht="50%"}
+::: {.column width="50%"}
 Before...
 
 ``` {.yaml}
@@ -424,7 +827,7 @@ format:
 ```
 
 :::
-::: {.column widht="50%"}
+::: {.column width="50%"}
 After...
 
 ``` {.yaml}
@@ -444,20 +847,226 @@ format:
 ::: {.notes}
 Its straight-forward to change themes by editing the configuration in `_quarto.yaml`.
 
-If the chalkboard feature wasn't enough nostalgia you can use the [Blackboard Theme](https://github.com/schochastics/quarto-blackboard-theme).
+If the chalkboard feature wasn't enough nostalgia you can use the [Blackboard
+Theme](https://github.com/schochastics/quarto-blackboard-theme).
 
 You can then preview the slides locally to see what they look like, if you're happy then you stage and commit the
 changes to Git and push them to GitHub.
 :::
 
-## Linting with `pre-commit`
+## Previewing
+
+:::: {.columns}
+::: {.colum width="30%"}
++ Preview slides locally whenever you want using `quarto preview`.
++ Renders files locally and opens them in a new browser tab.
++ **Use regularly when writing your slides!**
+:::
+::: {.colum width="70%"}
+:::
+``` {.bash}
+Starting python3 kernel...Done
+
+Executing 'index.ipynb'
+
+pandoc
+  to: revealjs
+  from: markdown+emoji
+  output-file: index.html
+  standalone: true
+  title-prefix: SheffieldR - Quarto for Slides
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  incremental: false
+
+metadata
+  link-citations: true
+  width: 1050
+  height: 700
+  margin: 0.1
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: en
+  auto-stretch: false
+  theme:
+    - default
+    - _extensions/grantmcdermott/clean/clean.scss
+  menu:
+    side: left
+  slideNumber: true
+  date-format: long
+  revealjs-plugins:
+    - confetti
+  title: 'SheffieldR : Quarto for Slides'
+  author:
+    - name: Neil Shephard
+      orcid: 0000-0001-8301-6857
+      email: n.shephard@sheffield.ac.uk
+      affiliations: 'RSE, University of Sheffield'
+  footer: '**Slides** : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](https://ns-rse.github.io/SheffieldR-quarto-for-slides)'
+  showSlideNumber: speaker
+  chalkboard: true
+
+Output created: _site/index.html
+
+Watching files for changes
+```
+::::
+
+::: {.notes}
+Quarto will render your slides locally using `quarto preview` command which makes the HTML files from your source
+markdown and start a web-server for you to view the pages _before_ you push them to GitHub.
+
+I'd recommend getting in the habit of previewing your slides regularly before committing and pushing them to GitHub as
+that way you catch any errors before they are published (this just makes the feedback loop shorter).
+:::
+
+## GitHub Actions
+
+:::: {.columns}
+::: {.colum width="50%"}
++ GitHub Action uses `.github/workflows/quarto-publish.yaml` to publish.
++ Install extensions.
++ Install R/Python and any packages.
+:::
+::: {.colum width="50%"}
+``` {.yaml}
+on:
+  push:
+    branches: main
+
+name: Render and Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          # To install LaTeX to build PDF book
+          tinytex: true
+          # uncomment below and fill to pin a version
+          # version: 1.2.335
+
+      - name: Install Quarto Extensions
+        run: |
+          quarto install --no-prompt extension jmbuhr/quarto-qrcode
+          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+          quarto install --no-prompt extension ArthurData/quarto-confetti
+
+      - name: Install Python and Dependencies
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.2.0'
+
+      - name: Install R Dependencies
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
+
+      - name: Publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+
+```
+:::
+::::
+
+::: {.notes}
+Because we want to get all of these changes onto GitHub and we are version controlling our slides you have to stage,
+commit and push your changes to GitHub.
+
+There is a special file which I mentioned earlier with regards to extensions that controls the building and rendering of
+the slides. This is `.github/workflows/quarto-publish.yaml`. There are a few key sections here that are important beyond
+making sure any extensions you are using are installed.
+:::
+
+
+## GitHub Actions - Software Dependencies
+
+:::: {.columns}
+::: {.colum width="50%"}
++ R packages you use locally need installing on GitHub.
++ A `step` in GitHub Action called `Install R`.
++ [`r-lib/actions/setup-r@v2`](https://github.com/r-lib/actions/tree/v2/setup-r) installs R.
++ [`r-lib/actions/setup-renv@v2`](https://github.com/r-lib/actions/tree/v2/setup-renv) installs packages.
++ Use [`renv`](https://rstudio.github.io/renv/articles/renv.html) in your project to define packages.
+:::
+::: {.colum width="50%"}
+``` {.r}
+renv::init()
+```
+:::
+::::
+
+::: {.notes}
+Any packages that you have loaded and used in your work will need installing in the computer that builds the website and
+renders it on GitHub.
+
+This is configured through a `step` called `Install R` which uses two actions from `r-lib`, the
+[`setup-renv`](https://github.com/r-lib/actions/tree/v2/setup-renv) and
+[`renv`](https://github.com/r-lib/actions/tree/v2/setup-r).
+
+On your computer you need to initialise an R environment using `renv::init()`. This will write a **lockfile** in the
+root of your directory called `renv.lock` which defines the libraries and versions that are installed and running in R
+at that point in time. If you're using RStudio it may do this automatically for you, I'm not sure as I don't use RStudio
+myself.
+
+Make sure you stage and commit this file to your git repository so that it gets uploaded to GitHub when you push your
+changes.
+:::
+
+## Publish!
+
+:::: {.columns}
+::: {.colum width="50%"}
++ Stage, commit and push to GitHub!
++ If on `main` branch Action kicks in.
+:::
+::: {.colum width="50%"}
+:::
+::::
+
+::: {.notes}
+
+:::
+
+## **BONUS** - Linting with `pre-commit`
 
 + Includes [pre-commit](https://pre-commit.com) hook to lint Markdown.
 + Ensures consistent style used.
 + Configuration via `.markdownlint-cli2.yaml`.
 + Automatically fixes mistakes where possible.
 + [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit/)^[More posts on [my
-  blog](https://ns-rse.github.io/)]
+  blog](https://ns-rse.github.io/#category=pre-commit)]
 
 ::: {.notes}
 The repository includes configuration to use `pre-commit` hooks to link your Markdown. Linting is the principle of using
@@ -478,14 +1087,14 @@ effective and reproducible research](https://rse.shef.ac.uk/conda-environments-f
 ## Links
 
 :::: {.columns}
-::: {.colum widht="50%"}
+::: {.colum width="50%"}
 
 + [Quarto](https://quarto.org)
 + [Slide Template](https://github.com/ns-rse/quarto-revealjs-template)
 + [GitHub Workflows](https://docs.github.com/en/actions/using-workflows)
 
 :::
-::: {.colum widht="50%"}
+::: {.colum width="50%"}
 + [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit)
 + [Conda environments for
 effective and reproducible research](https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/)
