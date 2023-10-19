@@ -187,6 +187,7 @@ Need a few things to get going...
 + RStudio configured with Git^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)] (or similar
   e.g. [Emacs](https://www.gnu.org/software/emacs/)/[ESS](https://ess.r-project.org)/[Magit](https://magit.vc) or
   [VSCode](https://code.visualstudio.com/)).
++ [Jupyter]() if using Python.
 + Quarto [installed](https://quarto.org/docs/get-started/).
 
 ::: {.notes}
@@ -260,7 +261,7 @@ already have a repository with that name in your GitHub account.
 :::: {.columns}
 ::: {.column width=40%}
 
-+ _Settings > Actions > Workflow Permissions > Read and write_
++ _Settings > Actions > General > Workflow Permissions > Read and write_
 :::
 ::: {.column width=60%}
 ![Changing Workflow Permissions](img/github_quarto_settings_action01.png){height="250"}
