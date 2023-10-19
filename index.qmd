@@ -29,27 +29,29 @@ project:
 
 ---
 
-## Slides
+## Scan This!
 
-{{< qrcode <https://ns-rse.github.io/SheffieldR-quarto-for-slides> >}}
+{{< qrcode https://ns-rse.github.io/SheffieldR-quarto-for-slides width=400 height=400 >}}
 
+View Slides : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](ns-rse.github.io/SheffieldR-quarto-for-slides)
 ::: {.notes}
 :::
 
 ## Overview
 
 + Background
-+ Markdown (very brief)
++ Prerequisites
 + Using a template
-+ Writing slides
+  + Necessary Changes
+  + Initial Publish
++ Markdown (briefly)
++ Modifying slides
 + Publishing
 
 ::: {.notes}
-I thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then cover
-briefly the Markdown language which underpins writing slides before introducing the Template which is available to
-kick-start this process.
-
-Then I'm hoping to show how to write and publish slides using [GitHub Pages](https://pages.github.com/).
+I thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then go
+over a live example of how to use a template to make RevealJS Slides that are hosted on GitHub Pages and edit the
+Markdown.
 
 This _isn't_ an exposition of Markdown and writing Quarto documents, its more focused on working with and publishing
 slides on GitHub.
@@ -70,11 +72,10 @@ generated.^[[Wikipedia - Literate programming](https://en.wikipedia.org/wiki/Lit
 ::::
 
 ::: {.notes}
-Whilst originating in computer science the principle has seen wide spread adoption in data science because it encourages
-reproducible research and facilitates open access to research.
+Quarto and other languages like it such as RMarkdown and [Org-mode](https://orgmode.org) are literate programming
+languages which may be an unfamiliar term so I've borrowed the definition from Wikipedia.
 
-As Knuth found when he adopted the practice it _improved_ the quality of the programmes he wrote and I've found the same
-is true when writing documents myself.
+The idea was originally proposed and developed the computer scientist Donald Knuth, and he literally wrote the book on it.
 :::
 
 ## Literate Programming - Better Programmes
@@ -94,7 +95,7 @@ Whilst originating in computer science the principle has seen wide spread adopti
 reproducible research and facilitates open access to research.
 
 As Knuth found when he adopted the practice it _improved_ the quality of the programmes he wrote and I've found the same
-is true when writing documents myself.
+is true when writing documents myself since adopting the practice over 20 years ago.
 :::
 
 ## Background - Pedigree
@@ -118,11 +119,11 @@ is true when writing documents myself.
 Quarto has a long pedigree and is the latest form of literate programming. Knuths WEB language was followed by a number
 of variants most of which worked with his document preparation system [TeX](https://tug.org/). One of these dialects was
 noweb and noweb underpinned an early integration of Tex/LaTeX and S code (S being the original language specification by
-Becker, Chambers and Wilks which R is an implementation of) by Freidrich Liesch who wrote and maintained the Sweave
-package.
+Becker, Chambers and Wilks which R is an implementation of) this was developed by Freidrich Liesch who wrote and
+maintained the Sweave package.
 
 More recently with the rise in popularity of Markdown, a simple form of markup language and the increase in popularity
-of R saw the development of RMarkdown which many of you may be familiar with.
+of R saw the development of RMarkdown which some of you might be familiar with.
 
 The last year or two have seen the development of and release of Quarto which is the next iteration and allows embedding
 of not just R code within the document but other languages such as [Python](https://python.org),
@@ -133,49 +134,6 @@ Part of the flexibility of Quarto is that its underpinned by [Pandoc](https://pa
 converting documents between different markup languages, including PDF and HTML.
 :::
 
-## Markdown
-
-+ Simple markup language.
-+ Separate content from style.
-+ Write in ASCII plain text.
-+ Simple to version control.
-
-::: {.notes}
-Quarto uses its own dialect of Markdown which is a relatively simple markup language. There are lots of markup languages
-such as HTML, LaTeX, RMarkdown, Restructured Text and many more.
-
-Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate content,
-what you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text
-with markers which indicate what it should look like and then apply themes to say what certain features should look
-like.
-
-Plain text files have the advantage that they are simple to keep under version control which also means they are easy to
-work on collaboratively using tools such as GitHub or GitLab.
-:::
-
-## Basic Markdown
-
-:::: {.columns}
-::: {.column width="50%"}
-
-``` {markdown}
-+ **Bold**
-+ _Italics_
-+ ~~Strikethrough~~
-+ [Search](https://duckduckgo.com)
-```
-
-:::
-::: {.column width="50%"}
-
-+ **Bold**
-+ _Italics_
-+ ~~Strikethrough~~
-+ [Search](https://duckduckgo.com)
-:::
-::::
-
-Quarto [documentation](https://quarto.org/docs/authoring/markdown-basics.html) is excellent.
 
 ## Pre-requisites
 
@@ -187,15 +145,15 @@ Need a few things to get going...
 + RStudio configured with Git^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)] (or similar
   e.g. [Emacs](https://www.gnu.org/software/emacs/)/[ESS](https://ess.r-project.org)/[Magit](https://magit.vc) or
   [VSCode](https://code.visualstudio.com/)).
-+ [Jupyter]() if using Python.
++ [Jupyter](https://jupyter.org/) if using Python.
 + Quarto [installed](https://quarto.org/docs/get-started/).
 
 ::: {.notes}
-Ok, now that I've covered some of the background and the very basics of Markdown I'm going to move on and hopefully
-demonstrate how to use Quarto to write RevealJS slides that are hosted on GitHub and can be viewed in a
-web-browser. This has a number of advantages as you'll never have to worry about getting your slides to meeting
-organisers, you just need a working internet connection which these days is fairly common. As a consequence you can keep
-on working on your slides right up to the last minute (as long as you remember to publish the changes!).
+Ok, now that I've covered some of the background going to move on and hopefully demonstrate how to use Quarto to write
+RevealJS slides that are hosted on GitHub and can be viewed in a web-browser. This has a number of advantages as you'll
+never have to worry about getting your slides to meeting organisers, you just need a working internet connection which
+these days is fairly common. As a consequence you can keep on working on your slides right up to the last minute (as
+long as you remember to publish the changes!).
 
 There are however a few pre-requisities for using this system, firstly you need an account on GitHub, and if you've an
 academic email address I'd recommend signing up with that, you get a few more features that are usually reserved for
@@ -204,9 +162,13 @@ paying customers.
 You also need a development environment which will help make some of the tasks of editing files and working with Git
 easier.
 
-If you're not already set up with one I'd recommend RStudio and there is a really useful site from Jenny Bryan on how to
-setup and configure RStudio and Git which I would recommend. There are of course alternatives, personally I use Emacs
-with Emacs Speaks Statistics and Magit, another popular choice is VSCode, but what you use is somewhat secondary, what I
+If you're not already set up with one I'd recommend RStudio which I'm going using today.
+
+There is a really useful site from Jenny Bryan on how to setup and configure RStudio and Git
+which I would recommend.
+
+There are of course alternatives, personally I use Emacs with Emacs Speaks Statistics and
+Magit, another popular choice is VSCode, but what you use is somewhat secondary, what I
 hope to convey to you is the essence of the workflow and the principles of working in this manner.
 
 Perhaps most importantly a willingness to learn comes in pretty handy, if you're new to this approach it will seem
@@ -223,14 +185,19 @@ into Word documents and then tweaking them or replacing them when data changes. 
 + Instructions on usage.
 + Thanks to [David Wilby](https://www.davidwilby.dev/) and [Alex Coleman](https://github.com/Sparrow0hawk/).
 
-::: {.notes}
-To make it simple to use this workflow there is a Quarto RevealJS template in my GitHub repository that can be used. It
-is based on a workflow my colleague David Wilby originally setup and I used it for slides I prepared for a talk I was
-invited to give in Leeds on using [pre-commit](https://pre-commit.com) and the person who invited me turned the code
-used to produce the slides into a template. I've then borrowed that back and extended it to its current state.
 
-It uses a [GitHub Work](https://docs.github.com/en/actions/using-workflows) and the `README.md` on the front page has
-instructions on usage and formed the basis of this talk.
+[github.com/ns-rse/quarto-revealjs-template](https://github.com/ns-rse/quarto-revealjs-template)
+
+::: {.notes}
+To make it simple to use this workflow there is a Quarto RevealJS template in my GitHub repository that can be used.
+
+It uses a [GitHub Workflow](https://docs.github.com/en/actions/using-workflows) and the `README.md` on the front page has
+instructions on usage and I'm hoping to take you through this process today.
+
+I have to say this isn't all my own work, I used a workflow my colleague David Wilby originally setup in for slides I
+prepared for a talk I was invited to give in Leeds on using [pre-commit](https://pre-commit.com). The person who invited
+me, Alex Coleman, liked the setup and used my slides as a basis for making a Template and I've then borrowed that back
+and extended it to its current state.
 :::
 
 ## Using Quarto RevealJS Template
@@ -238,7 +205,7 @@ instructions on usage and formed the basis of this talk.
 :::: {.columns}
 ::: {.column width=30%}
 
-+ Go to [Quarto RevealJS Template](https://github.com/ns-rse/quarto-revealjs-template)
++ Go to [github.com/ns-rse/quarto-revealjs-template](https://github.com/ns-rse/quarto-revealjs-template)
 + Make a copy to your account using the "_Use This Template_" button.
 + Give repository a unique name.
 :::
@@ -363,33 +330,6 @@ your files.
 quarto install --no-prompt extension jmbuhr/quarto-qrcode
 quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
 quarto install --no-prompt extension ArthurData/quarto-confetti
-[✓] Downloading
-[✓] Unzipping
-    Found 1 extension.
-
-The following changes will be made:
-Qrcode   [Install]   0.0.1 (shortcode)
-
-[✓] Extension installation complete.
-Learn more about this extension at https://www.github.com/jmbuhr/quarto-qrcode
-[✓] Downloading
-[✓] Unzipping
-    Found 1 extension.
-
-The following changes will be made:
-clean   [Install]   1.0.0 (format)
-
-[✓] Extension installation complete.
-Learn more about this extension at https://www.github.com/grantmcdermott/quarto-revealjs-clean
-[✓] Downloading
-[✓] Unzipping
-    Found 1 extension.
-
-The following changes will be made:
-Confetti   [Install]   1.0.0
-
-[✓] Extension installation complete.
-Learn more about this extension at https://www.github.com/ArthurData/quarto-confetti
 ```
 
 ::: {.notes}
@@ -397,25 +337,123 @@ These slides use some extensions for generating QR codes and making Confetti and
 extensions and themes in a bit but before you can proceed you need to install the themes on your computer.
 :::
 
-## Initial Publish
+## Configuration : `_quarto.yaml`
 
-+ `quarto publish`
-+ Creates a special branch `gh-pages` which holds HTML.
-+ Pushes branch to GitHub.
-+ View slides at
-  [https://<username>.github.io/my_first_quarto_slides/](https://ns-rse.github.io/my_first_quarto_slides/)
++ Define project type (`website`)
++ Set `title`, `site-url` and `description`
+
+:::: {.columns}
+::: {.column width="50%"}
+**Before**
+``` {.yaml}
+project:
+  type: website
+
+website:
+  title: "<TITLE>"
+  site-url: https://<YOUR_GITHUB_USERNAME>.github.io/<NAME_OF_REPOSITORY>
+  description: "Using Quarto to make slides"
+```
+:::
+::: {.column width="50%"}
+**After**
+``` {.yaml}
+project:
+  type: website
+
+website:
+  title: "SheffieldR - Live Demo!"
+  site-url: https://ns-rse.github.io/live-demo
+  description: "A Live Demo of How to use Quarto RevealJS Template"
+```
+:::
+::::
 
 ::: {.notes}
-You've used a template and created a repository in your GitHub account and configured it to publish pages, cloned it
-to your local computer and installed the themes and extensions. The next step is to make an initial publish of your
-pages.
+You will want to configure the slides to your own taste or preferences.
 
-This is done using the `quarto publish` command. It creates a special branch in your Git repository called `gh-pages`
-which contains the HTML output. It then pushes the branch to GitHub, configuring it to make the pages on pushes.
-
-You can then view the slides at a dedicated URL. This will depend on your username and the name you gave to your copy of
-the template when you used it, but its a consistent nomenclature for the paths so fairly easy to remember.
+This is done via two files the first is `_quarto.yaml` file which allows you to define the project type, which in this
+case is a website and you can set the `title`, `site-url` and `description`.
 :::
+
+
+
+## `index.qmd` YAML Header
+
+``` {yaml}
+---
+title: "Live Quarto Demo! :tada:"
+author:
+  - name: Neil Shephard
+    orcid: 0000-0001-8301-6857
+    email: n.shephard@sheffield.ac.uk
+    affiliations: RSE, University of Sheffield
+from: markdown+emoji
+format:
+  clean-revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: speaker
+    auto-stretch: false
+    chalkboard: true
+    # embed-resources: true
+    # standalone: true
+revealjs-plugins:
+  - confetti
+footer: "**Slides** : [**ns-rse.github.io/quarto-demo**](https://ns-rse.github.io/quarto-demo)"
+project:
+  preview:
+    port: 7864
+    host: localhost
+    watch-inputs: true
+
+---
+```
+
+::: {.notes}
+The other file that settings reside in is the YAML header of `index.qmd` such as the author details,
+footer, what extensions or plugins are used and so forth. So open up the `index.qmd** and start editing this header.
+
+Put your name, your ORCiD number, email address and affiliation.  The rest you can mostly leave in place but you will
+probably want to change the footer as its useful for the audience to see the URL where they can view the slides at all
+times.
+
+You also use this file to define other common slide properties such as the theme, whether bullet points are to appear
+incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here
+to bring up a chalk board which you can write on. You also define common footers in this file.
+
+**NB** I have two git accounts with different SSH keys so need to tweak my `.git/config` to make sure the correct key is
+used.
+
+```
+[core]
+    sshCommand = ssh -i ~/.ssh/id_ed25519 -F /dev/null
+```
+:::
+
+
+<!-- ## Initial Publish -->
+
+<!-- + `quarto publish` -->
+<!-- + Select `Github Pages` if asked (may depend on Quarto version). -->
+<!-- + Creates a special branch `gh-pages` which holds HTML. -->
+<!-- + Pushes branch to GitHub. -->
+<!-- + View slides at -->
+<!--   [https://<username>.github.io/my_first_quarto_slides/](https://ns-rse.github.io/my_first_quarto_slides/) -->
+
+<!-- ::: {.notes} -->
+<!-- You've used a template and created a repository in your GitHub account and configured it to publish pages, cloned it -->
+<!-- to your local computer and installed the themes and extensions. The next step is to make an initial publish of your -->
+<!-- pages. -->
+
+<!-- This is done using the `quarto publish` command. It creates a special branch in your Git repository called `gh-pages` -->
+<!-- which contains the HTML output. It then pushes the branch to GitHub, configuring it to make the pages on pushes. -->
+
+<!-- You can then view the slides at a dedicated URL. This will depend on your username and the name you gave to your copy of -->
+<!-- the template when you used it, but its a consistent nomenclature for the paths so fairly easy to remember. -->
+<!-- ::: -->
+
 
 ## Initial Publish
 
@@ -667,192 +705,98 @@ Stack trace:
 :::
 ::::
 
-## Configuration : `_quarto.yaml`
-
-+ Define project type (`website`)
-+ Set `title`, `site-url` and `description`
-
-:::: {.columns}
-::: {.column width="50%"}
-**Before**
-``` {.yaml}
-project:
-  type: website
-
-website:
-  title: "SheffieldR - Quarto for Slides"
-  site-url: https://ns-rse.github.io/SheffieldR-quarto-for-slides
-  description: "Using Quarto to make slides"
-```
-:::
-::: {.column width="50%"}
-**After**
-``` {.yaml}
-project:
-  type: website
-
-website:
-  title: "SheffieldR - Live Demo!"
-  site-url: https://ns-rse.github.io/live-demo
-  description: "A Live Demo of How to use Quarto RevealJS Template"
-```
-:::
-::::
-
 ::: {.notes}
-Ok, you've now published the slides under your account, but you will want to configure the slides to your own taste or
-preferences.
+Next we're going to use the `quarto publish` command which makes the initial publishing for us, creating the
+`gh-pages` branch, rendering the pages and pushing them to GitHub. This should complete ok and once its done you can
+navigate to your [repository](https://github.com/slackline/quarto-demo) and look at the `Actions` tab and hopefully see the
+pages being deployed.
 
-This is done via two files the first is `_quarto.yaml` file which allows you to define the project type, which in this
-case is a website and set the `title`, `site-url` and `description`.
+Once this completes you can look at your slides online. The URL will be your GitHub username followed by `.github.io/quarto-live-demo`
 
-However, much of the configuration of how the slides work is done in a second file that contains the content of your
-slides the `index.qmd`.
+For those following along have how many have been able to publish their slides?
 :::
 
 ## Slides : `index.qmd`
 
 + _Now_ you can write your slides!
 + `index.qmd` is the main file to work on.
++ YAML header for further customisation.
 + Template includes many examples.
 
 ::: {.notes}
-The `index.qmd` contains the contents of your slides as well as a YAML header which defines  metadata such as Author,
-Email and [ORCiD](https://orcid.org). If you haven't got an ORCiD ID yet I'd encourage you to do so.
+Ok we've cloned the template and customised it to work under our account, setup a `gh-pages` branch and pushed the
+changes so they are published to a website, _now_ you are finally ready to start writing your slides and customising
+them.
 
-You also use this file to define other common slide properties such as the theme, whether bullet points are to appear
-incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here
-to bring up a chalk board which you can write on. You also define common footers in this file.
+The `index.qmd` contains the contents of your slides as well as a YAML header which we've just been editing.
 
-I'm not going to go into great detail about the syntax of Markdown because the template you have clone includes sample
-slides with different content and formats such as using columns, embedding pictures and links, ordered and unordered
-lists and so forth. Copy and paste the sections you want to use and change.
+The body is written in Quarto Markdown which is pretty similar to general Markdown.
 
 Instead I'll highlight a few key features and how to work with the slides and get them published on GitHub after having
 change them, otherwise what is the point of using this template!.
 :::
 
-<!-- ## Images -->
 
-<!-- ::: {.notes} -->
-<!-- ::: -->
+## Markdown
 
-<!-- ## Links -->
-
-<!-- ::: {.notes} -->
-<!-- ::: -->
-
-## Speaker Notes
-
-:::: {.columns}
-::: {.column width="30%"}
-+ Add additional notes for yourself.
-:::
-::: {.column width="70%"}
-:::
-``` {.yaml}
-::: {.notes}
-I have a terrible memory so rely on speaker notes to remind me what I want to say.
-:::
-```
-::::
++ Simple markup language.
++ Separate content from style.
++ Write in ASCII plain text.
++ Simple to version control.
 
 ::: {.notes}
-A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom
-of every slide.
+Ok we'll now make a very brief digression into Markdown because Quarto uses its own dialect of Markdown which is a
+relatively simple markup language.
+
+Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate the content
+that you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text
+with markers which indicate what it should look like and then apply themes to say what certain features should look
+like.
+
+Plain text files have the advantage that they are simple to keep under version control which also means they are easy to
+work on collaboratively using tools such as [GitHub](https://github.com) or [GitLab](https://gitlab.com).
 :::
 
-## Extensions
-
-:::: {.columns}
-::: {.colum width="50%"}
-+ Lots of [extensions](https://quarto.org/docs/extensions/).
-+ Add functionality.
-+ Install to repository locally _and_ adding to GitHub Action.
-:::
-::: {.colum width="50%"}
-``` {.bash}
-quarto install --no-prompt extension jmbuhr/quarto-qrcode
-quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
-quarto install --no-prompt extension ArthurData/quarto-confetti
-```
-:::
-::::
-
-::: {.notes}
-The template uses a few extensions and these,and any other extensions you need installing locally and by the GitHub
-Action that renders the slides as both environments need to be identical.
-
-The included extensions need installing locally with the following command and you would use similar for any others that
-you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to
-complete this step.
-:::
-
-## Extensions - GitHub Action
-
-:::: {.columns}
-::: {.colum width="50%"}
-+ GitHub Action uses `.github/workflows/quarto-publish.yaml`
-:::
-::: {.colum width="50%"}
-``` {.yaml}
-      - name: Install Quarto Extensions
-        run: |
-          quarto install --no-prompt extension jmbuhr/quarto-qrcode
-          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
-          quarto install --no-prompt extension ArthurData/quarto-confetti
-```
-:::
-::::
-
-::: {.notes}
-For the GitHub Action the theme and extension that are included in the template are already there, but if you add any
-extensions you should add them to the section that Installs Quarto Extensions
-:::
-
-
-## Changing Themes
-
+## Basic Markdown
 
 :::: {.columns}
 ::: {.column width="50%"}
-Before...
 
-``` {.yaml}
-format:
-  clean-revealjs:
-    incremental: false
-    slide-number: true
-    show-slide-number: speaker
-    auto-stretch: false
+``` {markdown}
++ **Bold**
++ _Italics_
++ ~~Strikethrough~~
++ [Search](https://duckduckgo.com)
 ```
 
 :::
 ::: {.column width="50%"}
-After...
 
-``` {.yaml}
-format:
-  # clean-revealjs:
-  revealjs:
-    theme: solarized
-    incremental: false
-    slide-number: true
-    show-slide-number: speaker
-    auto-stretch: false
-```
-
++ **Bold**
++ _Italics_
++ ~~Strikethrough~~
++ [Search](https://duckduckgo.com)
 :::
 ::::
 
+Quarto [documentation](https://quarto.org/docs/authoring/markdown-basics.html) is excellent.
+
+## Images
+
++ Embed Images (any image on the internet or locally)
+
+:::: {.columns}
+::: {.column width="50%"}
+**Before**
+:::
+::: {.column width="50%"}
+**After**
+:::
+::::
+
+
 ::: {.notes}
-Its straight-forward to change themes by editing the configuration in `_quarto.yaml`.
-
-If the chalkboard feature wasn't enough nostalgia you can use the [Blackboard
-Theme](https://github.com/schochastics/quarto-blackboard-theme).
-
-You can then preview the slides locally to see what they look like, if you're happy then you stage and commit the
-changes to Git and push them to GitHub.
+Lets change the first slide to show an image.
 :::
 
 ## Previewing
@@ -861,6 +805,7 @@ changes to Git and push them to GitHub.
 ::: {.colum width="30%"}
 + Preview slides locally whenever you want using `quarto preview`.
 + Renders files locally and opens them in a new browser tab.
++ Configurations options in YAML header of `index.qmd`.
 + **Use regularly when writing your slides!**
 :::
 ::: {.colum width="70%"}
@@ -929,12 +874,177 @@ Watching files for changes
 ::::
 
 ::: {.notes}
-Quarto will render your slides locally using `quarto preview` command which makes the HTML files from your source
-markdown and start a web-server for you to view the pages _before_ you push them to GitHub.
+Now you could stage, commit and push your changes to GitHub and the Workflow Action would kick in and render the pages
+for you but that takes a little bit of time as it requires the GitHub runners to setup the environment for
+you.
+
+Fortunately you can render your slides locally using `quarto preview` command which makes the HTML files from your
+source markdown and start a web-server for you to view the pages _before_ you push them to GitHub.
 
 I'd recommend getting in the habit of previewing your slides regularly before committing and pushing them to GitHub as
 that way you catch any errors before they are published (this just makes the feedback loop shorter).
+
+In a terminal when you are in the root of your cloned repository just type `quarto publish`, this will build the pages
+and launch a web-browser or new tab and opening up the slides for you to view and you can navigate with the left and
+right arrows.
 :::
+
+## R Code
+
+:::: {.columns}
+::: {.column width="50%"}
+**Before**
+```{r}
+#| label: fig-airquality
+#| fig-cap: "Temperature and ozone level."
+#| warning: false
+#| eval: false
+#| echo: true
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) +
+  geom_point() +
+  geom_smooth(method = "loess")
+```
+:::
+::: {.column width="50%"}
+**After**
+```{r}
+#| label: fig-airquality2
+#| fig-cap: "Temperature and ozone level."
+#| warning: false
+#| eval: false
+#| echo: true
+library(ggplot2)
+library(ggdark)
+
+ggplot(airquality, aes(Temp, Ozone)) +
+  geom_point() +
+  geom_smooth(method = "loess") +
+  dark_theme_gray()
+```
+:::
+::::
+
+
+::: {.notes}
+Ok here is where I actually modify some R code, we have a slide defined on line 183 that plots the temperature v's
+Ozone. The default theme is used with a white background.
+
+We're going to change this to use the [ggdark theme](https://github.com/nsgrantham/ggdark) instead. We have to load the
+library and then we can apply the dark theme.
+:::
+
+## Speaker Notes
+
+:::: {.columns}
+::: {.column width="30%"}
++ Add additional notes for yourself.
+:::
+::: {.column width="70%"}
+:::
+``` {.yaml}
+::: {.notes}
+I have a terrible memory so rely on speaker notes to remind me what I want to say.
+:::
+```
+::::
+
+::: {.notes}
+A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom
+of every slide.
+:::
+
+## Extensions
+
+:::: {.columns}
+::: {.colum width="50%"}
++ Lots of [extensions](https://quarto.org/docs/extensions/).
++ Add functionality.
++ Install to repository locally _and_ adding to GitHub Action.
+:::
+::: {.colum width="50%"}
+``` {.bash}
+quarto install --no-prompt extension jmbuhr/quarto-qrcode
+quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+quarto install --no-prompt extension ArthurData/quarto-confetti
+```
+:::
+::::
+
+::: {.notes}
+The template uses a few extensions and these, and any other extensions you need installing locally and by the GitHub
+Action that renders the slides as both environments need to be identical.
+
+The included extensions need installing locally with the following command and you would use similar for any others that
+you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to
+complete this step.
+:::
+
+## Extensions - GitHub Action
+
+:::: {.columns}
+::: {.colum width="50%"}
++ GitHub Action uses `.github/workflows/quarto-publish.yaml`
+:::
+::: {.colum width="50%"}
+``` {.yaml}
+      - name: Install Quarto Extensions
+        run: |
+          quarto install --no-prompt extension jmbuhr/quarto-qrcode
+          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+          quarto install --no-prompt extension ArthurData/quarto-confetti
+```
+:::
+::::
+
+::: {.notes}
+For the GitHub Action the theme and extensions that are used are already included in the template are already there, but
+if you add any extensions you should add them to the section that Installs Quarto Extensions.
+:::
+
+
+## Changing Themes
+
+
+:::: {.columns}
+::: {.column width="50%"}
+Before...
+
+``` {.yaml}
+format:
+  clean-revealjs:
+    incremental: false
+    slide-number: true
+    show-slide-number: speaker
+    auto-stretch: false
+```
+
+:::
+::: {.column width="50%"}
+After...
+
+``` {.yaml}
+format:
+  # clean-revealjs:
+  revealjs:
+    theme: solarized
+    incremental: false
+    slide-number: true
+    show-slide-number: speaker
+    auto-stretch: false
+```
+
+:::
+::::
+
+::: {.notes}
+Its straight-forward to change themes by editing the relevant section in the YAML header of `index.qmd`.
+
+You can then preview the slides locally to see what they look like, if you're happy then you stage and commit the
+changes to Git and push them to GitHub.
+:::
+
 
 ## GitHub Actions
 
@@ -1093,13 +1203,11 @@ effective and reproducible research](https://rse.shef.ac.uk/conda-environments-f
 + [Quarto](https://quarto.org)
 + [Slide Template](https://github.com/ns-rse/quarto-revealjs-template)
 + [GitHub Workflows](https://docs.github.com/en/actions/using-workflows)
-
++ [SheffieldR](https://sheffield.github.io)
 :::
 ::: {.colum width="50%"}
 + [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit)
-+ [Conda environments for
-effective and reproducible research](https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/)
++ [RSE blog](https://rse.shef.ac.uk/blog/)
 + [My blog!](https://ns-rse.github.io/)
-+ [Emacs Docs](https://emacsdocs.org)
 :::
 ::::
