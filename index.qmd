@@ -380,7 +380,7 @@ case is a website and you can set the `title`, `site-url` and `description`.
 
 ## `index.qmd` YAML Header
 
-``` {yaml}
+``` {.yaml}
 ---
 title: "Live Quarto Demo! :tada:"
 author:
@@ -720,7 +720,6 @@ For those following along have how many have been able to publish their slides?
 
 + _Now_ you can write your slides!
 + `index.qmd` is the main file to work on.
-+ YAML header for further customisation.
 + Template includes many examples.
 
 ::: {.notes}
@@ -728,12 +727,9 @@ Ok we've cloned the template and customised it to work under our account, setup 
 changes so they are published to a website, _now_ you are finally ready to start writing your slides and customising
 them.
 
-The `index.qmd` contains the contents of your slides as well as a YAML header which we've just been editing.
+In addition to the YAML header the `index.qmd` contains the contents of your slides.
 
 The body is written in Quarto Markdown which is pretty similar to general Markdown.
-
-Instead I'll highlight a few key features and how to work with the slides and get them published on GitHub after having
-change them, otherwise what is the point of using this template!.
 :::
 
 
@@ -762,7 +758,7 @@ work on collaboratively using tools such as [GitHub](https://github.com) or [Git
 :::: {.columns}
 ::: {.column width="50%"}
 
-``` {markdown}
+``` {.markdown}
 + **Bold**
 + _Italics_
 + ~~Strikethrough~~
@@ -781,19 +777,57 @@ work on collaboratively using tools such as [GitHub](https://github.com) or [Git
 
 Quarto [documentation](https://quarto.org/docs/authoring/markdown-basics.html) is excellent.
 
+## QR Code Extension
+
++ [quarto-qrcode](https://github.com/jmbuhr/quarto-qrcode) extension is really useful.
+
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
+**Before**
+
+``` {.bash}
+{{< qrcode https://ns-rse.github.io/quarto-revealjs-template width=400 height=400 >}}
+
+[ns-rse.github.io/quarto-revealjs-template](https://ns-rse.github.io/quarto-revealjs-template)
+```
+<!-- ::: -->
+<!-- ::: {.column width="50%"} -->
+**After**
+``` {.bash}
+{{< qrcode https://ns-rse.github.io/quarto-live-demo width=400 height=400 >}}
+
+[ns-rse.github.io/quarto-live-demo](https://ns-rse.github.io/quarto-live-demo)
+```
+<!-- ::: -->
+<!-- :::: -->
+
 ## Images
 
 + Embed Images (any image on the internet or locally)
 
-:::: {.columns}
-::: {.column width="50%"}
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
 **Before**
-:::
-::: {.column width="50%"}
+``` {.markdown}
+![Relaxing in the mountains](https://live.staticflickr.com/65535/53144704609_c5e6fa8c77_k.jpg){width=700}
+```
+<!-- ::: -->
+<!-- ::: {.column width="50%"} -->
 **After**
-:::
-::::
+``` {.markdown}
+![SheffieldR Hex](https://raw.githubusercontent.com/SheffieldR/SheffieldR.github.io/main/images/SheffieldR_hex.png){width=400}
+```
+<!-- ::: -->
+<!-- :::: -->
 
+::: {.notes}
+On line 162 there is an image embedded, a picture I snapped whilst relaxing on a hiking holiday in the Julian Alps this
+summer.
+
+We can modify this and change the embeded image by simply changing the target URL for the image.
+
+Here I insert the Sheffield R Hex image instead `https://github.com/SheffieldR/SheffieldR.github.io/blob/main/images/SheffieldR_hex.png?raw=true`
+:::
 
 ::: {.notes}
 Lets change the first slide to show an image.
@@ -805,7 +839,6 @@ Lets change the first slide to show an image.
 ::: {.colum width="30%"}
 + Preview slides locally whenever you want using `quarto preview`.
 + Renders files locally and opens them in a new browser tab.
-+ Configurations options in YAML header of `index.qmd`.
 + **Use regularly when writing your slides!**
 :::
 ::: {.colum width="70%"}
@@ -870,6 +903,7 @@ metadata
 Output created: _site/index.html
 
 Watching files for changes
+Browse at http://localhost:4431/index.html
 ```
 ::::
 
@@ -935,74 +969,51 @@ We're going to change this to use the [ggdark theme](https://github.com/nsgranth
 library and then we can apply the dark theme.
 :::
 
-## Speaker Notes
+## Update `renv`
 
 :::: {.columns}
-::: {.column width="30%"}
+::: {.colum width="50%"}
++ When adding code you probably have the libraries installed locally.
++ **Must** update `renv.lock` to include these so that they are installed when rendering in the Workflow.
+:::
+::: {.colum width="50%"}
+``` {.r}
+## Initialise
+renv::init()
+## Updating
+renv::upgrade()
+renv::update()
+renv::snapshot()
+```
+:::
+::::
+
+::: {.notes}
+When you add code to your slides that use new packages you probably already have them installed locally so the preview
+will render. But this won't be the case in the GitHub environment where you slides will be built on-line.
+
+To get round this you _must_ update the `renv.lock`
+:::
+
+## Speaker Notes
+
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="30%"} -->
 + Add additional notes for yourself.
-:::
-::: {.column width="70%"}
-:::
+<!-- ::: -->
+<!-- ::: {.column width="70%"} -->
 ``` {.yaml}
 ::: {.notes}
 I have a terrible memory so rely on speaker notes to remind me what I want to say.
 :::
 ```
-::::
+<!-- ::: -->
+<!-- :::: -->
 
 ::: {.notes}
 A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom
 of every slide.
 :::
-
-## Extensions
-
-:::: {.columns}
-::: {.colum width="50%"}
-+ Lots of [extensions](https://quarto.org/docs/extensions/).
-+ Add functionality.
-+ Install to repository locally _and_ adding to GitHub Action.
-:::
-::: {.colum width="50%"}
-``` {.bash}
-quarto install --no-prompt extension jmbuhr/quarto-qrcode
-quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
-quarto install --no-prompt extension ArthurData/quarto-confetti
-```
-:::
-::::
-
-::: {.notes}
-The template uses a few extensions and these, and any other extensions you need installing locally and by the GitHub
-Action that renders the slides as both environments need to be identical.
-
-The included extensions need installing locally with the following command and you would use similar for any others that
-you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to
-complete this step.
-:::
-
-## Extensions - GitHub Action
-
-:::: {.columns}
-::: {.colum width="50%"}
-+ GitHub Action uses `.github/workflows/quarto-publish.yaml`
-:::
-::: {.colum width="50%"}
-``` {.yaml}
-      - name: Install Quarto Extensions
-        run: |
-          quarto install --no-prompt extension jmbuhr/quarto-qrcode
-          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
-          quarto install --no-prompt extension ArthurData/quarto-confetti
-```
-:::
-::::
-
-::: {.notes}
-For the GitHub Action the theme and extensions that are used are already included in the template are already there, but
-if you add any extensions you should add them to the section that Installs Quarto Extensions.
-:::
-
 
 ## Changing Themes
 
@@ -1044,6 +1055,34 @@ Its straight-forward to change themes by editing the relevant section in the YAM
 You can then preview the slides locally to see what they look like, if you're happy then you stage and commit the
 changes to Git and push them to GitHub.
 :::
+
+
+## Extensions
+
+:::: {.columns}
+::: {.colum width="50%"}
++ Lots of [extensions](https://quarto.org/docs/extensions/).
++ Add functionality.
++ Install to repository locally _and_ adding to GitHub Action.
+:::
+::: {.colum width="50%"}
+``` {.bash}
+quarto install --no-prompt extension jmbuhr/quarto-qrcode
+quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+quarto install --no-prompt extension ArthurData/quarto-confetti
+```
+:::
+::::
+
+::: {.notes}
+The template uses a few extensions and these, and any other extensions you need installing locally and by the GitHub
+Action that renders the slides as both environments need to be identical.
+
+The included extensions need installing locally with the following command and you would use similar for any others that
+you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to
+complete this step.
+:::
+
 
 
 ## GitHub Actions
@@ -1120,23 +1159,36 @@ the slides. This is `.github/workflows/quarto-publish.yaml`. There are a few key
 making sure any extensions you are using are installed.
 :::
 
-
-## GitHub Actions - Software Dependencies
+## Extensions - GitHub Action
 
 :::: {.columns}
 ::: {.colum width="50%"}
++ GitHub Action uses `.github/workflows/quarto-publish.yaml`
+:::
+::: {.colum width="50%"}
+``` {.yaml}
+      - name: Install Quarto Extensions
+        run: |
+          quarto install --no-prompt extension jmbuhr/quarto-qrcode
+          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
+          quarto install --no-prompt extension ArthurData/quarto-confetti
+```
+:::
+::::
+
+::: {.notes}
+For the GitHub Action the theme and extensions that are used are already included in the template are already there, but
+if you add any extensions you should add them to the section that Installs Quarto Extensions.
+:::
+
+
+## Software Dependencies
+
 + R packages you use locally need installing on GitHub.
 + A `step` in GitHub Action called `Install R`.
 + [`r-lib/actions/setup-r@v2`](https://github.com/r-lib/actions/tree/v2/setup-r) installs R.
 + [`r-lib/actions/setup-renv@v2`](https://github.com/r-lib/actions/tree/v2/setup-renv) installs packages.
 + Use [`renv`](https://rstudio.github.io/renv/articles/renv.html) in your project to define packages.
-:::
-::: {.colum width="50%"}
-``` {.r}
-renv::init()
-```
-:::
-::::
 
 ::: {.notes}
 Any packages that you have loaded and used in your work will need installing in the computer that builds the website and
@@ -1151,8 +1203,8 @@ root of your directory called `renv.lock` which defines the libraries and versio
 at that point in time. If you're using RStudio it may do this automatically for you, I'm not sure as I don't use RStudio
 myself.
 
-Make sure you stage and commit this file to your git repository so that it gets uploaded to GitHub when you push your
-changes.
+Make sure you stage and commit the `renv.lock` file to your git repository so that it gets uploaded to GitHub when you
+push your changes, otherwise the new packages won't be included on the build on GitHub and your slides won't render.
 :::
 
 ## Publish!
@@ -1163,11 +1215,16 @@ changes.
 + If on `main` branch Action kicks in.
 :::
 ::: {.colum width="50%"}
+``` {.bash}
+git commit -u
+git commit -m "Updating slides in real time"
+git push
+```
 :::
 ::::
 
 ::: {.notes}
-
+You can stage, commit and push your changes and the GitHub action should kick in and compile and update your website.
 :::
 
 ## **BONUS** - Linting with `pre-commit`
@@ -1180,7 +1237,7 @@ changes.
   blog](https://ns-rse.github.io/#category=pre-commit)]
 
 ::: {.notes}
-The repository includes configuration to use `pre-commit` hooks to link your Markdown. Linting is the principle of using
+The repository includes configuration to use [`pre-commit`](https://rse.shef.ac.uk/blog/pre-commit) hooks to link your Markdown. Linting is the principle of using
 a consistent style when writing code and markup so that it is easier for others to read and modify and its really
 important when working collaboratively as might be the case when writing slides in this manner. Simple things like
 ensuring a consistent line length is used, links are all correctly formatted and so forth.
