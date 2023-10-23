@@ -413,12 +413,25 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
 </section>
 <section id="scan-this" class="slide level2">
 <h2>Scan This!</h2>
+<p>View Slides : <a href="ns-rse.github.io/SheffieldR-quarto-for-slides"><strong>ns-rse.github.io/SheffieldR-quarto-for-slides</strong></a></p>
 <div id="qrcode" class="qrcode"></div>
 <script type="text/javascript">
-var qrcode = new QRCode("qrcode", {"colorDark":"#000000","text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","width":"400","colorLight":"#ffffff","height":"400"});
+var qrcode = new QRCode("qrcode", {"width":"400","text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","colorDark":"#000000","height":"400","colorLight":"#ffffff"});
 </script>
     
-<p>View Slides : <a href="ns-rse.github.io/SheffieldR-quarto-for-slides"><strong>ns-rse.github.io/SheffieldR-quarto-for-slides</strong></a> ::: {.notes} :::</p>
+<aside class="notes">
+<p>You can go the URL <a href="ns-rse.github.io/SheffieldR-quarto-for-slides"><strong>ns-rse.github.io/SheffieldR-quarto-for-slides</strong></a> to view the slides or if you use a browser on your phone which is synced with your desktop then you can scan this QR code and send it to your laptops browser and it will take you to these slides.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
@@ -547,14 +560,15 @@ var qrcode = new QRCode("qrcode", {"colorDark":"#000000","text":"https://ns-rse.
 <p>Need a few things to get going…</p>
 <div class="fragment">
 <ul>
-<li>GitHub account (ideally academic <code>@&lt;somewhere&gt;.ac.uk</code>).</li>
+<li><a href="https://git-scm.com">Git</a></li>
+<li><a href="https://github.com/">GitHub</a> account (ideally academic <code>@&lt;somewhere&gt;.ac.uk</code>).</li>
 <li>RStudio configured with Git<sup>1</sup> (or similar e.g.&nbsp;<a href="https://www.gnu.org/software/emacs/">Emacs</a>/<a href="https://ess.r-project.org">ESS</a>/<a href="https://magit.vc">Magit</a> or <a href="https://code.visualstudio.com/">VSCode</a>).</li>
 <li><a href="https://jupyter.org/">Jupyter</a> if using Python.</li>
 <li>Quarto <a href="https://quarto.org/docs/get-started/">installed</a>.</li>
 </ul>
 <aside class="notes">
 <p>Ok, now that I’ve covered some of the background going to move on and hopefully demonstrate how to use Quarto to write RevealJS slides that are hosted on GitHub and can be viewed in a web-browser. This has a number of advantages as you’ll never have to worry about getting your slides to meeting organisers, you just need a working internet connection which these days is fairly common. As a consequence you can keep on working on your slides right up to the last minute (as long as you remember to publish the changes!).</p>
-<p>There are however a few pre-requisities for using this system, firstly you need an account on GitHub, and if you’ve an academic email address I’d recommend signing up with that, you get a few more features that are usually reserved for paying customers.</p>
+<p>There are however a few pre-requisities for using this system. You need Git installed and a academic email address I’d recommend signing up with that, you get a few more features that are usually reserved for paying customers.</p>
 <p>You also need a development environment which will help make some of the tasks of editing files and working with Git easier.</p>
 <p>If you’re not already set up with one I’d recommend RStudio which I’m going using today.</p>
 <p>There is a really useful site from Jenny Bryan on how to setup and configure RStudio and Git which I would recommend.</p>
@@ -1439,15 +1453,17 @@ var qrcode = new QRCode("qrcode", {"colorDark":"#000000","text":"https://ns-rse.
 </div><div class="colum" width="50%">
 <div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="do">## Initialise</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="do">## Updating</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>renv<span class="sc">::</span><span class="fu">upgrade</span>()</span>
-<span id="cb16-5"><a href="#cb16-5"></a>renv<span class="sc">::</span><span class="fu">update</span>()</span>
-<span id="cb16-6"><a href="#cb16-6"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="#cb16-3"></a>renv<span class="sc">::</span>settings<span class="sc">$</span><span class="fu">snapshot.type</span>(<span class="st">"all"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="do">## Updating</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>renv<span class="sc">::</span><span class="fu">upgrade</span>()</span>
+<span id="cb16-6"><a href="#cb16-6"></a>renv<span class="sc">::</span><span class="fu">update</span>()</span>
+<span id="cb16-7"><a href="#cb16-7"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <aside class="notes">
 <p>When you add code to your slides that use new packages you probably already have them installed locally so the preview will render. But this won’t be the case in the GitHub environment where you slides will be built on-line.</p>
-<p>To get round this you <em>must</em> update the <code>renv.lock</code></p>
+<p>To get round this you <em>must</em> update the <code>renv.lock</code>. I’ve found it can be useful to change the settings for the <code>snapshot.type</code> to <code>all</code> and it can be a good opportunity to update any installed packages locally as typically the most recent version of packages are installed when the GitHub action runs so its useful to have the same versions installed locally.</p>
+<p>You can do that running <code>renv::Settings$snapshot.type("all")</code> and then <code>renv::upgrade()</code>, <code>renv::update()</code> and finally taking a <code>renv::snapshot()</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1470,10 +1486,10 @@ var qrcode = new QRCode("qrcode", {"colorDark":"#000000","text":"https://ns-rse.
 <div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">.notes</span><span class="kw">}</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="at">I have a terrible memory so rely on speaker notes to remind me what I want to say.</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- ::: -->
-<!-- :::: -->
+<p><img data-src="img/speaker_notes.png" alt="Speaker Notes"> <!-- ::: --> <!-- :::: --></p>
 <aside class="notes">
 <p>A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom of every slide.</p>
+<p>These can then be viewed by pressing <code>s</code> when viewing slides and a new browser window pops up and you can see the current slide and its notes and a preview of the next slide.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
