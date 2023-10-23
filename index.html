@@ -411,39 +411,31 @@ Neil Shephard <a href="https://orcid.org/0000-0001-8301-6857" class="quarto-titl
 </div>
 
 </section>
-<section id="slides" class="slide level2">
-<h2>Slides</h2>
+<section id="scan-this" class="slide level2">
+<h2>Scan This!</h2>
 <div id="qrcode" class="qrcode"></div>
 <script type="text/javascript">
-var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","height":128,"colorDark":"#000000"});
+var qrcode = new QRCode("qrcode", {"height":"400","text":"https://ns-rse.github.io/SheffieldR-quarto-for-slides","colorDark":"#000000","colorLight":"#ffffff","width":"400"});
 </script>
     
-<aside class="notes">
-
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<p>View Slides : <a href="ns-rse.github.io/SheffieldR-quarto-for-slides"><strong>ns-rse.github.io/SheffieldR-quarto-for-slides</strong></a> ::: {.notes} :::</p>
 </section>
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
 <ul>
 <li>Background</li>
-<li>Markdown (very brief)</li>
-<li>Using a template</li>
-<li>Writing slides</li>
+<li>Prerequisites</li>
+<li>Using a template
+<ul>
+<li>Necessary Changes</li>
+<li>Initial Publish</li>
+</ul></li>
+<li>Markdown (briefly)</li>
+<li>Modifying slides</li>
 <li>Publishing</li>
 </ul>
 <aside class="notes">
-<p>I thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then cover briefly the Markdown language which underpins writing slides before introducing the Template which is available to kick-start this process.</p>
-<p>Then I’m hoping to show how to write and publish slides using <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>I thought it might be useful to cover a bit of history with regards to the philosophy that underpins Quarto, then go over a live example of how to use a template to make RevealJS Slides that are hosted on GitHub Pages and edit the Markdown.</p>
 <p>This <em>isn’t</em> an exposition of Markdown and writing Quarto documents, its more focused on working with and publishing slides on GitHub.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -474,8 +466,8 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 </div>
 </div>
 <aside class="notes">
-<p>Whilst originating in computer science the principle has seen wide spread adoption in data science because it encourages reproducible research and facilitates open access to research.</p>
-<p>As Knuth found when he adopted the practice it <em>improved</em> the quality of the programmes he wrote and I’ve found the same is true when writing documents myself.</p>
+<p>Quarto and other languages like it such as RMarkdown and <a href="https://orgmode.org">Org-mode</a> are literate programming languages which may be an unfamiliar term so I’ve borrowed the definition from Wikipedia.</p>
+<p>The idea was originally proposed and developed the computer scientist Donald Knuth, and he literally wrote the book on it.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -506,7 +498,7 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 </div>
 <aside class="notes">
 <p>Whilst originating in computer science the principle has seen wide spread adoption in data science because it encourages reproducible research and facilitates open access to research.</p>
-<p>As Knuth found when he adopted the practice it <em>improved</em> the quality of the programmes he wrote and I’ve found the same is true when writing documents myself.</p>
+<p>As Knuth found when he adopted the practice it <em>improved</em> the quality of the programmes he wrote and I’ve found the same is true when writing documents myself since adopting the practice over 20 years ago.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -533,8 +525,8 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li><span class="emoji" data-emoji="tada">🎉</span> <a href="https://quarto.org">Quarto</a> <span class="emoji" data-emoji="tada">🎉</span></li>
 </ul>
 <aside class="notes">
-<p>Quarto has a long pedigree and is the latest form of literate programming. Knuths WEB language was followed by a number of variants most of which worked with his document preparation system <a href="https://tug.org/">TeX</a>. One of these dialects was noweb and noweb underpinned an early integration of Tex/LaTeX and S code (S being the original language specification by Becker, Chambers and Wilks which R is an implementation of) by Freidrich Liesch who wrote and maintained the Sweave package.</p>
-<p>More recently with the rise in popularity of Markdown, a simple form of markup language and the increase in popularity of R saw the development of RMarkdown which many of you may be familiar with.</p>
+<p>Quarto has a long pedigree and is the latest form of literate programming. Knuths WEB language was followed by a number of variants most of which worked with his document preparation system <a href="https://tug.org/">TeX</a>. One of these dialects was noweb and noweb underpinned an early integration of Tex/LaTeX and S code (S being the original language specification by Becker, Chambers and Wilks which R is an implementation of) this was developed by Freidrich Liesch who wrote and maintained the Sweave package.</p>
+<p>More recently with the rise in popularity of Markdown, a simple form of markup language and the increase in popularity of R saw the development of RMarkdown which some of you might be familiar with.</p>
 <p>The last year or two have seen the development of and release of Quarto which is the next iteration and allows embedding of not just R code within the document but other languages such as <a href="https://python.org">Python</a>, <a href="https://julialang.org">Julia</a> and <a href="https://observablehq.com/">Observable</a> a data analysis and visualisation language in JavaScript.</p>
 <p>Part of the flexibility of Quarto is that its underpinned by <a href="https://pandoc.org/">Pandoc</a> which is a powerful tool for converting documents between different markup languages, including PDF and HTML.</p>
 <style type="text/css">
@@ -550,49 +542,6 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
       }</style></aside>
 </div>
 </section>
-<section id="markdown" class="slide level2">
-<h2>Markdown</h2>
-<ul>
-<li>Simple markup language.</li>
-<li>Separate content from style.</li>
-<li>Write in ASCII plain text.</li>
-<li>Simple to version control.</li>
-</ul>
-<aside class="notes">
-<p>Quarto uses its own dialect of Markdown which is a relatively simple markup language. There are lots of markup languages such as HTML, LaTeX, RMarkdown, Restructured Text and many more.</p>
-<p>Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate content, what you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text with markers which indicate what it should look like and then apply themes to say what certain features should look like.</p>
-<p>Plain text files have the advantage that they are simple to keep under version control which also means they are easy to work on collaboratively using tools such as GitHub or GitLab.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="basic-markdown" class="slide level2">
-<h2>Basic Markdown</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {markdown} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>+ **Bold**</span>
-<span id="cb1-2"><a href="#cb1-2"></a>+ _Italics_</span>
-<span id="cb1-3"><a href="#cb1-3"></a>+ ~~Strikethrough~~</span>
-<span id="cb1-4"><a href="#cb1-4"></a>+ [Search](https://duckduckgo.com)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><strong>Bold</strong></li>
-<li><em>Italics</em></li>
-<li><del>Strikethrough</del></li>
-<li><a href="https://duckduckgo.com">Search</a></li>
-</ul>
-</div>
-</div>
-<p>Quarto <a href="https://quarto.org/docs/authoring/markdown-basics.html">documentation</a> is excellent.</p>
-</section>
 <section id="pre-requisites" class="slide level2">
 <h2>Pre-requisites</h2>
 <p>Need a few things to get going…</p>
@@ -600,14 +549,16 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <ul>
 <li>GitHub account (ideally academic <code>@&lt;somewhere&gt;.ac.uk</code>).</li>
 <li>RStudio configured with Git<sup>1</sup> (or similar e.g.&nbsp;<a href="https://www.gnu.org/software/emacs/">Emacs</a>/<a href="https://ess.r-project.org">ESS</a>/<a href="https://magit.vc">Magit</a> or <a href="https://code.visualstudio.com/">VSCode</a>).</li>
-<li><a href="">Jupyter</a> if using Python.</li>
+<li><a href="https://jupyter.org/">Jupyter</a> if using Python.</li>
 <li>Quarto <a href="https://quarto.org/docs/get-started/">installed</a>.</li>
 </ul>
 <aside class="notes">
-<p>Ok, now that I’ve covered some of the background and the very basics of Markdown I’m going to move on and hopefully demonstrate how to use Quarto to write RevealJS slides that are hosted on GitHub and can be viewed in a web-browser. This has a number of advantages as you’ll never have to worry about getting your slides to meeting organisers, you just need a working internet connection which these days is fairly common. As a consequence you can keep on working on your slides right up to the last minute (as long as you remember to publish the changes!).</p>
+<p>Ok, now that I’ve covered some of the background going to move on and hopefully demonstrate how to use Quarto to write RevealJS slides that are hosted on GitHub and can be viewed in a web-browser. This has a number of advantages as you’ll never have to worry about getting your slides to meeting organisers, you just need a working internet connection which these days is fairly common. As a consequence you can keep on working on your slides right up to the last minute (as long as you remember to publish the changes!).</p>
 <p>There are however a few pre-requisities for using this system, firstly you need an account on GitHub, and if you’ve an academic email address I’d recommend signing up with that, you get a few more features that are usually reserved for paying customers.</p>
 <p>You also need a development environment which will help make some of the tasks of editing files and working with Git easier.</p>
-<p>If you’re not already set up with one I’d recommend RStudio and there is a really useful site from Jenny Bryan on how to setup and configure RStudio and Git which I would recommend. There are of course alternatives, personally I use Emacs with Emacs Speaks Statistics and Magit, another popular choice is VSCode, but what you use is somewhat secondary, what I hope to convey to you is the essence of the workflow and the principles of working in this manner.</p>
+<p>If you’re not already set up with one I’d recommend RStudio which I’m going using today.</p>
+<p>There is a really useful site from Jenny Bryan on how to setup and configure RStudio and Git which I would recommend.</p>
+<p>There are of course alternatives, personally I use Emacs with Emacs Speaks Statistics and Magit, another popular choice is VSCode, but what you use is somewhat secondary, what I hope to convey to you is the essence of the workflow and the principles of working in this manner.</p>
 <p>Perhaps most importantly a willingness to learn comes in pretty handy, if you’re new to this approach it will seem frustrating to start with, but persevere, it gets easier and is a lot faster than copying and pasting figures and tables into Word documents and then tweaking them or replacing them when data changes. As Donald Knuth said, its fun!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -631,9 +582,11 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li>Instructions on usage.</li>
 <li>Thanks to <a href="https://www.davidwilby.dev/">David Wilby</a> and <a href="https://github.com/Sparrow0hawk/">Alex Coleman</a>.</li>
 </ul>
+<p><a href="https://github.com/ns-rse/quarto-revealjs-template">github.com/ns-rse/quarto-revealjs-template</a></p>
 <aside class="notes">
-<p>To make it simple to use this workflow there is a Quarto RevealJS template in my GitHub repository that can be used. It is based on a workflow my colleague David Wilby originally setup and I used it for slides I prepared for a talk I was invited to give in Leeds on using <a href="https://pre-commit.com">pre-commit</a> and the person who invited me turned the code used to produce the slides into a template. I’ve then borrowed that back and extended it to its current state.</p>
-<p>It uses a <a href="https://docs.github.com/en/actions/using-workflows">GitHub Work</a> and the <code>README.md</code> on the front page has instructions on usage and formed the basis of this talk.</p>
+<p>To make it simple to use this workflow there is a Quarto RevealJS template in my GitHub repository that can be used.</p>
+<p>It uses a <a href="https://docs.github.com/en/actions/using-workflows">GitHub Workflow</a> and the <code>README.md</code> on the front page has instructions on usage and I’m hoping to take you through this process today.</p>
+<p>I have to say this isn’t all my own work, I used a workflow my colleague David Wilby originally setup in for slides I prepared for a talk I was invited to give in Leeds on using <a href="https://pre-commit.com">pre-commit</a>. The person who invited me, Alex Coleman, liked the setup and used my slides as a basis for making a Template and I’ve then borrowed that back and extended it to its current state.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -651,7 +604,7 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <div class="columns">
 <div class="column" style="width:30%;">
 <ul>
-<li>Go to <a href="https://github.com/ns-rse/quarto-revealjs-template">Quarto RevealJS Template</a></li>
+<li>Go to <a href="https://github.com/ns-rse/quarto-revealjs-template">github.com/ns-rse/quarto-revealjs-template</a></li>
 <li>Make a copy to your account using the “<em>Use This Template</em>” button.</li>
 <li>Give repository a unique name.</li>
 </ul>
@@ -833,36 +786,9 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <ul>
 <li>Themes and extensions need installing</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension jmbuhr/quarto-qrcode</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension grantmcdermott/quarto-revealjs-clean</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension ArthurData/quarto-confetti</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">[✓]</span> Downloading</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">[✓]</span> Unzipping</span>
-<span id="cb2-6"><a href="#cb2-6"></a>    <span class="ex">Found</span> 1 extension.</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">The</span> following changes will be made:</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="ex">Qrcode</span>   <span class="pp">[</span><span class="ss">Install</span><span class="pp">]</span>   0.0.1 <span class="er">(</span><span class="ex">shortcode</span><span class="kw">)</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">[✓]</span> Extension installation complete.</span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="ex">Learn</span> more about this extension at https://www.github.com/jmbuhr/quarto-qrcode</span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="ex">[✓]</span> Downloading</span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="ex">[✓]</span> Unzipping</span>
-<span id="cb2-15"><a href="#cb2-15"></a>    <span class="ex">Found</span> 1 extension.</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="ex">The</span> following changes will be made:</span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="ex">clean</span>   <span class="pp">[</span><span class="ss">Install</span><span class="pp">]</span>   1.0.0 <span class="er">(</span><span class="ex">format</span><span class="kw">)</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="ex">[✓]</span> Extension installation complete.</span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="ex">Learn</span> more about this extension at https://www.github.com/grantmcdermott/quarto-revealjs-clean</span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="ex">[✓]</span> Downloading</span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="ex">[✓]</span> Unzipping</span>
-<span id="cb2-24"><a href="#cb2-24"></a>    <span class="ex">Found</span> 1 extension.</span>
-<span id="cb2-25"><a href="#cb2-25"></a></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="ex">The</span> following changes will be made:</span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="ex">Confetti</span>   <span class="pp">[</span><span class="ss">Install</span><span class="pp">]</span>   1.0.0</span>
-<span id="cb2-28"><a href="#cb2-28"></a></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="ex">[✓]</span> Extension installation complete.</span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="ex">Learn</span> more about this extension at https://www.github.com/ArthurData/quarto-confetti</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension jmbuhr/quarto-qrcode</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension grantmcdermott/quarto-revealjs-clean</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension ArthurData/quarto-confetti</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>These slides use some extensions for generating QR codes and making Confetti and a custom theme. I’ll explain more about extensions and themes in a bit but before you can proceed you need to install the themes on your computer.</p>
 <style type="text/css">
@@ -877,18 +803,36 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
           display:block!important;
       }</style></aside>
 </section>
-<section id="initial-publish" class="slide level2">
-<h2>Initial Publish</h2>
+<section id="configuration-_quarto.yaml" class="slide level2">
+<h2>Configuration : <code>_quarto.yaml</code></h2>
 <ul>
-<li><code>quarto publish</code></li>
-<li>Creates a special branch <code>gh-pages</code> which holds HTML.</li>
-<li>Pushes branch to GitHub.</li>
-<li>View slides at <a href="https://ns-rse.github.io/my_first_quarto_slides/">https://<username>.github.io/my_first_quarto_slides/</username></a></li>
+<li>Define project type (<code>website</code>)</li>
+<li>Set <code>title</code>, <code>site-url</code> and <code>description</code></li>
 </ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Before</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;TITLE&gt;"</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> https://&lt;YOUR_GITHUB_USERNAME&gt;.github.io/&lt;NAME_OF_REPOSITORY&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Using Quarto to make slides"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>After</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"SheffieldR - Live Demo!"</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> https://ns-rse.github.io/live-demo</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"A Live Demo of How to use Quarto RevealJS Template"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <aside class="notes">
-<p>You’ve used a template and created a repository in your GitHub account and configured it to publish pages, cloned it to your local computer and installed the themes and extensions. The next step is to make an initial publish of your pages.</p>
-<p>This is done using the <code>quarto publish</code> command. It creates a special branch in your Git repository called <code>gh-pages</code> which contains the HTML output. It then pushes the branch to GitHub, configuring it to make the pages on pushes.</p>
-<p>You can then view the slides at a dedicated URL. This will depend on your username and the name you gave to your copy of the template when you used it, but its a consistent nomenclature for the paths so fairly easy to remember.</p>
+<p>You will want to configure the slides to your own taste or preferences.</p>
+<p>This is done via two files the first is <code>_quarto.yaml</code> file which allows you to define the project type, which in this case is a website and you can set the <code>title</code>, <code>site-url</code> and <code>description</code>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -901,281 +845,318 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
           display:block!important;
       }</style></aside>
 </section>
-<section id="initial-publish-1" class="slide level2">
+<section id="index.qmd-yaml-header" class="slide level2">
+<h2><code>index.qmd</code> YAML Header</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Live Quarto Demo! :tada:"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Neil Shephard</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="at">    </span><span class="fu">orcid</span><span class="kw">:</span><span class="at"> 0000-0001-8301-6857</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="at">    </span><span class="fu">email</span><span class="kw">:</span><span class="at"> n.shephard@sheffield.ac.uk</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="at">    </span><span class="fu">affiliations</span><span class="kw">:</span><span class="at"> RSE, University of Sheffield</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">from</span><span class="kw">:</span><span class="at"> markdown+emoji</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="at">  </span><span class="fu">clean-revealjs</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="at">    </span><span class="fu">scrollable</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="at">    </span><span class="fu">show-slide-number</span><span class="kw">:</span><span class="at"> speaker</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="at">    </span><span class="fu">auto-stretch</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="at">    </span><span class="fu">chalkboard</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co">    # embed-resources: true</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co">    # standalone: true</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="at">  </span><span class="kw">-</span><span class="at"> confetti</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"**Slides** : [**ns-rse.github.io/quarto-demo**](https://ns-rse.github.io/quarto-demo)"</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="at">  </span><span class="fu">preview</span><span class="kw">:</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="at">    </span><span class="fu">port</span><span class="kw">:</span><span class="at"> </span><span class="dv">7864</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="at">    </span><span class="fu">host</span><span class="kw">:</span><span class="at"> localhost</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="at">    </span><span class="fu">watch-inputs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>The other file that settings reside in is the YAML header of <code>index.qmd</code> such as the author details, footer, what extensions or plugins are used and so forth. So open up the `index.qmd** and start editing this header.</p>
+<p>Put your name, your ORCiD number, email address and affiliation. The rest you can mostly leave in place but you will probably want to change the footer as its useful for the audience to see the URL where they can view the slides at all times.</p>
+<p>You also use this file to define other common slide properties such as the theme, whether bullet points are to appear incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here to bring up a chalk board which you can write on. You also define common footers in this file.</p>
+<p><strong>NB</strong> I have two git accounts with different SSH keys so need to tweak my <code>.git/config</code> to make sure the correct key is used.</p>
+<pre><code>[core]
+    sshCommand = ssh -i ~/.ssh/id_ed25519 -F /dev/null</code></pre>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- ## Initial Publish -->
+<!-- + `quarto publish` -->
+<!-- + Select `Github Pages` if asked (may depend on Quarto version). -->
+<!-- + Creates a special branch `gh-pages` which holds HTML. -->
+<!-- + Pushes branch to GitHub. -->
+<!-- + View slides at -->
+<!--   [https://<username>.github.io/my_first_quarto_slides/](https://ns-rse.github.io/my_first_quarto_slides/) -->
+<!-- ::: {.notes} -->
+<!-- You've used a template and created a repository in your GitHub account and configured it to publish pages, cloned it -->
+<!-- to your local computer and installed the themes and extensions. The next step is to make an initial publish of your -->
+<!-- pages. -->
+<!-- This is done using the `quarto publish` command. It creates a special branch in your Git repository called `gh-pages` -->
+<!-- which contains the HTML output. It then pushes the branch to GitHub, configuring it to make the pages on pushes. -->
+<!-- You can then view the slides at a dedicated URL. This will depend on your username and the name you gave to your copy of -->
+<!-- the template when you used it, but its a consistent nomenclature for the paths so fairly easy to remember. -->
+<!-- ::: -->
+</section>
+<section id="initial-publish" class="slide level2">
 <h2>Initial Publish</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">❱</span> quarto publish</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">?</span> Provider:</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="ex">Quarto</span> Pub</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="ex">❯</span> GitHub Pages</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="ex">Posit</span> Connect</span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="ex">Netlify</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>  <span class="ex">Confluence</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">❱</span> quarto publish</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">?</span> Provider:</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="ex">Quarto</span> Pub</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="ex">❯</span> GitHub Pages</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="ex">Posit</span> Connect</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="ex">Netlify</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="ex">Confluence</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:70%;">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">❱</span> quarto publish</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">?</span> Provider: › GitHub Pages</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="ex">?</span> Publish site to https://<span class="op">&lt;</span>YOUR_GITHUB_USERNAME<span class="op">&gt;</span>.github.io/<span class="op">&lt;</span>NAME_OF_REPOSITORY using gh-pages<span class="pp">?</span> <span class="er">(</span><span class="ex">Y/n</span><span class="kw">)</span> <span class="ex">›</span> Yes</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="ex">Switched</span> to a new branch <span class="st">'gh-pages'</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="ex">[gh-pages</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">20ba65a]</span> Initializing gh-pages branch</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="ex">remote:</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="ex">remote:</span> Create a pull request for <span class="st">'gh-pages'</span> on GitHub by visiting:</span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="ex">remote:</span>      https://github.com/slackline/quarto-demo/pull/new/gh-pages</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="ex">remote:</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="ex">To</span> github.com:slackline/quarto-demo.git</span>
-<span id="cb4-11"><a href="#cb4-11"></a> <span class="ex">*</span> [new branch]      HEAD <span class="at">-</span><span class="op">&gt;</span> gh-pages</span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="ex">Switched</span> to branch <span class="st">'main'</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="ex">From</span> github.com:slackline/quarto-demo</span>
-<span id="cb4-15"><a href="#cb4-15"></a> <span class="ex">*</span> branch            gh-pages   <span class="at">-</span><span class="op">&gt;</span> FETCH_HEAD</span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="ex">Rendering</span> for publish:</span>
-<span id="cb4-17"><a href="#cb4-17"></a></span>
-<span id="cb4-18"><a href="#cb4-18"></a></span>
-<span id="cb4-19"><a href="#cb4-19"></a></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="ex">processing</span> file: index.qmd</span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="ex">1/5</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="ex">2/5</span> <span class="pp">[</span><span class="ss">fig</span><span class="pp">-</span><span class="ss">airquality</span><span class="pp">]</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="ex">3/5</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="ex">4/5</span> <span class="pp">[</span><span class="ss">fig</span><span class="pp">-</span><span class="ss">airquality2</span><span class="pp">]</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="ex">5/5</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="ex">output</span> file: index.knit.md</span>
-<span id="cb4-27"><a href="#cb4-27"></a></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="ex">pandoc</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a>  <span class="ex">to:</span> revealjs</span>
-<span id="cb4-30"><a href="#cb4-30"></a>  <span class="ex">from:</span> markdown+emoji</span>
-<span id="cb4-31"><a href="#cb4-31"></a>  <span class="ex">output-file:</span> index.html</span>
-<span id="cb4-32"><a href="#cb4-32"></a>  <span class="ex">standalone:</span> true</span>
-<span id="cb4-33"><a href="#cb4-33"></a>  <span class="ex">title-prefix:</span> <span class="op">&lt;</span>TITLE<span class="op">&gt;</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a>  <span class="ex">wrap:</span> none</span>
-<span id="cb4-35"><a href="#cb4-35"></a>  <span class="ex">default-image-extension:</span> png</span>
-<span id="cb4-36"><a href="#cb4-36"></a>  <span class="ex">html-math-method:</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a>    <span class="ex">method:</span> mathjax</span>
-<span id="cb4-38"><a href="#cb4-38"></a>    <span class="ex">url:</span> <span class="op">&gt;</span>-</span>
-<span id="cb4-39"><a href="#cb4-39"></a>      <span class="ex">https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full</span></span>
-<span id="cb4-40"><a href="#cb4-40"></a>  <span class="ex">slide-level:</span> 2</span>
-<span id="cb4-41"><a href="#cb4-41"></a>  <span class="ex">incremental:</span> false</span>
-<span id="cb4-42"><a href="#cb4-42"></a></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="ex">metadata</span></span>
-<span id="cb4-44"><a href="#cb4-44"></a>  <span class="ex">link-citations:</span> true</span>
-<span id="cb4-45"><a href="#cb4-45"></a>  <span class="ex">width:</span> 1050</span>
-<span id="cb4-46"><a href="#cb4-46"></a>  <span class="ex">height:</span> 700</span>
-<span id="cb4-47"><a href="#cb4-47"></a>  <span class="ex">margin:</span> 0.1</span>
-<span id="cb4-48"><a href="#cb4-48"></a>  <span class="ex">center:</span> false</span>
-<span id="cb4-49"><a href="#cb4-49"></a>  <span class="ex">navigationMode:</span> linear</span>
-<span id="cb4-50"><a href="#cb4-50"></a>  <span class="ex">controlsLayout:</span> edges</span>
-<span id="cb4-51"><a href="#cb4-51"></a>  <span class="ex">controlsTutorial:</span> false</span>
-<span id="cb4-52"><a href="#cb4-52"></a>  <span class="ex">hash:</span> true</span>
-<span id="cb4-53"><a href="#cb4-53"></a>  <span class="ex">history:</span> true</span>
-<span id="cb4-54"><a href="#cb4-54"></a>  <span class="ex">hashOneBasedIndex:</span> false</span>
-<span id="cb4-55"><a href="#cb4-55"></a>  <span class="ex">fragmentInURL:</span> false</span>
-<span id="cb4-56"><a href="#cb4-56"></a>  <span class="ex">transition:</span> none</span>
-<span id="cb4-57"><a href="#cb4-57"></a>  <span class="ex">backgroundTransition:</span> none</span>
-<span id="cb4-58"><a href="#cb4-58"></a>  <span class="ex">pdfSeparateFragments:</span> false</span>
-<span id="cb4-59"><a href="#cb4-59"></a>  <span class="ex">lang:</span> en</span>
-<span id="cb4-60"><a href="#cb4-60"></a>  <span class="ex">auto-stretch:</span> false</span>
-<span id="cb4-61"><a href="#cb4-61"></a>  <span class="ex">theme:</span></span>
-<span id="cb4-62"><a href="#cb4-62"></a>    <span class="ex">-</span> default</span>
-<span id="cb4-63"><a href="#cb4-63"></a>    <span class="ex">-</span> _extensions/grantmcdermott/clean/clean.scss</span>
-<span id="cb4-64"><a href="#cb4-64"></a>  <span class="ex">menu:</span></span>
-<span id="cb4-65"><a href="#cb4-65"></a>    <span class="ex">side:</span> left</span>
-<span id="cb4-66"><a href="#cb4-66"></a>  <span class="ex">slideNumber:</span> true</span>
-<span id="cb4-67"><a href="#cb4-67"></a>  <span class="ex">date-format:</span> long</span>
-<span id="cb4-68"><a href="#cb4-68"></a>  <span class="ex">revealjs-plugins:</span></span>
-<span id="cb4-69"><a href="#cb4-69"></a>    <span class="ex">-</span> confetti</span>
-<span id="cb4-70"><a href="#cb4-70"></a>  <span class="ex">title:</span> Template Revealjs Quarto site</span>
-<span id="cb4-71"><a href="#cb4-71"></a>  <span class="ex">author:</span></span>
-<span id="cb4-72"><a href="#cb4-72"></a>    <span class="ex">-</span> name: Your Name</span>
-<span id="cb4-73"><a href="#cb4-73"></a>      <span class="ex">orcid:</span> 0000-0000-0000-0000</span>
-<span id="cb4-74"><a href="#cb4-74"></a>      <span class="ex">email:</span> email@address.work</span>
-<span id="cb4-75"><a href="#cb4-75"></a>      <span class="ex">affiliations:</span> Employers Name</span>
-<span id="cb4-76"><a href="#cb4-76"></a>  <span class="ex">footer:</span> <span class="st">'**Slides** : [**github-username.github.io/&lt;repository&gt;**](https://github-username.github.io/&lt;repository&gt;)'</span></span>
-<span id="cb4-77"><a href="#cb4-77"></a>  <span class="ex">showSlideNumber:</span> speaker</span>
-<span id="cb4-78"><a href="#cb4-78"></a>  <span class="ex">chalkboard:</span> true</span>
-<span id="cb4-79"><a href="#cb4-79"></a></span>
-<span id="cb4-80"><a href="#cb4-80"></a><span class="ex">Preparing</span> worktree <span class="er">(</span><span class="ex">resetting</span> branch <span class="st">'gh-pages'</span><span class="kw">;</span> <span class="ex">was</span> at 20ba65a<span class="kw">)</span></span>
-<span id="cb4-81"><a href="#cb4-81"></a><span class="ex">branch</span> <span class="st">'gh-pages'</span> set up to track <span class="st">'origin/gh-pages'</span>.</span>
-<span id="cb4-82"><a href="#cb4-82"></a><span class="ex">HEAD</span> is now at 20ba65a Initializing gh-pages branch</span>
-<span id="cb4-83"><a href="#cb4-83"></a><span class="ex">fatal:</span> pathspec <span class="st">'.'</span> did not match any files</span>
-<span id="cb4-84"><a href="#cb4-84"></a><span class="ex">[gh-pages</span> 46df001] Built site for gh-pages</span>
-<span id="cb4-85"><a href="#cb4-85"></a> <span class="ex">125</span> files changed, 15421 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
-<span id="cb4-86"><a href="#cb4-86"></a> <span class="ex">create</span> mode 100644 .nojekyll</span>
-<span id="cb4-87"><a href="#cb4-87"></a> <span class="ex">create</span> mode 100644 img/OSC_Sheffield.png</span>
-<span id="cb4-88"><a href="#cb4-88"></a> <span class="ex">create</span> mode 100644 index.html</span>
-<span id="cb4-89"><a href="#cb4-89"></a> <span class="ex">create</span> mode 100644 index_files/figure-revealjs/fig-airquality2-1.png</span>
-<span id="cb4-90"><a href="#cb4-90"></a> <span class="ex">create</span> mode 100644 robots.txt</span>
-<span id="cb4-91"><a href="#cb4-91"></a> <span class="ex">create</span> mode 100644 search.json</span>
-<span id="cb4-92"><a href="#cb4-92"></a> <span class="ex">create</span> mode 100644 site_libs/clipboard/clipboard.min.js</span>
-<span id="cb4-93"><a href="#cb4-93"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js</span>
-<span id="cb4-94"><a href="#cb4-94"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/light-border.css</span>
-<span id="cb4-95"><a href="#cb4-95"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/popper.min.js</span>
-<span id="cb4-96"><a href="#cb4-96"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/quarto-html.min.css</span>
-<span id="cb4-97"><a href="#cb4-97"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/quarto-syntax-highlighting.css</span>
-<span id="cb4-98"><a href="#cb4-98"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/tabby.min.js</span>
-<span id="cb4-99"><a href="#cb4-99"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/tippy.css</span>
-<span id="cb4-100"><a href="#cb4-100"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/tippy.umd.min.js</span>
-<span id="cb4-101"><a href="#cb4-101"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reset.css</span>
-<span id="cb4-102"><a href="#cb4-102"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.css</span>
-<span id="cb4-103"><a href="#cb4-103"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.esm.js</span>
-<span id="cb4-104"><a href="#cb4-104"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.esm.js.map</span>
-<span id="cb4-105"><a href="#cb4-105"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.js</span>
-<span id="cb4-106"><a href="#cb4-106"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.js.map</span>
-<span id="cb4-107"><a href="#cb4-107"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/league-gothic/LICENSE</span>
-<span id="cb4-108"><a href="#cb4-108"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.css</span>
-<span id="cb4-109"><a href="#cb4-109"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.eot</span>
-<span id="cb4-110"><a href="#cb4-110"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.ttf</span>
-<span id="cb4-111"><a href="#cb4-111"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.woff</span>
-<span id="cb4-112"><a href="#cb4-112"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/source-sans-pro/LICENSE</span>
-<span id="cb4-113"><a href="#cb4-113"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot</span>
-<span id="cb4-114"><a href="#cb4-114"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf</span>
-<span id="cb4-115"><a href="#cb4-115"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff</span>
-<span id="cb4-116"><a href="#cb4-116"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot</span>
-<span id="cb4-117"><a href="#cb4-117"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf</span>
-<span id="cb4-118"><a href="#cb4-118"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff</span>
-<span id="cb4-119"><a href="#cb4-119"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot</span>
-<span id="cb4-120"><a href="#cb4-120"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf</span>
-<span id="cb4-121"><a href="#cb4-121"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff</span>
-<span id="cb4-122"><a href="#cb4-122"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot</span>
-<span id="cb4-123"><a href="#cb4-123"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf</span>
-<span id="cb4-124"><a href="#cb4-124"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff</span>
-<span id="cb4-125"><a href="#cb4-125"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro.css</span>
-<span id="cb4-126"><a href="#cb4-126"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/quarto.css</span>
-<span id="cb4-127"><a href="#cb4-127"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/highlight.esm.js</span>
-<span id="cb4-128"><a href="#cb4-128"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/highlight.js</span>
-<span id="cb4-129"><a href="#cb4-129"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/monokai.css</span>
-<span id="cb4-130"><a href="#cb4-130"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/plugin.js</span>
-<span id="cb4-131"><a href="#cb4-131"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/zenburn.css</span>
-<span id="cb4-132"><a href="#cb4-132"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/markdown/markdown.esm.js</span>
-<span id="cb4-133"><a href="#cb4-133"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/markdown/markdown.js</span>
-<span id="cb4-134"><a href="#cb4-134"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/plugin/markdown/plugin.js</span>
-<span id="cb4-135"><a href="#cb4-135"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/plugin/math/katex.js</span>
-<span id="cb4-136"><a href="#cb4-136"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/math.esm.js</span>
-<span id="cb4-137"><a href="#cb4-137"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/math.js</span>
-<span id="cb4-138"><a href="#cb4-138"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/mathjax2.js</span>
-<span id="cb4-139"><a href="#cb4-139"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/mathjax3.js</span>
-<span id="cb4-140"><a href="#cb4-140"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/plugin.js</span>
-<span id="cb4-141"><a href="#cb4-141"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/notes.esm.js</span>
-<span id="cb4-142"><a href="#cb4-142"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/notes.js</span>
-<span id="cb4-143"><a href="#cb4-143"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/plugin.js</span>
-<span id="cb4-144"><a href="#cb4-144"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/speaker-view.html</span>
-<span id="cb4-145"><a href="#cb4-145"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/pdf-export/pdfexport.js</span>
-<span id="cb4-146"><a href="#cb4-146"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/pdf-export/plugin.yml</span>
-<span id="cb4-147"><a href="#cb4-147"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css</span>
-<span id="cb4-148"><a href="#cb4-148"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js</span>
-<span id="cb4-149"><a href="#cb4-149"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/plugin.yml</span>
-<span id="cb4-150"><a href="#cb4-150"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-support/footer.css</span>
-<span id="cb4-151"><a href="#cb4-151"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-support/plugin.yml</span>
-<span id="cb4-152"><a href="#cb4-152"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-support/support.js</span>
-<span id="cb4-153"><a href="#cb4-153"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/README.md</span>
-<span id="cb4-154"><a href="#cb4-154"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/LICENSE.txt</span>
-<span id="cb4-155"><a href="#cb4-155"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css</span>
-<span id="cb4-156"><a href="#cb4-156"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/brands.css</span>
-<span id="cb4-157"><a href="#cb4-157"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/fontawesome.css</span>
-<span id="cb4-158"><a href="#cb4-158"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/regular.css</span>
-<span id="cb4-159"><a href="#cb4-159"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/solid.css</span>
-<span id="cb4-160"><a href="#cb4-160"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/svg-with-js.css</span>
-<span id="cb4-161"><a href="#cb4-161"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/v4-shims.css</span>
-<span id="cb4-162"><a href="#cb4-162"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/v4-shims.min.css</span>
-<span id="cb4-163"><a href="#cb4-163"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.eot</span>
-<span id="cb4-164"><a href="#cb4-164"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.svg</span>
-<span id="cb4-165"><a href="#cb4-165"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.ttf</span>
-<span id="cb4-166"><a href="#cb4-166"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.woff</span>
-<span id="cb4-167"><a href="#cb4-167"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.woff2</span>
-<span id="cb4-168"><a href="#cb4-168"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.eot</span>
-<span id="cb4-169"><a href="#cb4-169"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.svg</span>
-<span id="cb4-170"><a href="#cb4-170"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.ttf</span>
-<span id="cb4-171"><a href="#cb4-171"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.woff</span>
-<span id="cb4-172"><a href="#cb4-172"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.woff2</span>
-<span id="cb4-173"><a href="#cb4-173"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.eot</span>
-<span id="cb4-174"><a href="#cb4-174"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.svg</span>
-<span id="cb4-175"><a href="#cb4-175"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.ttf</span>
-<span id="cb4-176"><a href="#cb4-176"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.woff</span>
-<span id="cb4-177"><a href="#cb4-177"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.woff2</span>
-<span id="cb4-178"><a href="#cb4-178"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/blackboard.png</span>
-<span id="cb4-179"><a href="#cb4-179"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-black.png</span>
-<span id="cb4-180"><a href="#cb4-180"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-blue.png</span>
-<span id="cb4-181"><a href="#cb4-181"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-green.png</span>
-<span id="cb4-182"><a href="#cb4-182"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-orange.png</span>
-<span id="cb4-183"><a href="#cb4-183"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-purple.png</span>
-<span id="cb4-184"><a href="#cb4-184"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-red.png</span>
-<span id="cb4-185"><a href="#cb4-185"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-yellow.png</span>
-<span id="cb4-186"><a href="#cb4-186"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-blue.png</span>
-<span id="cb4-187"><a href="#cb4-187"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-green.png</span>
-<span id="cb4-188"><a href="#cb4-188"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-orange.png</span>
-<span id="cb4-189"><a href="#cb4-189"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-purple.png</span>
-<span id="cb4-190"><a href="#cb4-190"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-red.png</span>
-<span id="cb4-191"><a href="#cb4-191"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-white.png</span>
-<span id="cb4-192"><a href="#cb4-192"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-yellow.png</span>
-<span id="cb4-193"><a href="#cb4-193"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/sponge.png</span>
-<span id="cb4-194"><a href="#cb4-194"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/whiteboard.png</span>
-<span id="cb4-195"><a href="#cb4-195"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/plugin.js</span>
-<span id="cb4-196"><a href="#cb4-196"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/plugin.yml</span>
-<span id="cb4-197"><a href="#cb4-197"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/style.css</span>
-<span id="cb4-198"><a href="#cb4-198"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-confetti/confetti.js</span>
-<span id="cb4-199"><a href="#cb4-199"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/menu.css</span>
-<span id="cb4-200"><a href="#cb4-200"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/menu.js</span>
-<span id="cb4-201"><a href="#cb4-201"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/plugin.yml</span>
-<span id="cb4-202"><a href="#cb4-202"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/quarto-menu.css</span>
-<span id="cb4-203"><a href="#cb4-203"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/quarto-menu.js</span>
-<span id="cb4-204"><a href="#cb4-204"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/search/plugin.js</span>
-<span id="cb4-205"><a href="#cb4-205"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/search/search.esm.js</span>
-<span id="cb4-206"><a href="#cb4-206"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/search/search.js</span>
-<span id="cb4-207"><a href="#cb4-207"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/zoom/plugin.js</span>
-<span id="cb4-208"><a href="#cb4-208"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/zoom/zoom.esm.js</span>
-<span id="cb4-209"><a href="#cb4-209"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/zoom/zoom.js</span>
-<span id="cb4-210"><a href="#cb4-210"></a> <span class="ex">create</span> mode 100644 sitemap.xml</span>
-<span id="cb4-211"><a href="#cb4-211"></a><span class="ex">origin</span>  git@github.com:slackline/quarto-demo.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
-<span id="cb4-212"><a href="#cb4-212"></a><span class="ex">origin</span>  git@github.com:slackline/quarto-demo.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
-<span id="cb4-213"><a href="#cb4-213"></a><span class="ex">To</span> github.com:slackline/quarto-demo.git</span>
-<span id="cb4-214"><a href="#cb4-214"></a>   <span class="ex">20ba65a..46df001</span>  HEAD <span class="at">-</span><span class="op">&gt;</span> gh-pages</span>
-<span id="cb4-215"><a href="#cb4-215"></a></span>
-<span id="cb4-216"><a href="#cb4-216"></a><span class="ex">[✓]</span> Deploying gh-pages branch to website <span class="er">(</span><span class="ex">this</span> may take a few minutes<span class="kw">)</span></span>
-<span id="cb4-217"><a href="#cb4-217"></a><span class="ex">ERROR:</span> TypeError: Invalid URL: <span class="st">'https://&lt;YOUR_GITHUB_USERNAME&gt;.github.io/&lt;NAME_OF_REPOSITORY/.nojekyll'</span></span>
-<span id="cb4-218"><a href="#cb4-218"></a></span>
-<span id="cb4-219"><a href="#cb4-219"></a><span class="ex">Stack</span> trace:</span>
-<span id="cb4-220"><a href="#cb4-220"></a>    <span class="ex">at</span> getSerialization <span class="er">(</span><span class="ex">ext:deno_url/00_url.js:89:11</span><span class="kw">)</span></span>
-<span id="cb4-221"><a href="#cb4-221"></a>    <span class="ex">at</span> new URL <span class="er">(</span><span class="ex">ext:deno_url/00_url.js:359:27</span><span class="kw">)</span></span>
-<span id="cb4-222"><a href="#cb4-222"></a>    <span class="ex">at</span> new Request <span class="er">(</span><span class="ex">ext:deno_fetch/23_request.js:300:25</span><span class="kw">)</span></span>
-<span id="cb4-223"><a href="#cb4-223"></a>    <span class="ex">at</span> ext:deno_fetch/26_fetch.js:418:27</span>
-<span id="cb4-224"><a href="#cb4-224"></a>    <span class="ex">at</span> new Promise <span class="er">(</span><span class="op">&lt;</span>anonymous<span class="op">&gt;</span><span class="kw">)</span></span>
-<span id="cb4-225"><a href="#cb4-225"></a>    <span class="ex">at</span> fetch <span class="er">(</span><span class="ex">ext:deno_fetch/26_fetch.js:414:18</span><span class="kw">)</span></span>
-<span id="cb4-226"><a href="#cb4-226"></a>    <span class="ex">at</span> file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103939:40</span>
-<span id="cb4-227"><a href="#cb4-227"></a>    <span class="ex">at</span> eventLoopTick <span class="er">(</span><span class="ex">ext:core/01_core.js:188:13</span><span class="kw">)</span></span>
-<span id="cb4-228"><a href="#cb4-228"></a>    <span class="ex">at</span> async withSpinner <span class="er">(</span><span class="ex">file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:38988:16</span><span class="kw">)</span></span>
-<span id="cb4-229"><a href="#cb4-229"></a>    <span class="ex">at</span> async Object.publish5 [as publish] <span class="er">(</span><span class="ex">file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103933:9</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="configuration-_quarto.yaml" class="slide level2">
-<h2>Configuration : <code>_quarto.yaml</code></h2>
-<ul>
-<li>Define project type (<code>website</code>)</li>
-<li>Set <code>title</code>, <code>site-url</code> and <code>description</code></li>
-</ul>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Before</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"SheffieldR - Quarto for Slides"</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> https://ns-rse.github.io/SheffieldR-quarto-for-slides</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"Using Quarto to make slides"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:50%;">
-<p><strong>After</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"SheffieldR - Live Demo!"</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> https://ns-rse.github.io/live-demo</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"A Live Demo of How to use Quarto RevealJS Template"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">❱</span> quarto publish</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">?</span> Provider: › GitHub Pages</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="ex">?</span> Publish site to https://<span class="op">&lt;</span>YOUR_GITHUB_USERNAME<span class="op">&gt;</span>.github.io/<span class="op">&lt;</span>NAME_OF_REPOSITORY using gh-pages<span class="pp">?</span> <span class="er">(</span><span class="ex">Y/n</span><span class="kw">)</span> <span class="ex">›</span> Yes</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="ex">Switched</span> to a new branch <span class="st">'gh-pages'</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="ex">[gh-pages</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">20ba65a]</span> Initializing gh-pages branch</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="ex">remote:</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="ex">remote:</span> Create a pull request for <span class="st">'gh-pages'</span> on GitHub by visiting:</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="ex">remote:</span>      https://github.com/slackline/quarto-demo/pull/new/gh-pages</span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="ex">remote:</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="ex">To</span> github.com:slackline/quarto-demo.git</span>
+<span id="cb7-11"><a href="#cb7-11"></a> <span class="ex">*</span> [new branch]      HEAD <span class="at">-</span><span class="op">&gt;</span> gh-pages</span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="ex">Switched</span> to branch <span class="st">'main'</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="ex">From</span> github.com:slackline/quarto-demo</span>
+<span id="cb7-15"><a href="#cb7-15"></a> <span class="ex">*</span> branch            gh-pages   <span class="at">-</span><span class="op">&gt;</span> FETCH_HEAD</span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="ex">Rendering</span> for publish:</span>
+<span id="cb7-17"><a href="#cb7-17"></a></span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="ex">processing</span> file: index.qmd</span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="ex">1/5</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="ex">2/5</span> <span class="pp">[</span><span class="ss">fig</span><span class="pp">-</span><span class="ss">airquality</span><span class="pp">]</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="ex">3/5</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="ex">4/5</span> <span class="pp">[</span><span class="ss">fig</span><span class="pp">-</span><span class="ss">airquality2</span><span class="pp">]</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="ex">5/5</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="ex">output</span> file: index.knit.md</span>
+<span id="cb7-27"><a href="#cb7-27"></a></span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="ex">pandoc</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a>  <span class="ex">to:</span> revealjs</span>
+<span id="cb7-30"><a href="#cb7-30"></a>  <span class="ex">from:</span> markdown+emoji</span>
+<span id="cb7-31"><a href="#cb7-31"></a>  <span class="ex">output-file:</span> index.html</span>
+<span id="cb7-32"><a href="#cb7-32"></a>  <span class="ex">standalone:</span> true</span>
+<span id="cb7-33"><a href="#cb7-33"></a>  <span class="ex">title-prefix:</span> <span class="op">&lt;</span>TITLE<span class="op">&gt;</span></span>
+<span id="cb7-34"><a href="#cb7-34"></a>  <span class="ex">wrap:</span> none</span>
+<span id="cb7-35"><a href="#cb7-35"></a>  <span class="ex">default-image-extension:</span> png</span>
+<span id="cb7-36"><a href="#cb7-36"></a>  <span class="ex">html-math-method:</span></span>
+<span id="cb7-37"><a href="#cb7-37"></a>    <span class="ex">method:</span> mathjax</span>
+<span id="cb7-38"><a href="#cb7-38"></a>    <span class="ex">url:</span> <span class="op">&gt;</span>-</span>
+<span id="cb7-39"><a href="#cb7-39"></a>      <span class="ex">https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full</span></span>
+<span id="cb7-40"><a href="#cb7-40"></a>  <span class="ex">slide-level:</span> 2</span>
+<span id="cb7-41"><a href="#cb7-41"></a>  <span class="ex">incremental:</span> false</span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="ex">metadata</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a>  <span class="ex">link-citations:</span> true</span>
+<span id="cb7-45"><a href="#cb7-45"></a>  <span class="ex">width:</span> 1050</span>
+<span id="cb7-46"><a href="#cb7-46"></a>  <span class="ex">height:</span> 700</span>
+<span id="cb7-47"><a href="#cb7-47"></a>  <span class="ex">margin:</span> 0.1</span>
+<span id="cb7-48"><a href="#cb7-48"></a>  <span class="ex">center:</span> false</span>
+<span id="cb7-49"><a href="#cb7-49"></a>  <span class="ex">navigationMode:</span> linear</span>
+<span id="cb7-50"><a href="#cb7-50"></a>  <span class="ex">controlsLayout:</span> edges</span>
+<span id="cb7-51"><a href="#cb7-51"></a>  <span class="ex">controlsTutorial:</span> false</span>
+<span id="cb7-52"><a href="#cb7-52"></a>  <span class="ex">hash:</span> true</span>
+<span id="cb7-53"><a href="#cb7-53"></a>  <span class="ex">history:</span> true</span>
+<span id="cb7-54"><a href="#cb7-54"></a>  <span class="ex">hashOneBasedIndex:</span> false</span>
+<span id="cb7-55"><a href="#cb7-55"></a>  <span class="ex">fragmentInURL:</span> false</span>
+<span id="cb7-56"><a href="#cb7-56"></a>  <span class="ex">transition:</span> none</span>
+<span id="cb7-57"><a href="#cb7-57"></a>  <span class="ex">backgroundTransition:</span> none</span>
+<span id="cb7-58"><a href="#cb7-58"></a>  <span class="ex">pdfSeparateFragments:</span> false</span>
+<span id="cb7-59"><a href="#cb7-59"></a>  <span class="ex">lang:</span> en</span>
+<span id="cb7-60"><a href="#cb7-60"></a>  <span class="ex">auto-stretch:</span> false</span>
+<span id="cb7-61"><a href="#cb7-61"></a>  <span class="ex">theme:</span></span>
+<span id="cb7-62"><a href="#cb7-62"></a>    <span class="ex">-</span> default</span>
+<span id="cb7-63"><a href="#cb7-63"></a>    <span class="ex">-</span> _extensions/grantmcdermott/clean/clean.scss</span>
+<span id="cb7-64"><a href="#cb7-64"></a>  <span class="ex">menu:</span></span>
+<span id="cb7-65"><a href="#cb7-65"></a>    <span class="ex">side:</span> left</span>
+<span id="cb7-66"><a href="#cb7-66"></a>  <span class="ex">slideNumber:</span> true</span>
+<span id="cb7-67"><a href="#cb7-67"></a>  <span class="ex">date-format:</span> long</span>
+<span id="cb7-68"><a href="#cb7-68"></a>  <span class="ex">revealjs-plugins:</span></span>
+<span id="cb7-69"><a href="#cb7-69"></a>    <span class="ex">-</span> confetti</span>
+<span id="cb7-70"><a href="#cb7-70"></a>  <span class="ex">title:</span> Template Revealjs Quarto site</span>
+<span id="cb7-71"><a href="#cb7-71"></a>  <span class="ex">author:</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a>    <span class="ex">-</span> name: Your Name</span>
+<span id="cb7-73"><a href="#cb7-73"></a>      <span class="ex">orcid:</span> 0000-0000-0000-0000</span>
+<span id="cb7-74"><a href="#cb7-74"></a>      <span class="ex">email:</span> email@address.work</span>
+<span id="cb7-75"><a href="#cb7-75"></a>      <span class="ex">affiliations:</span> Employers Name</span>
+<span id="cb7-76"><a href="#cb7-76"></a>  <span class="ex">footer:</span> <span class="st">'**Slides** : [**github-username.github.io/&lt;repository&gt;**](https://github-username.github.io/&lt;repository&gt;)'</span></span>
+<span id="cb7-77"><a href="#cb7-77"></a>  <span class="ex">showSlideNumber:</span> speaker</span>
+<span id="cb7-78"><a href="#cb7-78"></a>  <span class="ex">chalkboard:</span> true</span>
+<span id="cb7-79"><a href="#cb7-79"></a></span>
+<span id="cb7-80"><a href="#cb7-80"></a><span class="ex">Preparing</span> worktree <span class="er">(</span><span class="ex">resetting</span> branch <span class="st">'gh-pages'</span><span class="kw">;</span> <span class="ex">was</span> at 20ba65a<span class="kw">)</span></span>
+<span id="cb7-81"><a href="#cb7-81"></a><span class="ex">branch</span> <span class="st">'gh-pages'</span> set up to track <span class="st">'origin/gh-pages'</span>.</span>
+<span id="cb7-82"><a href="#cb7-82"></a><span class="ex">HEAD</span> is now at 20ba65a Initializing gh-pages branch</span>
+<span id="cb7-83"><a href="#cb7-83"></a><span class="ex">fatal:</span> pathspec <span class="st">'.'</span> did not match any files</span>
+<span id="cb7-84"><a href="#cb7-84"></a><span class="ex">[gh-pages</span> 46df001] Built site for gh-pages</span>
+<span id="cb7-85"><a href="#cb7-85"></a> <span class="ex">125</span> files changed, 15421 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb7-86"><a href="#cb7-86"></a> <span class="ex">create</span> mode 100644 .nojekyll</span>
+<span id="cb7-87"><a href="#cb7-87"></a> <span class="ex">create</span> mode 100644 img/OSC_Sheffield.png</span>
+<span id="cb7-88"><a href="#cb7-88"></a> <span class="ex">create</span> mode 100644 index.html</span>
+<span id="cb7-89"><a href="#cb7-89"></a> <span class="ex">create</span> mode 100644 index_files/figure-revealjs/fig-airquality2-1.png</span>
+<span id="cb7-90"><a href="#cb7-90"></a> <span class="ex">create</span> mode 100644 robots.txt</span>
+<span id="cb7-91"><a href="#cb7-91"></a> <span class="ex">create</span> mode 100644 search.json</span>
+<span id="cb7-92"><a href="#cb7-92"></a> <span class="ex">create</span> mode 100644 site_libs/clipboard/clipboard.min.js</span>
+<span id="cb7-93"><a href="#cb7-93"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js</span>
+<span id="cb7-94"><a href="#cb7-94"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/light-border.css</span>
+<span id="cb7-95"><a href="#cb7-95"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/popper.min.js</span>
+<span id="cb7-96"><a href="#cb7-96"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/quarto-html.min.css</span>
+<span id="cb7-97"><a href="#cb7-97"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/quarto-syntax-highlighting.css</span>
+<span id="cb7-98"><a href="#cb7-98"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/tabby.min.js</span>
+<span id="cb7-99"><a href="#cb7-99"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/tippy.css</span>
+<span id="cb7-100"><a href="#cb7-100"></a> <span class="ex">create</span> mode 100644 site_libs/quarto-html/tippy.umd.min.js</span>
+<span id="cb7-101"><a href="#cb7-101"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reset.css</span>
+<span id="cb7-102"><a href="#cb7-102"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.css</span>
+<span id="cb7-103"><a href="#cb7-103"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.esm.js</span>
+<span id="cb7-104"><a href="#cb7-104"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.esm.js.map</span>
+<span id="cb7-105"><a href="#cb7-105"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.js</span>
+<span id="cb7-106"><a href="#cb7-106"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/reveal.js.map</span>
+<span id="cb7-107"><a href="#cb7-107"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/league-gothic/LICENSE</span>
+<span id="cb7-108"><a href="#cb7-108"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.css</span>
+<span id="cb7-109"><a href="#cb7-109"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.eot</span>
+<span id="cb7-110"><a href="#cb7-110"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.ttf</span>
+<span id="cb7-111"><a href="#cb7-111"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/league-gothic/league-gothic.woff</span>
+<span id="cb7-112"><a href="#cb7-112"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/source-sans-pro/LICENSE</span>
+<span id="cb7-113"><a href="#cb7-113"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.eot</span>
+<span id="cb7-114"><a href="#cb7-114"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.ttf</span>
+<span id="cb7-115"><a href="#cb7-115"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-italic.woff</span>
+<span id="cb7-116"><a href="#cb7-116"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.eot</span>
+<span id="cb7-117"><a href="#cb7-117"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.ttf</span>
+<span id="cb7-118"><a href="#cb7-118"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-regular.woff</span>
+<span id="cb7-119"><a href="#cb7-119"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.eot</span>
+<span id="cb7-120"><a href="#cb7-120"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.ttf</span>
+<span id="cb7-121"><a href="#cb7-121"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibold.woff</span>
+<span id="cb7-122"><a href="#cb7-122"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.eot</span>
+<span id="cb7-123"><a href="#cb7-123"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.ttf</span>
+<span id="cb7-124"><a href="#cb7-124"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro-semibolditalic.woff</span>
+<span id="cb7-125"><a href="#cb7-125"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/fonts/source-sans-pro/source-sans-pro.css</span>
+<span id="cb7-126"><a href="#cb7-126"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/dist/theme/quarto.css</span>
+<span id="cb7-127"><a href="#cb7-127"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/highlight.esm.js</span>
+<span id="cb7-128"><a href="#cb7-128"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/highlight.js</span>
+<span id="cb7-129"><a href="#cb7-129"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/monokai.css</span>
+<span id="cb7-130"><a href="#cb7-130"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/plugin.js</span>
+<span id="cb7-131"><a href="#cb7-131"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/highlight/zenburn.css</span>
+<span id="cb7-132"><a href="#cb7-132"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/markdown/markdown.esm.js</span>
+<span id="cb7-133"><a href="#cb7-133"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/markdown/markdown.js</span>
+<span id="cb7-134"><a href="#cb7-134"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/plugin/markdown/plugin.js</span>
+<span id="cb7-135"><a href="#cb7-135"></a> <span class="ex">create</span> mode 100755 site_libs/revealjs/plugin/math/katex.js</span>
+<span id="cb7-136"><a href="#cb7-136"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/math.esm.js</span>
+<span id="cb7-137"><a href="#cb7-137"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/math.js</span>
+<span id="cb7-138"><a href="#cb7-138"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/mathjax2.js</span>
+<span id="cb7-139"><a href="#cb7-139"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/mathjax3.js</span>
+<span id="cb7-140"><a href="#cb7-140"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/math/plugin.js</span>
+<span id="cb7-141"><a href="#cb7-141"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/notes.esm.js</span>
+<span id="cb7-142"><a href="#cb7-142"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/notes.js</span>
+<span id="cb7-143"><a href="#cb7-143"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/plugin.js</span>
+<span id="cb7-144"><a href="#cb7-144"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/notes/speaker-view.html</span>
+<span id="cb7-145"><a href="#cb7-145"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/pdf-export/pdfexport.js</span>
+<span id="cb7-146"><a href="#cb7-146"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/pdf-export/plugin.yml</span>
+<span id="cb7-147"><a href="#cb7-147"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css</span>
+<span id="cb7-148"><a href="#cb7-148"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js</span>
+<span id="cb7-149"><a href="#cb7-149"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-line-highlight/plugin.yml</span>
+<span id="cb7-150"><a href="#cb7-150"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-support/footer.css</span>
+<span id="cb7-151"><a href="#cb7-151"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-support/plugin.yml</span>
+<span id="cb7-152"><a href="#cb7-152"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/quarto-support/support.js</span>
+<span id="cb7-153"><a href="#cb7-153"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/README.md</span>
+<span id="cb7-154"><a href="#cb7-154"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/LICENSE.txt</span>
+<span id="cb7-155"><a href="#cb7-155"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css</span>
+<span id="cb7-156"><a href="#cb7-156"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/brands.css</span>
+<span id="cb7-157"><a href="#cb7-157"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/fontawesome.css</span>
+<span id="cb7-158"><a href="#cb7-158"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/regular.css</span>
+<span id="cb7-159"><a href="#cb7-159"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/solid.css</span>
+<span id="cb7-160"><a href="#cb7-160"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/svg-with-js.css</span>
+<span id="cb7-161"><a href="#cb7-161"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/v4-shims.css</span>
+<span id="cb7-162"><a href="#cb7-162"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/v4-shims.min.css</span>
+<span id="cb7-163"><a href="#cb7-163"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.eot</span>
+<span id="cb7-164"><a href="#cb7-164"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.svg</span>
+<span id="cb7-165"><a href="#cb7-165"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.ttf</span>
+<span id="cb7-166"><a href="#cb7-166"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.woff</span>
+<span id="cb7-167"><a href="#cb7-167"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-brands-400.woff2</span>
+<span id="cb7-168"><a href="#cb7-168"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.eot</span>
+<span id="cb7-169"><a href="#cb7-169"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.svg</span>
+<span id="cb7-170"><a href="#cb7-170"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.ttf</span>
+<span id="cb7-171"><a href="#cb7-171"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.woff</span>
+<span id="cb7-172"><a href="#cb7-172"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-regular-400.woff2</span>
+<span id="cb7-173"><a href="#cb7-173"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.eot</span>
+<span id="cb7-174"><a href="#cb7-174"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.svg</span>
+<span id="cb7-175"><a href="#cb7-175"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.ttf</span>
+<span id="cb7-176"><a href="#cb7-176"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.woff</span>
+<span id="cb7-177"><a href="#cb7-177"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/webfonts/fa-solid-900.woff2</span>
+<span id="cb7-178"><a href="#cb7-178"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/blackboard.png</span>
+<span id="cb7-179"><a href="#cb7-179"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-black.png</span>
+<span id="cb7-180"><a href="#cb7-180"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-blue.png</span>
+<span id="cb7-181"><a href="#cb7-181"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-green.png</span>
+<span id="cb7-182"><a href="#cb7-182"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-orange.png</span>
+<span id="cb7-183"><a href="#cb7-183"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-purple.png</span>
+<span id="cb7-184"><a href="#cb7-184"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-red.png</span>
+<span id="cb7-185"><a href="#cb7-185"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/boardmarker-yellow.png</span>
+<span id="cb7-186"><a href="#cb7-186"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-blue.png</span>
+<span id="cb7-187"><a href="#cb7-187"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-green.png</span>
+<span id="cb7-188"><a href="#cb7-188"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-orange.png</span>
+<span id="cb7-189"><a href="#cb7-189"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-purple.png</span>
+<span id="cb7-190"><a href="#cb7-190"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-red.png</span>
+<span id="cb7-191"><a href="#cb7-191"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-white.png</span>
+<span id="cb7-192"><a href="#cb7-192"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/chalk-yellow.png</span>
+<span id="cb7-193"><a href="#cb7-193"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/sponge.png</span>
+<span id="cb7-194"><a href="#cb7-194"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/img/whiteboard.png</span>
+<span id="cb7-195"><a href="#cb7-195"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/plugin.js</span>
+<span id="cb7-196"><a href="#cb7-196"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/plugin.yml</span>
+<span id="cb7-197"><a href="#cb7-197"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-chalkboard/style.css</span>
+<span id="cb7-198"><a href="#cb7-198"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-confetti/confetti.js</span>
+<span id="cb7-199"><a href="#cb7-199"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/menu.css</span>
+<span id="cb7-200"><a href="#cb7-200"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/menu.js</span>
+<span id="cb7-201"><a href="#cb7-201"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/plugin.yml</span>
+<span id="cb7-202"><a href="#cb7-202"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/quarto-menu.css</span>
+<span id="cb7-203"><a href="#cb7-203"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/reveal-menu/quarto-menu.js</span>
+<span id="cb7-204"><a href="#cb7-204"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/search/plugin.js</span>
+<span id="cb7-205"><a href="#cb7-205"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/search/search.esm.js</span>
+<span id="cb7-206"><a href="#cb7-206"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/search/search.js</span>
+<span id="cb7-207"><a href="#cb7-207"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/zoom/plugin.js</span>
+<span id="cb7-208"><a href="#cb7-208"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/zoom/zoom.esm.js</span>
+<span id="cb7-209"><a href="#cb7-209"></a> <span class="ex">create</span> mode 100644 site_libs/revealjs/plugin/zoom/zoom.js</span>
+<span id="cb7-210"><a href="#cb7-210"></a> <span class="ex">create</span> mode 100644 sitemap.xml</span>
+<span id="cb7-211"><a href="#cb7-211"></a><span class="ex">origin</span>  git@github.com:slackline/quarto-demo.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<span id="cb7-212"><a href="#cb7-212"></a><span class="ex">origin</span>  git@github.com:slackline/quarto-demo.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
+<span id="cb7-213"><a href="#cb7-213"></a><span class="ex">To</span> github.com:slackline/quarto-demo.git</span>
+<span id="cb7-214"><a href="#cb7-214"></a>   <span class="ex">20ba65a..46df001</span>  HEAD <span class="at">-</span><span class="op">&gt;</span> gh-pages</span>
+<span id="cb7-215"><a href="#cb7-215"></a></span>
+<span id="cb7-216"><a href="#cb7-216"></a><span class="ex">[✓]</span> Deploying gh-pages branch to website <span class="er">(</span><span class="ex">this</span> may take a few minutes<span class="kw">)</span></span>
+<span id="cb7-217"><a href="#cb7-217"></a><span class="ex">ERROR:</span> TypeError: Invalid URL: <span class="st">'https://&lt;YOUR_GITHUB_USERNAME&gt;.github.io/&lt;NAME_OF_REPOSITORY/.nojekyll'</span></span>
+<span id="cb7-218"><a href="#cb7-218"></a></span>
+<span id="cb7-219"><a href="#cb7-219"></a><span class="ex">Stack</span> trace:</span>
+<span id="cb7-220"><a href="#cb7-220"></a>    <span class="ex">at</span> getSerialization <span class="er">(</span><span class="ex">ext:deno_url/00_url.js:89:11</span><span class="kw">)</span></span>
+<span id="cb7-221"><a href="#cb7-221"></a>    <span class="ex">at</span> new URL <span class="er">(</span><span class="ex">ext:deno_url/00_url.js:359:27</span><span class="kw">)</span></span>
+<span id="cb7-222"><a href="#cb7-222"></a>    <span class="ex">at</span> new Request <span class="er">(</span><span class="ex">ext:deno_fetch/23_request.js:300:25</span><span class="kw">)</span></span>
+<span id="cb7-223"><a href="#cb7-223"></a>    <span class="ex">at</span> ext:deno_fetch/26_fetch.js:418:27</span>
+<span id="cb7-224"><a href="#cb7-224"></a>    <span class="ex">at</span> new Promise <span class="er">(</span><span class="op">&lt;</span>anonymous<span class="op">&gt;</span><span class="kw">)</span></span>
+<span id="cb7-225"><a href="#cb7-225"></a>    <span class="ex">at</span> fetch <span class="er">(</span><span class="ex">ext:deno_fetch/26_fetch.js:414:18</span><span class="kw">)</span></span>
+<span id="cb7-226"><a href="#cb7-226"></a>    <span class="ex">at</span> file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103939:40</span>
+<span id="cb7-227"><a href="#cb7-227"></a>    <span class="ex">at</span> eventLoopTick <span class="er">(</span><span class="ex">ext:core/01_core.js:188:13</span><span class="kw">)</span></span>
+<span id="cb7-228"><a href="#cb7-228"></a>    <span class="ex">at</span> async withSpinner <span class="er">(</span><span class="ex">file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:38988:16</span><span class="kw">)</span></span>
+<span id="cb7-229"><a href="#cb7-229"></a>    <span class="ex">at</span> async Object.publish5 [as publish] <span class="er">(</span><span class="ex">file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103933:9</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <aside class="notes">
-<p>Ok, you’ve now published the slides under your account, but you will want to configure the slides to your own taste or preferences.</p>
-<p>This is done via two files the first is <code>_quarto.yaml</code> file which allows you to define the project type, which in this case is a website and set the <code>title</code>, <code>site-url</code> and <code>description</code>.</p>
-<p>However, much of the configuration of how the slides work is done in a second file that contains the content of your slides the <code>index.qmd</code>.</p>
+<p>Next we’re going to use the <code>quarto publish</code> command which makes the initial publishing for us, creating the <code>gh-pages</code> branch, rendering the pages and pushing them to GitHub. This should complete ok and once its done you can navigate to your <a href="https://github.com/slackline/quarto-demo">repository</a> and look at the <code>Actions</code> tab and hopefully see the pages being deployed.</p>
+<p>Once this completes you can look at your slides online. The URL will be your GitHub username followed by <code>.github.io/quarto-live-demo</code></p>
+<p>For those following along have how many have been able to publish their slides?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1196,10 +1177,9 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li>Template includes many examples.</li>
 </ul>
 <aside class="notes">
-<p>The <code>index.qmd</code> contains the contents of your slides as well as a YAML header which defines metadata such as Author, Email and <a href="https://orcid.org">ORCiD</a>. If you haven’t got an ORCiD ID yet I’d encourage you to do so.</p>
-<p>You also use this file to define other common slide properties such as the theme, whether bullet points are to appear incrementally, whether to include the chalkboard feature which is enabled for these slides and introduces a button here to bring up a chalk board which you can write on. You also define common footers in this file.</p>
-<p>I’m not going to go into great detail about the syntax of Markdown because the template you have clone includes sample slides with different content and formats such as using columns, embedding pictures and links, ordered and unordered lists and so forth. Copy and paste the sections you want to use and change.</p>
-<p>Instead I’ll highlight a few key features and how to work with the slides and get them published on GitHub after having change them, otherwise what is the point of using this template!.</p>
+<p>Ok we’ve cloned the template and customised it to work under our account, setup a <code>gh-pages</code> branch and pushed the changes so they are published to a website, <em>now</em> you are finally ready to start writing your slides and customising them.</p>
+<p>In addition to the YAML header the <code>index.qmd</code> contains the contents of your slides.</p>
+<p>The body is written in Quarto Markdown which is pretty similar to general Markdown.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1211,28 +1191,19 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<!-- ## Images -->
-<!-- ::: {.notes} -->
-<!-- ::: -->
-<!-- ## Links -->
-<!-- ::: {.notes} -->
-<!-- ::: -->
 </section>
-<section id="speaker-notes" class="slide level2">
-<h2>Speaker Notes</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
+<section id="markdown" class="slide level2">
+<h2>Markdown</h2>
 <ul>
-<li>Add additional notes for yourself.</li>
+<li>Simple markup language.</li>
+<li>Separate content from style.</li>
+<li>Write in ASCII plain text.</li>
+<li>Simple to version control.</li>
 </ul>
-</div><div class="column" style="width:70%;">
-
-</div><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">.notes</span><span class="kw">}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="at">I have a terrible memory so rely on speaker notes to remind me what I want to say.</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <aside class="notes">
-<p>A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom of every slide.</p>
+<p>Ok we’ll now make a very brief digression into Markdown because Quarto uses its own dialect of Markdown which is a relatively simple markup language.</p>
+<p>Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate the content that you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text with markers which indicate what it should look like and then apply themes to say what certain features should look like.</p>
+<p>Plain text files have the advantage that they are simple to keep under version control which also means they are easy to work on collaboratively using tools such as <a href="https://github.com">GitHub</a> or <a href="https://gitlab.com">GitLab</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1245,92 +1216,77 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
           display:block!important;
       }</style></aside>
 </section>
-<section id="extensions" class="slide level2">
-<h2>Extensions</h2>
-<div class="columns">
-<div class="colum" width="50%">
-<ul>
-<li>Lots of <a href="https://quarto.org/docs/extensions/">extensions</a>.</li>
-<li>Add functionality.</li>
-<li>Install to repository locally <em>and</em> adding to GitHub Action.</li>
-</ul>
-</div><div class="colum" width="50%">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension jmbuhr/quarto-qrcode</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension grantmcdermott/quarto-revealjs-clean</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension ArthurData/quarto-confetti</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<aside class="notes">
-<p>The template uses a few extensions and these,and any other extensions you need installing locally and by the GitHub Action that renders the slides as both environments need to be identical.</p>
-<p>The included extensions need installing locally with the following command and you would use similar for any others that you choose to use. Of course, if you change the theme or don’t use any of these extensions then you don’t need to complete this step.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="extensions---github-action" class="slide level2">
-<h2>Extensions - GitHub Action</h2>
-<div class="columns">
-<div class="colum" width="50%">
-<ul>
-<li>GitHub Action uses <code>.github/workflows/quarto-publish.yaml</code></li>
-</ul>
-</div><div class="colum" width="50%">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Quarto Extensions</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>          quarto install --no-prompt extension jmbuhr/quarto-qrcode</span>
-<span id="cb9-4"><a href="#cb9-4"></a>          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean</span>
-<span id="cb9-5"><a href="#cb9-5"></a>          quarto install --no-prompt extension ArthurData/quarto-confetti</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<aside class="notes">
-<p>For the GitHub Action the theme and extension that are included in the template are already there, but if you add any extensions you should add them to the section that Installs Quarto Extensions</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="changing-themes" class="slide level2">
-<h2>Changing Themes</h2>
+<section id="basic-markdown" class="slide level2">
+<h2>Basic Markdown</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Before…</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="at">  </span><span class="fu">clean-revealjs</span><span class="kw">:</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="at">    </span><span class="fu">show-slide-number</span><span class="kw">:</span><span class="at"> speaker</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="at">    </span><span class="fu">auto-stretch</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="ss">+ </span>**Bold**</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ss">+ </span>_Italics_</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="ss">+ </span>~~Strikethrough~~</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="ss">+ </span><span class="co">[</span><span class="ot">Search</span><span class="co">](https://duckduckgo.com)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<p>After…</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">  # clean-revealjs:</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> solarized</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="at">    </span><span class="fu">show-slide-number</span><span class="kw">:</span><span class="at"> speaker</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="at">    </span><span class="fu">auto-stretch</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Bold</strong></li>
+<li><em>Italics</em></li>
+<li><del>Strikethrough</del></li>
+<li><a href="https://duckduckgo.com">Search</a></li>
+</ul>
 </div>
 </div>
+<p>Quarto <a href="https://quarto.org/docs/authoring/markdown-basics.html">documentation</a> is excellent.</p>
+</section>
+<section id="qr-code-extension" class="slide level2">
+<h2>QR Code Extension</h2>
+<ul>
+<li><a href="https://github.com/jmbuhr/quarto-qrcode">quarto-qrcode</a> extension is really useful.</li>
+</ul>
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
+<p><strong>Before</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="ex">[ns-rse.github.io/quarto-revealjs-template]</span><span class="er">(</span><span class="ex">https://ns-rse.github.io/quarto-revealjs-template</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ::: -->
+<!-- ::: {.column width="50%"} -->
+<p><strong>After</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="ex">[ns-rse.github.io/quarto-live-demo]</span><span class="er">(</span><span class="ex">https://ns-rse.github.io/quarto-live-demo</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ::: -->
+<!-- :::: -->
+</section>
+<section id="images" class="slide level2">
+<h2>Images</h2>
+<ul>
+<li>Embed Images (any image on the internet or locally)</li>
+</ul>
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
+<p><strong>Before</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="al">![Relaxing in the mountains](https://live.staticflickr.com/65535/53144704609_c5e6fa8c77_k.jpg)</span>{width=700}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ::: -->
+<!-- ::: {.column width="50%"} -->
+<p><strong>After</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="al">![SheffieldR Hex](https://raw.githubusercontent.com/SheffieldR/SheffieldR.github.io/main/images/SheffieldR_hex.png)</span>{width=400}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ::: -->
+<!-- :::: -->
 <aside class="notes">
-<p>Its straight-forward to change themes by editing the configuration in <code>_quarto.yaml</code>.</p>
-<p>If the chalkboard feature wasn’t enough nostalgia you can use the <a href="https://github.com/schochastics/quarto-blackboard-theme">Blackboard Theme</a>.</p>
-<p>You can then preview the slides locally to see what they look like, if you’re happy then you stage and commit the changes to Git and push them to GitHub.</p>
+<p>On line 162 there is an image embedded, a picture I snapped whilst relaxing on a hiking holiday in the Julian Alps this summer.</p>
+<p>We can modify this and change the embeded image by simply changing the target URL for the image.</p>
+<p>Here I insert the Sheffield R Hex image instead <code>https://github.com/SheffieldR/SheffieldR.github.io/blob/main/images/SheffieldR_hex.png?raw=true</code></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside class="notes">
+<p>Lets change the first slide to show an image.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1354,69 +1310,238 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 </ul>
 </div><div class="colum" width="70%">
 
-</div><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">Starting</span> python3 kernel...Done</span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="ex">Executing</span> <span class="st">'index.ipynb'</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="ex">pandoc</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="ex">to:</span> revealjs</span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="ex">from:</span> markdown+emoji</span>
-<span id="cb12-8"><a href="#cb12-8"></a>  <span class="ex">output-file:</span> index.html</span>
-<span id="cb12-9"><a href="#cb12-9"></a>  <span class="ex">standalone:</span> true</span>
-<span id="cb12-10"><a href="#cb12-10"></a>  <span class="ex">title-prefix:</span> SheffieldR <span class="at">-</span> Quarto for Slides</span>
-<span id="cb12-11"><a href="#cb12-11"></a>  <span class="ex">wrap:</span> none</span>
-<span id="cb12-12"><a href="#cb12-12"></a>  <span class="ex">default-image-extension:</span> png</span>
-<span id="cb12-13"><a href="#cb12-13"></a>  <span class="ex">html-math-method:</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a>    <span class="ex">method:</span> mathjax</span>
-<span id="cb12-15"><a href="#cb12-15"></a>    <span class="ex">url:</span> <span class="op">&gt;</span>-</span>
-<span id="cb12-16"><a href="#cb12-16"></a>      <span class="ex">https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full</span></span>
-<span id="cb12-17"><a href="#cb12-17"></a>  <span class="ex">slide-level:</span> 2</span>
-<span id="cb12-18"><a href="#cb12-18"></a>  <span class="ex">incremental:</span> false</span>
-<span id="cb12-19"><a href="#cb12-19"></a></span>
-<span id="cb12-20"><a href="#cb12-20"></a><span class="ex">metadata</span></span>
-<span id="cb12-21"><a href="#cb12-21"></a>  <span class="ex">link-citations:</span> true</span>
-<span id="cb12-22"><a href="#cb12-22"></a>  <span class="ex">width:</span> 1050</span>
-<span id="cb12-23"><a href="#cb12-23"></a>  <span class="ex">height:</span> 700</span>
-<span id="cb12-24"><a href="#cb12-24"></a>  <span class="ex">margin:</span> 0.1</span>
-<span id="cb12-25"><a href="#cb12-25"></a>  <span class="ex">center:</span> false</span>
-<span id="cb12-26"><a href="#cb12-26"></a>  <span class="ex">navigationMode:</span> linear</span>
-<span id="cb12-27"><a href="#cb12-27"></a>  <span class="ex">controlsLayout:</span> edges</span>
-<span id="cb12-28"><a href="#cb12-28"></a>  <span class="ex">controlsTutorial:</span> false</span>
-<span id="cb12-29"><a href="#cb12-29"></a>  <span class="ex">hash:</span> true</span>
-<span id="cb12-30"><a href="#cb12-30"></a>  <span class="ex">history:</span> true</span>
-<span id="cb12-31"><a href="#cb12-31"></a>  <span class="ex">hashOneBasedIndex:</span> false</span>
-<span id="cb12-32"><a href="#cb12-32"></a>  <span class="ex">fragmentInURL:</span> false</span>
-<span id="cb12-33"><a href="#cb12-33"></a>  <span class="ex">transition:</span> none</span>
-<span id="cb12-34"><a href="#cb12-34"></a>  <span class="ex">backgroundTransition:</span> none</span>
-<span id="cb12-35"><a href="#cb12-35"></a>  <span class="ex">pdfSeparateFragments:</span> false</span>
-<span id="cb12-36"><a href="#cb12-36"></a>  <span class="ex">lang:</span> en</span>
-<span id="cb12-37"><a href="#cb12-37"></a>  <span class="ex">auto-stretch:</span> false</span>
-<span id="cb12-38"><a href="#cb12-38"></a>  <span class="ex">theme:</span></span>
-<span id="cb12-39"><a href="#cb12-39"></a>    <span class="ex">-</span> default</span>
-<span id="cb12-40"><a href="#cb12-40"></a>    <span class="ex">-</span> _extensions/grantmcdermott/clean/clean.scss</span>
-<span id="cb12-41"><a href="#cb12-41"></a>  <span class="ex">menu:</span></span>
-<span id="cb12-42"><a href="#cb12-42"></a>    <span class="ex">side:</span> left</span>
-<span id="cb12-43"><a href="#cb12-43"></a>  <span class="ex">slideNumber:</span> true</span>
-<span id="cb12-44"><a href="#cb12-44"></a>  <span class="ex">date-format:</span> long</span>
-<span id="cb12-45"><a href="#cb12-45"></a>  <span class="ex">revealjs-plugins:</span></span>
-<span id="cb12-46"><a href="#cb12-46"></a>    <span class="ex">-</span> confetti</span>
-<span id="cb12-47"><a href="#cb12-47"></a>  <span class="ex">title:</span> <span class="st">'SheffieldR : Quarto for Slides'</span></span>
-<span id="cb12-48"><a href="#cb12-48"></a>  <span class="ex">author:</span></span>
-<span id="cb12-49"><a href="#cb12-49"></a>    <span class="ex">-</span> name: Neil Shephard</span>
-<span id="cb12-50"><a href="#cb12-50"></a>      <span class="ex">orcid:</span> 0000-0001-8301-6857</span>
-<span id="cb12-51"><a href="#cb12-51"></a>      <span class="ex">email:</span> n.shephard@sheffield.ac.uk</span>
-<span id="cb12-52"><a href="#cb12-52"></a>      <span class="ex">affiliations:</span> <span class="st">'RSE, University of Sheffield'</span></span>
-<span id="cb12-53"><a href="#cb12-53"></a>  <span class="ex">footer:</span> <span class="st">'**Slides** : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](https://ns-rse.github.io/SheffieldR-quarto-for-slides)'</span></span>
-<span id="cb12-54"><a href="#cb12-54"></a>  <span class="ex">showSlideNumber:</span> speaker</span>
-<span id="cb12-55"><a href="#cb12-55"></a>  <span class="ex">chalkboard:</span> true</span>
-<span id="cb12-56"><a href="#cb12-56"></a></span>
-<span id="cb12-57"><a href="#cb12-57"></a><span class="ex">Output</span> created: _site/index.html</span>
-<span id="cb12-58"><a href="#cb12-58"></a></span>
-<span id="cb12-59"><a href="#cb12-59"></a><span class="ex">Watching</span> files for changes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">Starting</span> python3 kernel...Done</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="ex">Executing</span> <span class="st">'index.ipynb'</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="ex">pandoc</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="ex">to:</span> revealjs</span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="ex">from:</span> markdown+emoji</span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="ex">output-file:</span> index.html</span>
+<span id="cb13-9"><a href="#cb13-9"></a>  <span class="ex">standalone:</span> true</span>
+<span id="cb13-10"><a href="#cb13-10"></a>  <span class="ex">title-prefix:</span> SheffieldR <span class="at">-</span> Quarto for Slides</span>
+<span id="cb13-11"><a href="#cb13-11"></a>  <span class="ex">wrap:</span> none</span>
+<span id="cb13-12"><a href="#cb13-12"></a>  <span class="ex">default-image-extension:</span> png</span>
+<span id="cb13-13"><a href="#cb13-13"></a>  <span class="ex">html-math-method:</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>    <span class="ex">method:</span> mathjax</span>
+<span id="cb13-15"><a href="#cb13-15"></a>    <span class="ex">url:</span> <span class="op">&gt;</span>-</span>
+<span id="cb13-16"><a href="#cb13-16"></a>      <span class="ex">https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a>  <span class="ex">slide-level:</span> 2</span>
+<span id="cb13-18"><a href="#cb13-18"></a>  <span class="ex">incremental:</span> false</span>
+<span id="cb13-19"><a href="#cb13-19"></a></span>
+<span id="cb13-20"><a href="#cb13-20"></a><span class="ex">metadata</span></span>
+<span id="cb13-21"><a href="#cb13-21"></a>  <span class="ex">link-citations:</span> true</span>
+<span id="cb13-22"><a href="#cb13-22"></a>  <span class="ex">width:</span> 1050</span>
+<span id="cb13-23"><a href="#cb13-23"></a>  <span class="ex">height:</span> 700</span>
+<span id="cb13-24"><a href="#cb13-24"></a>  <span class="ex">margin:</span> 0.1</span>
+<span id="cb13-25"><a href="#cb13-25"></a>  <span class="ex">center:</span> false</span>
+<span id="cb13-26"><a href="#cb13-26"></a>  <span class="ex">navigationMode:</span> linear</span>
+<span id="cb13-27"><a href="#cb13-27"></a>  <span class="ex">controlsLayout:</span> edges</span>
+<span id="cb13-28"><a href="#cb13-28"></a>  <span class="ex">controlsTutorial:</span> false</span>
+<span id="cb13-29"><a href="#cb13-29"></a>  <span class="ex">hash:</span> true</span>
+<span id="cb13-30"><a href="#cb13-30"></a>  <span class="ex">history:</span> true</span>
+<span id="cb13-31"><a href="#cb13-31"></a>  <span class="ex">hashOneBasedIndex:</span> false</span>
+<span id="cb13-32"><a href="#cb13-32"></a>  <span class="ex">fragmentInURL:</span> false</span>
+<span id="cb13-33"><a href="#cb13-33"></a>  <span class="ex">transition:</span> none</span>
+<span id="cb13-34"><a href="#cb13-34"></a>  <span class="ex">backgroundTransition:</span> none</span>
+<span id="cb13-35"><a href="#cb13-35"></a>  <span class="ex">pdfSeparateFragments:</span> false</span>
+<span id="cb13-36"><a href="#cb13-36"></a>  <span class="ex">lang:</span> en</span>
+<span id="cb13-37"><a href="#cb13-37"></a>  <span class="ex">auto-stretch:</span> false</span>
+<span id="cb13-38"><a href="#cb13-38"></a>  <span class="ex">theme:</span></span>
+<span id="cb13-39"><a href="#cb13-39"></a>    <span class="ex">-</span> default</span>
+<span id="cb13-40"><a href="#cb13-40"></a>    <span class="ex">-</span> _extensions/grantmcdermott/clean/clean.scss</span>
+<span id="cb13-41"><a href="#cb13-41"></a>  <span class="ex">menu:</span></span>
+<span id="cb13-42"><a href="#cb13-42"></a>    <span class="ex">side:</span> left</span>
+<span id="cb13-43"><a href="#cb13-43"></a>  <span class="ex">slideNumber:</span> true</span>
+<span id="cb13-44"><a href="#cb13-44"></a>  <span class="ex">date-format:</span> long</span>
+<span id="cb13-45"><a href="#cb13-45"></a>  <span class="ex">revealjs-plugins:</span></span>
+<span id="cb13-46"><a href="#cb13-46"></a>    <span class="ex">-</span> confetti</span>
+<span id="cb13-47"><a href="#cb13-47"></a>  <span class="ex">title:</span> <span class="st">'SheffieldR : Quarto for Slides'</span></span>
+<span id="cb13-48"><a href="#cb13-48"></a>  <span class="ex">author:</span></span>
+<span id="cb13-49"><a href="#cb13-49"></a>    <span class="ex">-</span> name: Neil Shephard</span>
+<span id="cb13-50"><a href="#cb13-50"></a>      <span class="ex">orcid:</span> 0000-0001-8301-6857</span>
+<span id="cb13-51"><a href="#cb13-51"></a>      <span class="ex">email:</span> n.shephard@sheffield.ac.uk</span>
+<span id="cb13-52"><a href="#cb13-52"></a>      <span class="ex">affiliations:</span> <span class="st">'RSE, University of Sheffield'</span></span>
+<span id="cb13-53"><a href="#cb13-53"></a>  <span class="ex">footer:</span> <span class="st">'**Slides** : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](https://ns-rse.github.io/SheffieldR-quarto-for-slides)'</span></span>
+<span id="cb13-54"><a href="#cb13-54"></a>  <span class="ex">showSlideNumber:</span> speaker</span>
+<span id="cb13-55"><a href="#cb13-55"></a>  <span class="ex">chalkboard:</span> true</span>
+<span id="cb13-56"><a href="#cb13-56"></a></span>
+<span id="cb13-57"><a href="#cb13-57"></a><span class="ex">Output</span> created: _site/index.html</span>
+<span id="cb13-58"><a href="#cb13-58"></a></span>
+<span id="cb13-59"><a href="#cb13-59"></a><span class="ex">Watching</span> files for changes</span>
+<span id="cb13-60"><a href="#cb13-60"></a><span class="ex">Browse</span> at http://localhost:4431/index.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
-<p>Quarto will render your slides locally using <code>quarto preview</code> command which makes the HTML files from your source markdown and start a web-server for you to view the pages <em>before</em> you push them to GitHub.</p>
+<p>Now you could stage, commit and push your changes to GitHub and the Workflow Action would kick in and render the pages for you but that takes a little bit of time as it requires the GitHub runners to setup the environment for you.</p>
+<p>Fortunately you can render your slides locally using <code>quarto preview</code> command which makes the HTML files from your source markdown and start a web-server for you to view the pages <em>before</em> you push them to GitHub.</p>
 <p>I’d recommend getting in the habit of previewing your slides regularly before committing and pushing them to GitHub as that way you catch any errors before they are published (this just makes the feedback loop shorter).</p>
+<p>In a terminal when you are in the root of your cloned repository just type <code>quarto publish</code>, this will build the pages and launch a web-browser or new tab and opening up the slides for you to view and you can navigate with the left and right arrows.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="r-code" class="slide level2">
+<h2>R Code</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Before</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>After</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">library</span>(ggdark)</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a>  <span class="fu">dark_theme_gray</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Ok here is where I actually modify some R code, we have a slide defined on line 183 that plots the temperature v’s Ozone. The default theme is used with a white background.</p>
+<p>We’re going to change this to use the <a href="https://github.com/nsgrantham/ggdark">ggdark theme</a> instead. We have to load the library and then we can apply the dark theme.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="update-renv" class="slide level2">
+<h2>Update <code>renv</code></h2>
+<div class="columns">
+<div class="colum" width="50%">
+<ul>
+<li>When adding code you probably have the libraries installed locally.</li>
+<li><strong>Must</strong> update <code>renv.lock</code> to include these so that they are installed when rendering in the Workflow.</li>
+</ul>
+</div><div class="colum" width="50%">
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="do">## Initialise</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="do">## Updating</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>renv<span class="sc">::</span><span class="fu">upgrade</span>()</span>
+<span id="cb16-5"><a href="#cb16-5"></a>renv<span class="sc">::</span><span class="fu">update</span>()</span>
+<span id="cb16-6"><a href="#cb16-6"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<aside class="notes">
+<p>When you add code to your slides that use new packages you probably already have them installed locally so the preview will render. But this won’t be the case in the GitHub environment where you slides will be built on-line.</p>
+<p>To get round this you <em>must</em> update the <code>renv.lock</code></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="speaker-notes" class="slide level2">
+<h2>Speaker Notes</h2>
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="30%"} -->
+<ul>
+<li>Add additional notes for yourself. <!-- ::: --> <!-- ::: {.column width="70%"} --></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="at">.notes</span><span class="kw">}</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="at">I have a terrible memory so rely on speaker notes to remind me what I want to say.</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="at">:</span><span class="fu">:</span><span class="kw">:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- ::: -->
+<!-- :::: -->
+<aside class="notes">
+<p>A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom of every slide.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="changing-themes" class="slide level2">
+<h2>Changing Themes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Before…</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="at">  </span><span class="fu">clean-revealjs</span><span class="kw">:</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="at">    </span><span class="fu">show-slide-number</span><span class="kw">:</span><span class="at"> speaker</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="at">    </span><span class="fu">auto-stretch</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>After…</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co">  # clean-revealjs:</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> solarized</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="at">    </span><span class="fu">show-slide-number</span><span class="kw">:</span><span class="at"> speaker</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="at">    </span><span class="fu">auto-stretch</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<aside class="notes">
+<p>Its straight-forward to change themes by editing the relevant section in the YAML header of <code>index.qmd</code>.</p>
+<p>You can then preview the slides locally to see what they look like, if you’re happy then you stage and commit the changes to Git and push them to GitHub.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="extensions" class="slide level2">
+<h2>Extensions</h2>
+<div class="columns">
+<div class="colum" width="50%">
+<ul>
+<li>Lots of <a href="https://quarto.org/docs/extensions/">extensions</a>.</li>
+<li>Add functionality.</li>
+<li>Install to repository locally <em>and</em> adding to GitHub Action.</li>
+</ul>
+</div><div class="colum" width="50%">
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension jmbuhr/quarto-qrcode</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension grantmcdermott/quarto-revealjs-clean</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="ex">quarto</span> install <span class="at">--no-prompt</span> extension ArthurData/quarto-confetti</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<aside class="notes">
+<p>The template uses a few extensions and these, and any other extensions you need installing locally and by the GitHub Action that renders the slides as both environments need to be identical.</p>
+<p>The included extensions need installing locally with the following command and you would use similar for any others that you choose to use. Of course, if you change the theme or don’t use any of these extensions then you don’t need to complete this step.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1439,56 +1564,56 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li>Install R/Python and any packages.</li>
 </ul>
 </div><div class="colum" width="50%">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
-<span id="cb13-13"><a href="#cb13-13"></a></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb13-17"><a href="#cb13-17"></a><span class="co">          # To install LaTeX to build PDF book</span></span>
-<span id="cb13-18"><a href="#cb13-18"></a><span class="at">          </span><span class="fu">tinytex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb13-19"><a href="#cb13-19"></a><span class="co">          # uncomment below and fill to pin a version</span></span>
-<span id="cb13-20"><a href="#cb13-20"></a><span class="co">          # version: 1.2.335</span></span>
-<span id="cb13-21"><a href="#cb13-21"></a></span>
-<span id="cb13-22"><a href="#cb13-22"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Quarto Extensions</span></span>
-<span id="cb13-23"><a href="#cb13-23"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb13-24"><a href="#cb13-24"></a>          quarto install --no-prompt extension jmbuhr/quarto-qrcode</span>
-<span id="cb13-25"><a href="#cb13-25"></a>          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean</span>
-<span id="cb13-26"><a href="#cb13-26"></a>          quarto install --no-prompt extension ArthurData/quarto-confetti</span>
-<span id="cb13-27"><a href="#cb13-27"></a></span>
-<span id="cb13-28"><a href="#cb13-28"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python and Dependencies</span></span>
-<span id="cb13-29"><a href="#cb13-29"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v4.3.0</span></span>
-<span id="cb13-30"><a href="#cb13-30"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb13-31"><a href="#cb13-31"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.10'</span></span>
-<span id="cb13-32"><a href="#cb13-32"></a><span class="at">          </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="st">'pip'</span></span>
-<span id="cb13-33"><a href="#cb13-33"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pip install -r requirements.txt</span></span>
-<span id="cb13-34"><a href="#cb13-34"></a></span>
-<span id="cb13-35"><a href="#cb13-35"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install R</span></span>
-<span id="cb13-36"><a href="#cb13-36"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
-<span id="cb13-37"><a href="#cb13-37"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb13-38"><a href="#cb13-38"></a><span class="at">          </span><span class="fu">r-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'4.2.0'</span></span>
-<span id="cb13-39"><a href="#cb13-39"></a></span>
-<span id="cb13-40"><a href="#cb13-40"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install R Dependencies</span></span>
-<span id="cb13-41"><a href="#cb13-41"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-renv@v2</span></span>
-<span id="cb13-42"><a href="#cb13-42"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb13-43"><a href="#cb13-43"></a><span class="at">          </span><span class="fu">cache-version</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb13-44"><a href="#cb13-44"></a></span>
-<span id="cb13-45"><a href="#cb13-45"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Publish to GitHub Pages (and render)</span></span>
-<span id="cb13-46"><a href="#cb13-46"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/publish@v2</span></span>
-<span id="cb13-47"><a href="#cb13-47"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb13-48"><a href="#cb13-48"></a><span class="at">          </span><span class="fu">target</span><span class="kw">:</span><span class="at"> gh-pages</span></span>
-<span id="cb13-49"><a href="#cb13-49"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb13-50"><a href="#cb13-50"></a><span class="at">          </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span><span class="co"> # this secret is always available for github actions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
+<span id="cb21-12"><a href="#cb21-12"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a></span>
+<span id="cb21-14"><a href="#cb21-14"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
+<span id="cb21-15"><a href="#cb21-15"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
+<span id="cb21-16"><a href="#cb21-16"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb21-17"><a href="#cb21-17"></a><span class="co">          # To install LaTeX to build PDF book</span></span>
+<span id="cb21-18"><a href="#cb21-18"></a><span class="at">          </span><span class="fu">tinytex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb21-19"><a href="#cb21-19"></a><span class="co">          # uncomment below and fill to pin a version</span></span>
+<span id="cb21-20"><a href="#cb21-20"></a><span class="co">          # version: 1.2.335</span></span>
+<span id="cb21-21"><a href="#cb21-21"></a></span>
+<span id="cb21-22"><a href="#cb21-22"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Quarto Extensions</span></span>
+<span id="cb21-23"><a href="#cb21-23"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb21-24"><a href="#cb21-24"></a>          quarto install --no-prompt extension jmbuhr/quarto-qrcode</span>
+<span id="cb21-25"><a href="#cb21-25"></a>          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean</span>
+<span id="cb21-26"><a href="#cb21-26"></a>          quarto install --no-prompt extension ArthurData/quarto-confetti</span>
+<span id="cb21-27"><a href="#cb21-27"></a></span>
+<span id="cb21-28"><a href="#cb21-28"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python and Dependencies</span></span>
+<span id="cb21-29"><a href="#cb21-29"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v4.3.0</span></span>
+<span id="cb21-30"><a href="#cb21-30"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb21-31"><a href="#cb21-31"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'3.10'</span></span>
+<span id="cb21-32"><a href="#cb21-32"></a><span class="at">          </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="st">'pip'</span></span>
+<span id="cb21-33"><a href="#cb21-33"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">run</span><span class="kw">:</span><span class="at"> pip install -r requirements.txt</span></span>
+<span id="cb21-34"><a href="#cb21-34"></a></span>
+<span id="cb21-35"><a href="#cb21-35"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install R</span></span>
+<span id="cb21-36"><a href="#cb21-36"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
+<span id="cb21-37"><a href="#cb21-37"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb21-38"><a href="#cb21-38"></a><span class="at">          </span><span class="fu">r-version</span><span class="kw">:</span><span class="at"> </span><span class="st">'4.2.0'</span></span>
+<span id="cb21-39"><a href="#cb21-39"></a></span>
+<span id="cb21-40"><a href="#cb21-40"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install R Dependencies</span></span>
+<span id="cb21-41"><a href="#cb21-41"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-renv@v2</span></span>
+<span id="cb21-42"><a href="#cb21-42"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb21-43"><a href="#cb21-43"></a><span class="at">          </span><span class="fu">cache-version</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb21-44"><a href="#cb21-44"></a></span>
+<span id="cb21-45"><a href="#cb21-45"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Publish to GitHub Pages (and render)</span></span>
+<span id="cb21-46"><a href="#cb21-46"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/publish@v2</span></span>
+<span id="cb21-47"><a href="#cb21-47"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb21-48"><a href="#cb21-48"></a><span class="at">          </span><span class="fu">target</span><span class="kw">:</span><span class="at"> gh-pages</span></span>
+<span id="cb21-49"><a href="#cb21-49"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
+<span id="cb21-50"><a href="#cb21-50"></a><span class="at">          </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span><span class="co"> # this secret is always available for github actions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <aside class="notes">
@@ -1506,10 +1631,37 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
           display:block!important;
       }</style></aside>
 </section>
-<section id="github-actions---software-dependencies" class="slide level2">
-<h2>GitHub Actions - Software Dependencies</h2>
+<section id="extensions---github-action" class="slide level2">
+<h2>Extensions - GitHub Action</h2>
 <div class="columns">
 <div class="colum" width="50%">
+<ul>
+<li>GitHub Action uses <code>.github/workflows/quarto-publish.yaml</code></li>
+</ul>
+</div><div class="colum" width="50%">
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Quarto Extensions</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>          quarto install --no-prompt extension jmbuhr/quarto-qrcode</span>
+<span id="cb22-4"><a href="#cb22-4"></a>          quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean</span>
+<span id="cb22-5"><a href="#cb22-5"></a>          quarto install --no-prompt extension ArthurData/quarto-confetti</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<aside class="notes">
+<p>For the GitHub Action the theme and extensions that are used are already included in the template are already there, but if you add any extensions you should add them to the section that Installs Quarto Extensions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="software-dependencies" class="slide level2">
+<h2>Software Dependencies</h2>
 <ul>
 <li>R packages you use locally need installing on GitHub.</li>
 <li>A <code>step</code> in GitHub Action called <code>Install R</code>.</li>
@@ -1517,15 +1669,11 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li><a href="https://github.com/r-lib/actions/tree/v2/setup-renv"><code>r-lib/actions/setup-renv@v2</code></a> installs packages.</li>
 <li>Use <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a> in your project to define packages.</li>
 </ul>
-</div><div class="colum" width="50%">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
 <aside class="notes">
 <p>Any packages that you have loaded and used in your work will need installing in the computer that builds the website and renders it on GitHub.</p>
 <p>This is configured through a <code>step</code> called <code>Install R</code> which uses two actions from <code>r-lib</code>, the <a href="https://github.com/r-lib/actions/tree/v2/setup-renv"><code>setup-renv</code></a> and <a href="https://github.com/r-lib/actions/tree/v2/setup-r"><code>renv</code></a>.</p>
 <p>On your computer you need to initialise an R environment using <code>renv::init()</code>. This will write a <strong>lockfile</strong> in the root of your directory called <code>renv.lock</code> which defines the libraries and versions that are installed and running in R at that point in time. If you’re using RStudio it may do this automatically for you, I’m not sure as I don’t use RStudio myself.</p>
-<p>Make sure you stage and commit this file to your git repository so that it gets uploaded to GitHub when you push your changes.</p>
+<p>Make sure you stage and commit the <code>renv.lock</code> file to your git repository so that it gets uploaded to GitHub when you push your changes, otherwise the new packages won’t be included on the build on GitHub and your slides won’t render.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1547,11 +1695,13 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li>If on <code>main</code> branch Action kicks in.</li>
 </ul>
 </div><div class="colum" width="50%">
-
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">git</span> commit <span class="at">-u</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Updating slides in real time"</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <aside class="notes">
-
+<p>You can stage, commit and push your changes and the GitHub action should kick in and compile and update your website.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1574,7 +1724,7 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li><a href="https://rse.shef.ac.uk/blog/pre-commit/">Pre-commit : Protecting your future self</a><sup>1</sup></li>
 </ul>
 <aside class="notes">
-<p>The repository includes configuration to use <code>pre-commit</code> hooks to link your Markdown. Linting is the principle of using a consistent style when writing code and markup so that it is easier for others to read and modify and its really important when working collaboratively as might be the case when writing slides in this manner. Simple things like ensuring a consistent line length is used, links are all correctly formatted and so forth.</p>
+<p>The repository includes configuration to use <a href="https://rse.shef.ac.uk/blog/pre-commit"><code>pre-commit</code></a> hooks to link your Markdown. Linting is the principle of using a consistent style when writing code and markup so that it is easier for others to read and modify and its really important when working collaboratively as might be the case when writing slides in this manner. Simple things like ensuring a consistent line length is used, links are all correctly formatted and so forth.</p>
 <p>Configuration of the Markdown linting is via the <code>markdownlint-cli2.yaml</code> file and it will automatically fix errors it finds where possible.</p>
 <p><code>pre-commit</code> itself is a Python programme and as such you need to install it on your system, if you’re using Linux chances are you can install it from your package manager, if you’re using OSX then you can install it using <a href="https://brew.sh">Homebrew</a>. On either of these operating systems or if you are using Windows you can install a virtual environment, and if you’re not familiar with this you can see the notes from the course <a href="https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/">Conda environments for effective and reproducible research</a>.</p>
 <style type="text/css">
@@ -1597,13 +1747,13 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
 <li><a href="https://quarto.org">Quarto</a></li>
 <li><a href="https://github.com/ns-rse/quarto-revealjs-template">Slide Template</a></li>
 <li><a href="https://docs.github.com/en/actions/using-workflows">GitHub Workflows</a></li>
+<li><a href="https://sheffield.github.io">SheffieldR</a></li>
 </ul>
 </div><div class="colum" width="50%">
 <ul>
 <li><a href="https://rse.shef.ac.uk/blog/pre-commit">Pre-commit : Protecting your future self</a></li>
-<li><a href="https://rse.shef.ac.uk/conda-environments-for-effective-and-reproducible-research/">Conda environments for effective and reproducible research</a></li>
+<li><a href="https://rse.shef.ac.uk/blog/">RSE blog</a></li>
 <li><a href="https://ns-rse.github.io/">My blog!</a></li>
-<li><a href="https://emacsdocs.org">Emacs Docs</a></li>
 </ul>
 </div>
 </div>
@@ -1828,6 +1978,44 @@ var qrcode = new QRCode("qrcode", {"width":128,"colorLight":"#ffffff","text":"ht
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
