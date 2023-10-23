@@ -31,10 +31,15 @@ project:
 
 ## Scan This!
 
+View Slides : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](ns-rse.github.io/SheffieldR-quarto-for-slides)
+
 {{< qrcode https://ns-rse.github.io/SheffieldR-quarto-for-slides width=400 height=400 >}}
 
-View Slides : [**ns-rse.github.io/SheffieldR-quarto-for-slides**](ns-rse.github.io/SheffieldR-quarto-for-slides)
+
 ::: {.notes}
+You can go the URL [**ns-rse.github.io/SheffieldR-quarto-for-slides**](ns-rse.github.io/SheffieldR-quarto-for-slides) to
+view the slides or if you use a browser on your phone which is synced with your desktop then you can scan this QR code
+and send it to your laptops browser and it will take you to these slides.
 :::
 
 ## Overview
@@ -141,7 +146,8 @@ Need a few things to get going...
 
 . . .
 
-+ GitHub account (ideally academic `@<somewhere>.ac.uk`).
++ [Git](https://git-scm.com)
++ [GitHub](https://github.com/) account (ideally academic `@<somewhere>.ac.uk`).
 + RStudio configured with Git^[[Let’s Git started | Happy Git and GitHub for the useR](https://happygitwithr.com/)] (or similar
   e.g. [Emacs](https://www.gnu.org/software/emacs/)/[ESS](https://ess.r-project.org)/[Magit](https://magit.vc) or
   [VSCode](https://code.visualstudio.com/)).
@@ -155,9 +161,8 @@ never have to worry about getting your slides to meeting organisers, you just ne
 these days is fairly common. As a consequence you can keep on working on your slides right up to the last minute (as
 long as you remember to publish the changes!).
 
-There are however a few pre-requisities for using this system, firstly you need an account on GitHub, and if you've an
-academic email address I'd recommend signing up with that, you get a few more features that are usually reserved for
-paying customers.
+There are however a few pre-requisities for using this system. You need Git installed and a academic email address I'd
+recommend signing up with that, you get a few more features that are usually reserved for paying customers.
 
 You also need a development environment which will help make some of the tasks of editing files and working with Git
 easier.
@@ -940,6 +945,7 @@ ggplot(airquality, aes(Temp, Ozone)) +
   geom_point() +
   geom_smooth(method = "loess")
 ```
+
 :::
 ::: {.column width="50%"}
 **After**
@@ -957,6 +963,7 @@ ggplot(airquality, aes(Temp, Ozone)) +
   geom_smooth(method = "loess") +
   dark_theme_gray()
 ```
+
 :::
 ::::
 
@@ -980,6 +987,7 @@ library and then we can apply the dark theme.
 ``` {.r}
 ## Initialise
 renv::init()
+renv::settings$snapshot.type("all")
 ## Updating
 renv::upgrade()
 renv::update()
@@ -992,7 +1000,13 @@ renv::snapshot()
 When you add code to your slides that use new packages you probably already have them installed locally so the preview
 will render. But this won't be the case in the GitHub environment where you slides will be built on-line.
 
-To get round this you _must_ update the `renv.lock`
+To get round this you _must_ update the `renv.lock`. I've found it can be useful to change the settings for the
+`snapshot.type` to `all` and it can be a good opportunity to update any installed packages locally as typically the most
+recent version of packages are installed when the GitHub action runs so its useful to have the same versions installed
+locally.
+
+You can do that running `renv::Settings$snapshot.type("all")` and then `renv::upgrade()`, `renv::update()` and finally
+taking a `renv::snapshot()`.
 :::
 
 ## Speaker Notes
@@ -1007,12 +1021,17 @@ To get round this you _must_ update the `renv.lock`
 I have a terrible memory so rely on speaker notes to remind me what I want to say.
 :::
 ```
+
+![Speaker Notes](img/speaker_notes.png)
 <!-- ::: -->
 <!-- :::: -->
 
 ::: {.notes}
 A nice feature of RevealJS common to many slide presentation software is the ability to add speaker notes to the bottom
 of every slide.
+
+These can then be viewed by pressing `s` when viewing slides and a new browser window pops up and you can see the
+current slide and its notes and a preview of the next slide.
 :::
 
 ## Changing Themes
