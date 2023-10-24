@@ -327,6 +327,34 @@ The last field required is where to create the project and clone the repository 
 your files.
 :::
 
+## Restore `renv`
+
++ [`renv`]() used for required packages.
++ Required packages in `renv.lock`.
+
+``` {.bash}
+renv::restore()
+```
+
+::: {.notes}
+As this is an R user group its pertinent to focus on using Quarto with R, even though it supports embedding code in
+other languages such as Python, Julia and Obesrvable, but the principles transcend the language as most rely heavily on
+packages and for work to be reproducible you need to install the packages that are used.
+
+In R this is done using the [`renv`](https://rstudio.github.io/renv/) package which creates a `renv.lock` which details
+the installed packages along with a `.Rprofile` which runs a script `renv/activate.R` that together restore environments
+on loading a new project. However, your system needs to install the required packages within the directory initially and
+this is done using `renv::restore()`.
+
+This may take a little while depending on your system and its possible, if you use Windows and have an old, outdated
+version of R installed that it won't install at all since Microsoft stopped providing all package version for all
+versions of R on their MRAN archive. If this happens try updating to the latest version of R and repeating this step.
+
+Perhaps this is a natural point to have a short pause and ask if there are any questions?
+
+If there aren't any then we can carry on and instal themes and extensions locally.
+:::
+
 ## Install Themes and Extensions
 
 + Themes and extensions need installing
