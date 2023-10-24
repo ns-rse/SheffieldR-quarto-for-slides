@@ -91,6 +91,13 @@
     "text": "RStudio Cloning - Git\n\n\n\nFile &gt; New Project &gt; Version Control &gt; Git.1\n\n\n\n\n\nNew Project\n\n\n\n\n\nYou now need to use the URL you copied from GitHub and paste it into the Repository URL field, you should give a Project directory name and typically this would be the same name that you gave your repository when you used the template (you can copy and paste the last bit of the URL, removing the .git if you want).\nThe last field required is where to create the project and clone the repository to, this will depend on where you keep your files.\n\nLet’s Git started | Happy Git and GitHub for the useR"
   },
   {
+    "objectID": "index.html#restore-renv",
+    "href": "index.html#restore-renv",
+    "title": "SheffieldR : Quarto for Slides",
+    "section": "Restore renv",
+    "text": "Restore renv\n\nrenv used for required packages.\nRequired packages in renv.lock.\n\nrenv::restore()\n\nAs this is an R user group its pertinent to focus on using Quarto with R, even though it supports embedding code in other languages such as Python, Julia and Obesrvable, but the principles transcend the language as most rely heavily on packages and for work to be reproducible you need to install the packages that are used.\nIn R this is done using the renv package which creates a renv.lock which details the installed packages along with a .Rprofile which runs a script renv/activate.R that together restore environments on loading a new project. However, your system needs to install the required packages within the directory initially and this is done using renv::restore().\nThis may take a little while depending on your system and its possible, if you use Windows and have an old, outdated version of R installed that it won’t install at all since Microsoft stopped providing all package version for all versions of R on their MRAN archive. If this happens try updating to the latest version of R and repeating this step.\nPerhaps this is a natural point to have a short pause and ask if there are any questions?\nIf there aren’t any then we can carry on and instal themes and extensions locally."
+  },
+  {
     "objectID": "index.html#install-themes-and-extensions",
     "href": "index.html#install-themes-and-extensions",
     "title": "SheffieldR : Quarto for Slides",
