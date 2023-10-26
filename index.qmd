@@ -332,8 +332,121 @@ your files.
 + [`renv`]() used for required packages.
 + Required packages in `renv.lock`.
 
-``` {.bash}
-renv::restore()
+``` {.r}
+# Bootstrapping renv 1.0.3 ---------------------------------------------------
+- Downloading renv ... OK
+- Installing renv  ... OK
+
+- Project '~/work/git/hub/slackline/quarto-live-demo' loaded. [renv 1.0.3]
+- One or more packages recorded in the lockfile are not installed.
+- Use `renv::status()` for more details.
+> renv::restore()
+The following package(s) will be updated:
+
+# CRAN -----------------------------------------------------------------------
+- lattice        [0.22-4 -> 0.21-8]
+- base64enc      [* -> 0.1-3]
+- bslib          [* -> 0.5.1]
+- cachem         [* -> 1.0.8]
+- cli            [* -> 3.6.1]
+- colorspace     [* -> 2.1-0]
+- ellipsis       [* -> 0.3.2]
+- evaluate       [* -> 0.21]
+- fansi          [* -> 1.0.4]
+- farver         [* -> 2.1.1]
+- fastmap        [* -> 1.1.1]
+- fontawesome    [* -> 0.5.2]
+- ggplot2        [* -> 3.4.3]
+- glue           [* -> 1.6.2]
+- gtable         [* -> 0.3.4]
+- highr          [* -> 0.10]
+- htmltools      [* -> 0.5.6]
+- isoband        [* -> 0.2.7]
+- jquerylib      [* -> 0.1.4]
+- labeling       [* -> 0.4.3]
+- lifecycle      [* -> 1.0.3]
+- magrittr       [* -> 2.0.3]
+- memoise        [* -> 2.0.1]
+- mime           [* -> 0.12]
+- munsell        [* -> 0.5.0]
+- pillar         [* -> 1.9.0]
+- pkgconfig      [* -> 2.0.3]
+- R6             [* -> 2.5.1]
+- rappdirs       [* -> 0.3.3]
+- RColorBrewer   [* -> 1.1-3]
+- rmarkdown      [* -> 2.25]
+- sass           [* -> 0.4.7]
+- scales         [* -> 1.2.1]
+- stringi        [* -> 1.7.12]
+- stringr        [* -> 1.5.0]
+- tibble         [* -> 3.2.1]
+- tinytex        [* -> 0.46]
+- utf8           [* -> 1.2.3]
+- viridisLite    [* -> 0.4.2]
+- withr          [* -> 2.5.0]
+- yaml           [* -> 2.3.7]
+
+# RSPM -----------------------------------------------------------------------
+- digest         [* -> 0.6.33]
+- fs             [* -> 1.6.3]
+- jsonlite       [* -> 1.8.7]
+- knitr          [* -> 1.44]
+- rlang          [* -> 1.1.1]
+- vctrs          [* -> 0.6.3]
+- xfun           [* -> 0.40]
+
+Do you want to proceed? [Y/n]: y
+
+# Installing packages --------------------------------------------------------
+- Installing lattice ...                        OK [linked from cache]
+- Installing R6 ...                             OK [linked from cache]
+- Installing RColorBrewer ...                   OK [linked from cache]
+- Installing base64enc ...                      OK [linked from cache]
+- Installing rlang ...                          OK [linked from cache]
+- Installing fastmap ...                        OK [linked from cache]
+- Installing cachem ...                         OK [linked from cache]
+- Installing digest ...                         OK [linked from cache]
+- Installing ellipsis ...                       OK [linked from cache]
+- Installing htmltools ...                      OK [linked from cache]
+- Installing jquerylib ...                      OK [linked from cache]
+- Installing jsonlite ...                       OK [linked from cache]
+- Installing memoise ...                        OK [linked from cache]
+- Installing mime ...                           OK [linked from cache]
+- Installing fs ...                             OK [linked from cache]
+- Installing rappdirs ...                       OK [linked from cache]
+- Installing sass ...                           OK [linked from cache]
+- Installing bslib ...                          OK [linked from cache]
+- Installing cli ...                            OK [linked from cache]
+- Installing colorspace ...                     OK [linked from cache]
+- Installing evaluate ...                       OK [linked from cache]
+- Installing fansi ...                          OK [linked from cache]
+- Installing farver ...                         OK [linked from cache]
+- Installing fontawesome ...                    OK [linked from cache]
+- Installing glue ...                           OK [linked from cache]
+- Installing lifecycle ...                      OK [linked from cache]
+- Installing gtable ...                         OK [linked from cache]
+- Installing isoband ...                        OK [linked from cache]
+- Installing labeling ...                       OK [linked from cache]
+- Installing munsell ...                        OK [linked from cache]
+- Installing viridisLite ...                    OK [linked from cache]
+- Installing scales ...                         OK [linked from cache]
+- Installing magrittr ...                       OK [linked from cache]
+- Installing utf8 ...                           OK [linked from cache]
+- Installing vctrs ...                          OK [linked from cache]
+- Installing pillar ...                         OK [linked from cache]
+- Installing pkgconfig ...                      OK [linked from cache]
+- Installing tibble ...                         OK [linked from cache]
+- Installing withr ...                          OK [linked from cache]
+- Installing ggplot2 ...                        OK [linked from cache]
+- Installing xfun ...                           OK [linked from cache]
+- Installing highr ...                          OK [linked from cache]
+- Installing yaml ...                           OK [linked from cache]
+- Installing knitr ...                          OK [linked from cache]
+- Installing stringi ...                        OK [linked from cache]
+- Installing stringr ...                        OK [linked from cache]
+- Installing tinytex ...                        OK [linked from cache]
+- Installing rmarkdown ...                      OK [linked from cache]
+>
 ```
 
 ::: {.notes}
@@ -341,7 +454,7 @@ As this is an R user group its pertinent to focus on using Quarto with R, even t
 other languages such as Python, Julia and Obesrvable, but the principles transcend the language as most rely heavily on
 packages and for work to be reproducible you need to install the packages that are used.
 
-In R this is done using the [`renv`](https://rstudio.github.io/renv/) package which creates a `renv.lock` which details
+In R this is done using the [`renv`](https://rstudio.github.io/renv/) package which creates a `renv.lock` detailing
 the installed packages along with a `.Rprofile` which runs a script `renv/activate.R` that together restore environments
 on loading a new project. However, your system needs to install the required packages within the directory initially and
 this is done using `renv::restore()`.
@@ -396,7 +509,7 @@ project:
 
 website:
   title: "SheffieldR - Live Demo!"
-  site-url: https://ns-rse.github.io/live-demo
+  site-url: https://slackline.github.io/quarto-live-demo
   description: "A Live Demo of How to use Quarto RevealJS Template"
 ```
 :::
@@ -415,7 +528,7 @@ case is a website and you can set the `title`, `site-url` and `description`.
 
 ``` {.yaml}
 ---
-title: "Live Quarto Demo! :tada:"
+title: "SheffieldR - Live Demo!"
 author:
   - name: Neil Shephard
     orcid: 0000-0001-8301-6857
@@ -434,7 +547,7 @@ format:
     # standalone: true
 revealjs-plugins:
   - confetti
-footer: "**Slides** : [**ns-rse.github.io/quarto-demo**](https://ns-rse.github.io/quarto-demo)"
+footer: "**Slides** : [**slackline.github.io/quarto-live-demo**](https://slackline.github.io/quarto-live-demo)"
 project:
   preview:
     port: 7864
@@ -506,18 +619,34 @@ used.
 ``` {.bash}
 ❱ quarto publish
 ? Provider: › GitHub Pages
-? Publish site to https://<YOUR_GITHUB_USERNAME>.github.io/<NAME_OF_REPOSITORY using gh-pages? (Y/n) › Yes
+? Publish site to https://slackline.github.io/quarto-live-demo using gh-pages? (Y/n) › Yes
+Saved working directory and index state WIP on main: 822f892 Initial commit
 Switched to a new branch 'gh-pages'
-[gh-pages (root-commit) 20ba65a] Initializing gh-pages branch
+[gh-pages (root-commit) 02fbb7b] Initializing gh-pages branch
 remote:
 remote: Create a pull request for 'gh-pages' on GitHub by visiting:
-remote:      https://github.com/slackline/quarto-demo/pull/new/gh-pages
+remote:      https://github.com/slackline/quarto-live-demo/pull/new/gh-pages
 remote:
-To github.com:slackline/quarto-demo.git
+To github.com:slackline/quarto-live-demo.git
  * [new branch]      HEAD -> gh-pages
-Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
-From github.com:slackline/quarto-demo
+Switched to branch 'main'
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   _quarto.yml
+        modified:   index.qmd
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        quarto-live-demo.Rproj
+
+no changes added to commit (use "git add" and/or "git commit -a")
+From github.com:slackline/quarto-live-demo
  * branch            gh-pages   -> FETCH_HEAD
 Rendering for publish:
 
@@ -536,7 +665,7 @@ pandoc
   from: markdown+emoji
   output-file: index.html
   standalone: true
-  title-prefix: <TITLE>
+  title-prefix: SheffieldR - Live Demo!
   wrap: none
   default-image-extension: png
   html-math-method:
@@ -573,22 +702,22 @@ metadata
   date-format: long
   revealjs-plugins:
     - confetti
-  title: Template Revealjs Quarto site
+  title: 'Quarto Live Demo! :tada:'
   author:
-    - name: Your Name
-      orcid: 0000-0000-0000-0000
-      email: email@address.work
-      affiliations: Employers Name
-  footer: '**Slides** : [**github-username.github.io/<repository>**](https://github-username.github.io/<repository>)'
+    - name: Neil Shephard
+      orcid: 0000-0001-8301-6857
+      email: n.shephard@sheffield.ac.uk
+      affiliations: 'RSE, University of Sheffield'
+  footer: '**Slides** : [**slackline.github.io/quarto-live-demo**](https://github-username.github.io/<repository>)'
   showSlideNumber: speaker
   chalkboard: true
 
-Preparing worktree (resetting branch 'gh-pages'; was at 20ba65a)
 branch 'gh-pages' set up to track 'origin/gh-pages'.
-HEAD is now at 20ba65a Initializing gh-pages branch
+HEAD is now at 02fbb7b Initializing gh-pages branch
+Preparing worktree (resetting branch 'gh-pages'; was at 02fbb7b)
 fatal: pathspec '.' did not match any files
-[gh-pages 46df001] Built site for gh-pages
- 125 files changed, 15421 insertions(+)
+[gh-pages d22f205] Built site for gh-pages
+ 125 files changed, 15420 insertions(+)
  create mode 100644 .nojekyll
  create mode 100644 img/OSC_Sheffield.png
  create mode 100644 index.html
@@ -714,25 +843,13 @@ fatal: pathspec '.' did not match any files
  create mode 100644 site_libs/revealjs/plugin/zoom/zoom.esm.js
  create mode 100644 site_libs/revealjs/plugin/zoom/zoom.js
  create mode 100644 sitemap.xml
-origin	git@github.com:slackline/quarto-demo.git (fetch)
-origin	git@github.com:slackline/quarto-demo.git (push)
-To github.com:slackline/quarto-demo.git
-   20ba65a..46df001  HEAD -> gh-pages
+origin  git@github.com:slackline/quarto-live-demo.git (fetch)
+origin  git@github.com:slackline/quarto-live-demo.git (push)
+To github.com:slackline/quarto-live-demo.git
+   02fbb7b..d22f205  HEAD -> gh-pages
 
 [✓] Deploying gh-pages branch to website (this may take a few minutes)
-ERROR: TypeError: Invalid URL: 'https://<YOUR_GITHUB_USERNAME>.github.io/<NAME_OF_REPOSITORY/.nojekyll'
-
-Stack trace:
-    at getSerialization (ext:deno_url/00_url.js:89:11)
-    at new URL (ext:deno_url/00_url.js:359:27)
-    at new Request (ext:deno_fetch/23_request.js:300:25)
-    at ext:deno_fetch/26_fetch.js:418:27
-    at new Promise (<anonymous>)
-    at fetch (ext:deno_fetch/26_fetch.js:414:18)
-    at file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103939:40
-    at eventLoopTick (ext:core/01_core.js:188:13)
-    at async withSpinner (file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:38988:16)
-    at async Object.publish5 [as publish] (file:///home/neil/.local/quarto/quarto-1.4.358/bin/quarto.js:103933:9)
+[✓] Published to https://slackline.github.io/quarto-live-demo
 ```
 
 :::
@@ -744,7 +861,7 @@ Next we're going to use the `quarto publish` command which makes the initial pub
 navigate to your [repository](https://github.com/slackline/quarto-demo) and look at the `Actions` tab and hopefully see the
 pages being deployed.
 
-Once this completes you can look at your slides online. The URL will be your GitHub username followed by `.github.io/quarto-live-demo`
+Once this completes you should have a browser tab open up with your pages in them.
 
 For those following along have how many have been able to publish their slides?
 :::
@@ -757,8 +874,8 @@ For those following along have how many have been able to publish their slides?
 
 ::: {.notes}
 Ok we've cloned the template and customised it to work under our account, setup a `gh-pages` branch and pushed the
-changes so they are published to a website, _now_ you are finally ready to start writing your slides and customising
-them.
+changes and they are published and we have our website, _now_ you are finally ready to start writing your slides and
+customising them.
 
 In addition to the YAML header the `index.qmd` contains the contents of your slides.
 
@@ -778,7 +895,7 @@ Ok we'll now make a very brief digression into Markdown because Quarto uses its 
 relatively simple markup language.
 
 Markup languages differ from Word Processor software such as Microsoft Word and Google Docs as they separate the content
-that you are writing, from the style, which is how it looks because you write in ASCII plain text and adorn the text
+that you are writing from the style, which is how it looks because you write in ASCII plain text and adorn the text
 with markers which indicate what it should look like and then apply themes to say what certain features should look
 like.
 
@@ -818,21 +935,27 @@ Quarto [documentation](https://quarto.org/docs/authoring/markdown-basics.html) i
 <!-- ::: {.column width="50%"} -->
 **Before**
 
-``` {.bash}
-{{< qrcode https://ns-rse.github.io/quarto-revealjs-template width=400 height=400 >}}
+``` {.markdown}
+\{{< qrcode https://ns-rse.github.io/quarto-revealjs-template qr1 width=400 height=400 >}\}
 
 [ns-rse.github.io/quarto-revealjs-template](https://ns-rse.github.io/quarto-revealjs-template)
 ```
 <!-- ::: -->
 <!-- ::: {.column width="50%"} -->
 **After**
-``` {.bash}
-{{< qrcode https://ns-rse.github.io/quarto-live-demo width=400 height=400 >}}
+``` {.markdown}
+\{{< qrcode https://ns-rse.github.io/quarto-live-demo qr1 width=400 height=400 >}\}
 
-[ns-rse.github.io/quarto-live-demo](https://ns-rse.github.io/quarto-live-demo)
+[slackline.github.io/quarto-live-demo](https://slackline.github.io/quarto-live-demo)
 ```
+
+**NB** The `\` before the `\{` and `\}` are **NOT** required, I had to escape them to get them to render.
 <!-- ::: -->
 <!-- :::: -->
+
+::: {.notes}
+We can update the QR-code references to point to our new site as we wouldn't want viewers going to the wrong site!
+:::
 
 ## Images
 
@@ -945,15 +1068,15 @@ Now you could stage, commit and push your changes to GitHub and the Workflow Act
 for you but that takes a little bit of time as it requires the GitHub runners to setup the environment for
 you.
 
-Fortunately you can render your slides locally using `quarto preview` command which makes the HTML files from your
-source markdown and start a web-server for you to view the pages _before_ you push them to GitHub.
+Fortunately you can render your slides locally, there is a button to do this but I prefer to switch to a terminal and
+use  `quarto preview` command. This makes the HTML files from your source markdown and start a web-server for you to
+view the pages _before_ you push them to GitHub. By running it at the terminal the penultimate line where it says
+`Watching files for changes` actually works and you can make changes to and save `index.qmd` and they appear in the
+preview.
 
-I'd recommend getting in the habit of previewing your slides regularly before committing and pushing them to GitHub as
-that way you catch any errors before they are published (this just makes the feedback loop shorter).
-
-In a terminal when you are in the root of your cloned repository just type `quarto publish`, this will build the pages
-and launch a web-browser or new tab and opening up the slides for you to view and you can navigate with the left and
-right arrows.
+This is a great way of developing your slides as you write them and I'd recommend getting in the habit of previewing
+your slides regularly before committing and pushing them to GitHub as that way you catch any errors before they are
+published (this just makes the feedback loop shorter).
 :::
 
 ## R Code
@@ -989,19 +1112,25 @@ library(ggdark)
 ggplot(airquality, aes(Temp, Ozone)) +
   geom_point() +
   geom_smooth(method = "loess") +
-  dark_theme_gray()
+  ggdark::dark_theme_grey()
 ```
 
 :::
 ::::
 
+``` {.r}
+> renv::install("ggdark")
+```
 
 ::: {.notes}
-Ok here is where I actually modify some R code, we have a slide defined on line 183 that plots the temperature v's
-Ozone. The default theme is used with a white background.
+On line 186 we have a slide that shows a plot of air quality as measured by Ozone concentration and temperature Ok here
+is where I actually modify some R code, we have a slide defined on line 183 that plots the temperature v's Ozone. The
+default theme is used with a white background.
 
-We're going to change this to use the [ggdark theme](https://github.com/nsgrantham/ggdark) instead. We have to load the
-library and then we can apply the dark theme.
+We're going to change this to use the [ggdark theme](https://github.com/nsgrantham/ggdark) instead, but in the rendering
+we get an error message as we haven't installed the package.
+
+We have to load the library and then we can apply the dark theme.
 :::
 
 ## Update `renv`
@@ -1013,8 +1142,6 @@ library and then we can apply the dark theme.
 :::
 ::: {.colum width="50%"}
 ``` {.r}
-## Initialise
-renv::init()
 renv::settings$snapshot.type("all")
 ## Updating
 renv::upgrade()
@@ -1086,7 +1213,7 @@ After...
 format:
   # clean-revealjs:
   revealjs:
-    theme: solarized
+    theme: dark
     incremental: false
     slide-number: true
     show-slide-number: speaker
@@ -1104,31 +1231,31 @@ changes to Git and push them to GitHub.
 :::
 
 
-## Extensions
+<!-- ## Extensions -->
 
-:::: {.columns}
-::: {.colum width="50%"}
-+ Lots of [extensions](https://quarto.org/docs/extensions/).
-+ Add functionality.
-+ Install to repository locally _and_ adding to GitHub Action.
-:::
-::: {.colum width="50%"}
-``` {.bash}
-quarto install --no-prompt extension jmbuhr/quarto-qrcode
-quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean
-quarto install --no-prompt extension ArthurData/quarto-confetti
-```
-:::
-::::
+<!-- :::: {.columns} -->
+<!-- ::: {.colum width="50%"} -->
+<!-- + Lots of [extensions](https://quarto.org/docs/extensions/). -->
+<!-- + Add functionality. -->
+<!-- + Install to repository locally _and_ adding to GitHub Action. -->
+<!-- ::: -->
+<!-- ::: {.colum width="50%"} -->
+<!-- ``` {.bash} -->
+<!-- quarto install --no-prompt extension jmbuhr/quarto-qrcode -->
+<!-- quarto install --no-prompt extension grantmcdermott/quarto-revealjs-clean -->
+<!-- quarto install --no-prompt extension ArthurData/quarto-confetti -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::: -->
 
-::: {.notes}
-The template uses a few extensions and these, and any other extensions you need installing locally and by the GitHub
-Action that renders the slides as both environments need to be identical.
+<!-- ::: {.notes} -->
+<!-- The template uses a few extensions and these, and any other extensions you need installing locally and by the GitHub -->
+<!-- Action that renders the slides as both environments need to be identical. -->
 
-The included extensions need installing locally with the following command and you would use similar for any others that
-you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to
-complete this step.
-:::
+<!-- The included extensions need installing locally with the following command and you would use similar for any others that -->
+<!-- you choose to use. Of course, if you change the theme or don't use any of these extensions then you don't need to -->
+<!-- complete this step. -->
+<!-- ::: -->
 
 
 
@@ -1245,13 +1372,8 @@ This is configured through a `step` called `Install R` which uses two actions fr
 [`setup-renv`](https://github.com/r-lib/actions/tree/v2/setup-renv) and
 [`renv`](https://github.com/r-lib/actions/tree/v2/setup-r).
 
-On your computer you need to initialise an R environment using `renv::init()`. This will write a **lockfile** in the
-root of your directory called `renv.lock` which defines the libraries and versions that are installed and running in R
-at that point in time. If you're using RStudio it may do this automatically for you, I'm not sure as I don't use RStudio
-myself.
-
-Make sure you stage and commit the `renv.lock` file to your git repository so that it gets uploaded to GitHub when you
-push your changes, otherwise the new packages won't be included on the build on GitHub and your slides won't render.
+We have already made sure our `renv` is up-to-date locally but we have to make sure we include everything in the git
+commit and push the changes to GitHub otherwise the new R package `ggdark` won't be installed.
 :::
 
 ## Publish!
@@ -1271,7 +1393,14 @@ git push
 ::::
 
 ::: {.notes}
-You can stage, commit and push your changes and the GitHub action should kick in and compile and update your website.
+You can stage, commit and push your changes, we can review all the changes we have made locally and add the `.Rproj`
+file too. Once happy we add a commit message and then push the changes up-stream.
+
+If we go to GitHub page and look at the Action tab we can see our commit has triggered an action to run.
+
+This takes a little while to run but it should complete and when it does we can look at our web-page.
+
+Whilst waiting if we go to the Code tab
 :::
 
 ## **BONUS** - Linting with `pre-commit`
@@ -1284,10 +1413,11 @@ You can stage, commit and push your changes and the GitHub action should kick in
   blog](https://ns-rse.github.io/#category=pre-commit)]
 
 ::: {.notes}
-The repository includes configuration to use [`pre-commit`](https://rse.shef.ac.uk/blog/pre-commit) hooks to link your Markdown. Linting is the principle of using
-a consistent style when writing code and markup so that it is easier for others to read and modify and its really
-important when working collaboratively as might be the case when writing slides in this manner. Simple things like
-ensuring a consistent line length is used, links are all correctly formatted and so forth.
+The repository includes configuration to use [`pre-commit`](https://rse.shef.ac.uk/blog/pre-commit) hooks to link your
+Markdown. Linting is the principle of using a consistent style when writing code and markup so that it is easier for
+others to read and modify and its really important when working collaboratively as might be the case when writing slides
+in this manner. Simple things like ensuring a consistent line length is used, links are all correctly formatted and so
+forth.
 
 Configuration of the Markdown linting is via the `markdownlint-cli2.yaml` file and it will automatically fix errors it
 finds where possible.
@@ -1313,5 +1443,28 @@ effective and reproducible research](https://rse.shef.ac.uk/conda-environments-f
 + [Pre-commit : Protecting your future self](https://rse.shef.ac.uk/blog/pre-commit)
 + [RSE blog](https://rse.shef.ac.uk/blog/)
 + [My blog!](https://ns-rse.github.io/)
+:::
+::::
+
+
+## Q&A
+
+Thank you for attending this session. :pray:
+<br>
+<br>
+<br>
+Feel free to ask anything; no question is too small or too big. Your curiosity and engagement make this session even more valuable. We're eager to assist you.
+
+
+## Future Meetings and Feedback
+
+:::: {.columns}
+::: {.column width="50%"}
+Volunteer to talk:
+{{< qrcode https://forms.gle/24F7E31nQU7CqaV36 qr1 width=400 height=400 >}}
+:::
+::: {.column width="50%"}
+Feedback:
+{{< qrcode https://forms.gle/vLuwjLwYG7mNfexv9 qr2 width=400 height=400 >}}
 :::
 ::::
